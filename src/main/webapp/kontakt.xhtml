@@ -8,7 +8,27 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <h:outputStylesheet name="/css/default.css"/>
         <h:outputStylesheet name="/css/cssLayout.css"/>
+        <h:outputStylesheet name="/css/kontakt.css"/>
         <title>Facelets Templates</title>
+        
+        <script>
+      // Initialize and add the map
+      function initMap() {
+        // The location of Uluru
+        const uluru = { lat: -25.344, lng: 131.036 };
+        // The map, centered at Uluru
+        const map = new google.maps.Map(document.getElementById("map"), {
+          zoom: 4,
+          center: uluru,
+        });
+        // The marker, positioned at Uluru
+        const marker = new google.maps.Marker({
+          position: uluru,
+          map: map,
+        });
+      }
+    </script>
+        
     </h:head>
 
     <h:body>
@@ -16,8 +36,15 @@
         <ui:composition template="template/layout.xhtml">
             
             <ui:define name="content">
-                <h2>Kontakta oss</h2>
-                <h3>Boka bord: </h3>
+                <div class="left_content">
+                    <h2>Kontakta oss</h2>
+                    <p><b>e-post: </b> antonsskafferi@gmail.com</p>
+                    <p><b>Besöksadress: </b> Storgatan 54 Sundsvall</p>
+                </div>
+                <div class="center_content">
+                    
+                </div>  
+                
             </ui:define>
             
             
