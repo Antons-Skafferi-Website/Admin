@@ -16,13 +16,14 @@
         <ui:composition template="template/layout.xhtml">
             
             <ui:define name="content">
-                <h2>THIS IS NEW CONTETNT</h2>
+                #{menuBean.menu}
             </ui:define>
             
             
             
             <ui:define name="footer">
-                <h2>This is page1 Updated Footer</h2>
+                <h2>This is page1 Updated Footer
+                #{menuBean.menu}</h2>
             </ui:define>
             
             

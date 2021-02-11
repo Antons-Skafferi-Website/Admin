@@ -1,2 +1,5 @@
-com\antonsskafferi\webserver\JAXRSConfiguration.class
+beans\AAA.class
 com\antonsskafferi\webserver\resources\JavaEE8Resource.class
+beans\MenuBean.class
+servlets\MenuServlet.class
+com\antonsskafferi\webserver\JAXRSConfiguration.class
