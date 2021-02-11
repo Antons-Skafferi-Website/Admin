@@ -8,10 +8,19 @@ and open the template in the editor.
     Author     : Felix
 */
 
-      #map {
-        height: 400px;
-        /* The height is 400 pixels */
-        width: 50%;
-        /* The width is the width of the web page */
+      
+      .float-right
+      {
+          float: right;
+      }
+      .float-left
+      {
+          /*float: left;*/
+          align-content: left;
+          background-color: coral;
+      }
+      #test
+      {
+         background-color: coral; 
       }
 
