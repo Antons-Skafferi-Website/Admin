@@ -58,12 +58,8 @@
 
 .footer{
     background-color: #2e5234;
-    float: center;
-    position: centered;
-    text-align: left;
+    width: 100%;
     color: white;
-    margin-left: 30%; /*kan ändras satt detta hyfsat centrerat */
-    margin-right: 30%;
 }
 
 .clear {
@@ -92,12 +88,12 @@
 .float-right
 {
     float: right;
-    padding-right: 6em;
+    padding-right: 30%;
 }
 .float-left
 {
     float: left;
-    padding-left: 6em;
+    padding-left: 30%;
 }
 
 
