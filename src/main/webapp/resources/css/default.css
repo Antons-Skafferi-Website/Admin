@@ -16,14 +16,46 @@ h1 {
     color: #D20005;
 }
 
+.topnav {
+    position:relative;
+    padding-top: 2%;
+}
+
+.topnav ul { 
+    border:1px solid #ccc;
+    background-color: #2F5234;
+    border-width:1px 0;
+    list-style:none;
+    display: left;
+    text-align:center;
+}
+
+.topnav ul form li{
+    display: inline-block;
+}
+
+.topnav ul form li a {
+  display: inline-block;
+  color: white;
+  display:inline-block;
+  padding:30px;
+  font-size: 21px;
+}
+
+.topnav ul form li + li:before{
+    content: " | ";
+    color: white;
+    padding: 0 6px;
+    font-weight: 100;
+    font-size: 30px;
+}
+
 a:link, a:visited {
-  color: #045491;
-  font-weight : bold;
+  font-weight : normal;
   text-decoration: none;
 }
 
 a:link:hover, a:visited:hover  {
-  color: #045491;
-  font-weight : bold;
-  text-decoration : underline;
+  color: white;
+  background-color: gray;
 }
