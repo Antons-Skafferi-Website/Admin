@@ -28,25 +28,10 @@
     width: 150px;
 }
 
-#header_image {
-    position: relative;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 2%;
-}
-
-.responsive {
-  width: 100%;
-  height: auto;
-}
-
 .center_content {
-    position: centered;
-    background-color: #fffaf2; 
-    text-align: left;
-    margin-left: 30%; /*kan ändras satt detta hyfsat centrerat */
-    margin-right: 30%;
+    position: relative;
+    background-color: #dddddd;
+    padding: 5px;
 }
 
 .left_content {
