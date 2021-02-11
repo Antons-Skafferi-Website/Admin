@@ -44,6 +44,11 @@
     margin-right: 30%;
 }
 
+.responsive {
+  width: 100%;
+  height: auto;
+}
+
 .left_content {
     background-color: #dddddd;
     padding: 5px;
