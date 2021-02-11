@@ -56,6 +56,21 @@
     margin: 0px 170px 0px 170px;
 }
 
+.footer{
+    background-color: #2e5234;
+    float: center;
+    position: centered;
+    text-align: left;
+    color: white;
+    margin-left: 30%; /*kan ändras satt detta hyfsat centrerat */
+    margin-right: 30%;
+}
+
+.clear {
+    clear:both;
+    line-height:0;
+}
+
 .iframe-container {
   position: relative;
   overflow: hidden;
