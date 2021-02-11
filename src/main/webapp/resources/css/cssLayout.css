@@ -36,6 +36,11 @@
     padding: 2%;
 }
 
+.responsive {
+  width: 100%;
+  height: auto;
+}
+
 .center_content {
     position: centered;
     background-color: #fffaf2; 
