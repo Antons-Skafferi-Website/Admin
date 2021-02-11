@@ -68,6 +68,13 @@
     
 }
 
+.btn-primary{
+    background-color: #2e5234;
+    color: white;
+    padding: 1em;
+    border-radius: 0.5em;
+}
+
 .clear {
     clear:both;
     line-height:0;
@@ -80,8 +87,7 @@
   padding-top: 56.25%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
 }
 
-.responsive-iframe
-{
+.responsive-iframe{
     position: absolute;
     top: 0;
     left: 0;
@@ -91,16 +97,30 @@
     height: 100%;
 }
 
-.float-right
-{
+.float-right{
     float: right;
     padding-right: 30%;
 }
-.float-left
-{
+.float-left{
     float: left;
     padding-left: 30%;
 }
+
+input {
+    display: block;
+    margin: 0 auto;
+    text-align: left; 
+    border-radius: 0.5em;
+    padding: 0.5em;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+#login{
+    text-align: center;
+    
+}
+
 
 
 #top a:link, #top a:visited {

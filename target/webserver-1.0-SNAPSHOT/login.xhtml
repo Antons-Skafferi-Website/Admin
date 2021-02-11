@@ -19,28 +19,16 @@
         <ui:composition template="template/layout.xhtml">
             
             <ui:define name="content">
-                <div>
-                    <h2>Kontakta oss</h2>
-                    <p>Kontakta oss gärna om du har några frågor! Vi svarar så snabbt vi kan.</p>
-                    <p>Om du vill boka bord, använd gärna bokningstjänsten</p>
-                    <p><b>e-post: </b> antonsskafferi@gmail.com</p>
-                    <p><b>Besöksadress: </b> Storgatan 54 Sundsvall</p>
-                </div>
-                <div>
-                    <h2>Kontakta oss</h2>
-                    <p>Kontakta oss gärna om du har några frågor! Vi svarar så snabbt vi kan.</p>
-                    <p>Om du vill boka bord, använd gärna bokningstjänsten</p>
-                    <p><b>e-post: </b> antonsskafferi@gmail.com</p>
-                    <p><b>Besöksadress: </b> Storgatan 54 Sundsvall</p>
-                </div>
-                <div>
-                    <h2>Kontakta oss</h2>
-                    <p>Kontakta oss gärna om du har några frågor! Vi svarar så snabbt vi kan.</p>
-                    <p>Om du vill boka bord, använd gärna bokningstjänsten</p>
-                    <p><b>e-post: </b> antonsskafferi@gmail.com</p>
-                    <p><b>Besöksadress: </b> Storgatan 54 Sundsvall</p>
-                </div>
-                               
+                
+                <div id="login">    
+                <h2>Login</h2>
+                <form method="post">
+                    <input type="text" name="u" placeholder="Username" required="required" />
+                    <input type="password" name="p" placeholder="Password" required="required" />
+                    <button type="submit" class="btn-primary">Logga in</button>
+                </form>   
+                </div>    
+                             
             </ui:define>
             
             
