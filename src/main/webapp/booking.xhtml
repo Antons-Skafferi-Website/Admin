@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -17,9 +18,22 @@
         <ui:composition template="./template/layout.xhtml">
             
             <ui:define name="content">
-                <div class="center_content">
-                    <h1>Boka Bord</h1><br></br>
+                <img src="image/bordsbokning.jpg" class="responsive"/>
                     <h:form id="book">
+                        <h1>Boka Bord</h1><br/><br/>
+                        <div name="antal">
+                            <a>antal personer:</a>
+                            <h:selectOneMenu   id="antalPersoner"
+                                required="true"
+                                value="2">
+                                <f:selectItem itemValue="1" itemLabel="1"/>    
+                                <f:selectItem itemValue="2" itemLabel="2"/>
+                                <f:selectItem itemValue="3" itemLabel="3"/>
+                                <f:selectItem itemValue="4" itemLabel="4"/>
+                                <f:selectItem itemValue="5" itemLabel="5"/>
+                                <f:selectItem itemValue="6" itemLabel="6"/>
+                            </h:selectOneMenu>
+                        </div>
                         <div name="dateAndName">
                             <h:inputText id="name" pt:placeholder="namn"/> <!--man får sätta ett value="{nånbeans}" -->
                             <input type="date" id="date"></input> <!-- lägg till min och max med dagens datum; detta får man suga ner till ett new Date objekt som sedan lägger till det i bokingen-->
@@ -27,11 +41,22 @@
                         </div>
                         <div name="phoneAndTime">
                             <h:inputText id="phone" pt:placeholder="telefon-nr"/> <!--man får sätta ett value="{nånbeans}" -->
-                            <input type="time" id="time"></input>
+                            <h:selectOneMenu   id="time"
+                                required="true"
+                                value="1700">
+                                <f:selectItem itemValue="1700" itemLabel="17.00"/>       <!-- lägga till beans i itemvalue och item label för att visa vilka tider som finns-->
+                                <f:selectItem itemValue="1730" itemLabel="17.30"/>
+                                <f:selectItem itemValue="1800" itemLabel="18.00"/>
+                                <f:selectItem itemValue="1830" itemLabel="18.30"/>
+                                <f:selectItem itemValue="1900" itemLabel="19.00"/>
+                                <f:selectItem itemValue="1930" itemLabel="19.30"/>
+                                <f:selectItem itemValue="2000" itemLabel="20.00"/>
+                            </h:selectOneMenu>
                         </div>
                         <div name="mailAndBookButton">
                             <h:inputText id="email" pt:placeholder="e-mail" size="30" /> <!--man får sätta ett value="{nånbeans}" -->
-                            <h:button value="Boka"/>
+                            <h:button value="BOKA" class="bokaKnapp"/>
+                           
                         </div>
                         
                         
@@ -39,7 +64,7 @@
                     
                     
                     
-                </div>
+            
                 
                
                 
@@ -50,7 +75,7 @@
             
             
             <ui:define name="footer">
-                <h2>kanske nått trevligt här </h2>
+
                 
             </ui:define>
             
