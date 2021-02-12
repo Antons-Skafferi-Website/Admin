@@ -1,4 +1,5 @@
 beans
 com.antonsskafferi.webserver
 com.antonsskafferi.webserver.resources
+entities
 servlets
