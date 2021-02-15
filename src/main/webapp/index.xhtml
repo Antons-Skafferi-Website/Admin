@@ -15,15 +15,40 @@
 
         <ui:composition template="template/layout.xhtml">
             
-            <ui:define name="content">
-                #{menuBean.menu}
+            <ui:define name="content" class="center_content">
+                <div class="topParts">
+                <div name="lunchMeny" class="greenBox1">
+                    <h1>Lunch Meny</h1>
+                    <p>2021-02-15</p>
+                    <p>Dagens lunch serveras melllan 11.00 - 14.00</p>
+                    <br/>
+                    <h2>#{menuBean.menu}</h2>
+                    <p>med lingon</p>
+                    
+                    <h2>Falsk hummersoppa</h2>
+                    <p>med syrlig grädde</p>
+                   
+                    <h2>Ärtsoppa och pannkaka</h2>
+                    <p>med grädde och hjortronsylt</p>
+                    
+                    <br/>
+                    <h:outputLink value="menu.xhtml">klicka här för att läsa mer</h:outputLink>
+                    
+                </div>
+                <img id="vildBild" src="image/vildResturang.jpg"/>
+                </div>
+                <div name="evenemangKort" class="greenBox2">
+                    <h1>Rock kväll med Led Zeppelin</h1>
+                    <p>2021-02-19</p><br/><br/>
+                    <p>Dom gamla rocklegendarerna har bestämt sig att återförenas en sista gång hos antonsSkafferi!</p>
+                    <p>Detta är en upplevelse ni sent kommer att glömma.</p>
+                </div>
             </ui:define>
             
             
             
             <ui:define name="footer">
-                <h2>This is page1 Updated Footer
-                #{menuBean.menu}</h2>
+                <h2>Gott med #{menuBean.menu}</h2>
             </ui:define>
             
             
