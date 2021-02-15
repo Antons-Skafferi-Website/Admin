@@ -1,0 +1,322 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <h:outputStylesheet name="/css/default.css"/>
+        <h:outputStylesheet name="/css/cssLayout.css"/>
+        <title>Facelets Template</title>
+    </h:head>
+
+    <h:body>
+
+        <ui:composition template="template/layout.xhtml">
+            
+            <ui:define name="content">
+                <!--Sub menu-->
+                <div id="menu_bar" class="topnav">
+                    <ul id="header_menu">
+                        <li><a id="lunch_button">DAGENS LUNCH</a></li>
+                        <li><a id="carte_button">Á LA CARTE</a></li>
+                        <li><a id="update_button">UPPDATERA</a></li>
+                    </ul>
+                </div>
+
+                <div class="main_div">
+
+
+
+
+                <!--Lunch menu tab-->
+                <div id="lunch_menu" class="sub_menu">
+
+                    <h1>Lunchmeny för veckan</h1>
+
+                    <div id="lunch_days">
+                        <div class="dish_list">
+
+                            <h2>Måndag</h2>
+                            <ul>
+                                
+                                <h:dataTable value="#{lunchData.lunchDishes}" var="u">
+                                    <h:column>
+                                        <div>
+                                            <h3>#{u.name}</h3>   
+                                            <p>#{u.description}   #{u.price}:-</p>
+                                        </div>
+                                    </h:column>
+                                </h:dataTable>
+                            </ul>
+                        </div>
+
+                        <div class="dish_list">
+                            <h2>Tisdag</h2>
+                                <ul>
+                                    <h:dataTable value="#{lunchData.lunchDishes}" var="u">
+                                        <h:column>
+                                            <h3>#{u.name}</h3>   
+                                            <p>#{u.description}   #{u.price}:-</p>
+                                        </h:column>
+                                    </h:dataTable>
+                                </ul>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+                <!--Á la carte menu tab-->
+                <div id="a_la_carte" class="sub_menu">
+
+                    <h1>Á la carte</h1>
+
+                    <div class="dish_list">
+                        <h2>Förrätt</h2>
+                            <ul>
+                                <h:dataTable value="#{lunchData.lunchDishes}" var="u">
+                                    <h:column>
+                                        <h3>#{u.name}</h3>   
+                                        <p>#{u.description}   #{u.price}:-</p>
+                                    </h:column>
+                                </h:dataTable>
+                            </ul>
+                    </div>
+
+                    <div class="dish_list">
+                        <h2>Från grillen</h2>
+                            <ul>
+                                <h:dataTable value="#{lunchData.lunchDishes}" var="u">
+                                    <h:column>
+                                        <h3>#{u.name}</h3>   
+                                        <p>#{u.description}   #{u.price}:-</p>
+                                    </h:column>
+                                </h:dataTable>
+                            </ul>
+                    </div>
+
+                    <div>
+                        <img src="image/alacarte.jpg" ></img>
+                    </div>
+
+                </div>
+
+
+
+
+                <!--Update menu tab-->
+                <div id="update" class="sub_menu">
+
+                    <!--Lunch menu update section-->
+                    <div class="sub_menu">
+
+                        <h1>Lunchmeny för veckan</h1>
+
+                        <div class="dish_list">
+
+                            <h2 id="monday">Måndag</h2>
+
+                            <div id="monday_list">
+                                <h:form>
+                                    <h:dataTable value="#{lunchData.lunchDishes}" var="u">
+                                    <h:column>
+                                        <div class="food_item">
+                                            <h3>#{u.name}</h3>
+                                            <p>#{u.description}</p>
+                                            <p>#{u.price}:-</p>
+                                        </div>
+                                        <h:commandButton value="Ta bort" action="#{lunchData}"/>
+                                    </h:column>
+                                </h:dataTable>
+                                </h:form>
+                            </div>
+
+                        </div>
+                        <div class="dish_list">
+
+                            <h2 id="tuesday">Tisdag</h2>
+
+                            <div id="tuesday_list">
+                                <h:form>
+                                    <h:dataTable value="#{lunchData.lunchDishes}" var="u">
+                                    <h:column>
+                                        <div class="food_item">
+                                            <h3>#{u.name}</h3>
+                                            <p>#{u.description}</p>
+                                            <p>#{u.price}:-</p>
+                                        </div>
+                                        <h:commandButton value="Ta bort" action="#{lunchData}"/>
+                                    </h:column>
+                                </h:dataTable>
+                                </h:form>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!--Á la carte menu update section-->
+                    <div class="sub_menu">
+
+                        <h1>Á la carte</h1>
+
+                        <div class="dish_list">
+
+                            <h2 id="starter">Förrätt</h2>
+
+                            <div id="starter_list">
+                                <h:form>
+                                    <h:dataTable value="#{lunchData.lunchDishes}" var="u">
+                                    <h:column>
+                                        <div class="food_item">
+                                            <h3>#{u.name}</h3>
+                                            <p>#{u.description}</p>
+                                            <p>#{u.price}:-</p>
+                                        </div>
+                                        <h:commandButton value="Ta bort" action="#{lunchData}"/>
+                                    </h:column>
+                                </h:dataTable>
+                                </h:form>
+                            </div>
+
+                        </div>
+
+                        <div class="dish_list">
+
+                            <h2 id="grilled">Från grillen</h2>
+
+                            <div id="grill_list">
+                                <h:form>
+                                    <h:dataTable value="#{lunchData.lunchDishes}" var="u">
+                                    <h:column>
+                                        <div class="food_item">
+                                            <h3>#{u.name}</h3>
+                                            <p>#{u.description}</p>
+                                            <p>#{u.price}:-</p>
+                                        </div>
+                                        <h:commandButton value="Ta bort" action="#{lunchData}"/>
+                                    </h:column>
+                                </h:dataTable>
+                                </h:form>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+
+
+
+                    <div class="dish_input">
+
+
+                        <select >
+                            <option hidden="true">Välj ett alternativ</option>
+                            <option value="">Måndag</option>
+                            <option value="">Tisdag</option>
+                            <option value="">Onsdag</option>
+                            <option value="">Torsdag</option>
+                            <option value="">Fredag</option>
+                            <option value="">Förrätt</option>
+                            <option value="">Från grillen</option>
+                        </select>
+
+                                <h:form>
+                                    <table>
+                                        <tr>
+                                            <td><h:outputText value="Namn:"/></td>
+                                            <td><h:inputText value="#{user.userID}"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td><h:outputText value="Beskrivning:"/></td>
+                                            <td><h:inputText value="#{user.userID}"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td><h:outputText value="Pris:"/></td>
+                                            <td><h:inputText value="#{user.userID}"/></td>
+                                        </tr>
+                                        <td><h:commandButton value="Lägg till" action="#{user.add}"/></td>
+                                    </table>
+                                </h:form>
+                                </div>
+
+
+                </div>
+
+
+
+                </div>
+
+
+
+
+                <script>
+
+                    $(document).ready(function() {
+
+                /*
+                $("#a_la_carte").hide();
+                        $("#update").hide();
+                        $("#monday_list").hide();
+                        $("#tuesday_list").hide();
+                        $("#starter_list").hide();
+                        $("#grill_list").hide();
+
+                 * 
+                 */
+
+
+                        $("#lunch_button").click(function(){
+                            $("#a_la_carte").hide();
+                            $("#update").hide();
+                            $("#lunch_menu").show();
+                        });
+
+                        $("#update_button").click(function(){
+                            $("#a_la_carte").hide();
+                            $("#update").show();
+                            $("#lunch_menu").hide();
+                        });
+
+                        $("#carte_button").click(function(){
+                            $("#a_la_carte").show();
+                            $("#update").hide();
+                            $("#lunch_menu").hide();
+                        });
+
+
+
+                        $("#monday").click(function(){
+                            $("#monday_list").slideToggle(1000);
+                        });
+
+                        $("#tuesday").click(function(){
+                            $("#tuesday_list").slideToggle(1000);
+                        });
+
+                        $("#grilled").click(function(){
+                            $("#grill_list").slideToggle(1000);
+                        });
+
+                        $("#starter").click(function(){
+                            $("#starter_list").slideToggle(1000);
+                        });
+
+                    });
+
+                </script>
+        </ui:define>
+            
+            
+        </ui:composition>
+
+
+    </h:body>
+
+</html>
