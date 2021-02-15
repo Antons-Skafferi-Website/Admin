@@ -6,26 +6,23 @@
     
     <body>
         <ui:composition>
-            
-            <img id="header_image" src="image/logo.png"></img>
-                
-            <div id="menu_bar">
-                
-                
+            <div class="headImage">
+            <img id="header_image" src="image/logo.png" ></img>
+            </div>
+            <div id="menu_bar" class="topnav"> 
                 <ul id="header_menu">
-                    
                     <h:form>
-                        
                         <li><h:commandLink value="MENYER" action="index?faces-redirect=true"></h:commandLink></li>
-                        <li><h:commandLink value="BOKNING" action="about?faces-redirect=true"></h:commandLink></li>
-                        <li><h:commandLink value="KONTAKT" action="kontakt?faces-redirect=true"></h:commandLink></li>
+                        <li><h:commandLink value="BOKNING" action="booking?faces-redirect=true"></h:commandLink></li>
                         <li><h:commandLink value="OM OSS" action="about?faces-redirect=true"></h:commandLink></li>
+                        <li><h:commandLink value="KONTAKT" action="about?faces-redirect=true"></h:commandLink></li>
                         <li><h:commandLink value="SCHEMA" action="about?faces-redirect=true"></h:commandLink></li>
                         <li><h:commandLink value="LOGGA UT" action="about?faces-redirect=true"></h:commandLink></li>
-               
                     </h:form>
                     
                 </ul>
+                    
+
                 
             </div>
             

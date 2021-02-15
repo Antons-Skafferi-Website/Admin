@@ -2,30 +2,53 @@ body {
     background-color: #fffaf2;
     font-size: 12px;
     font-family: Verdana, "Verdana CE",  Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
-    color: #000000;  
+    color: #47525E;  
     margin: 10px;
     min-height:100vh; /* to keep footer at bottom*/
     position:relative;/* to keep footer at bottom*/
 }
 
-h1 {
-    font-family: Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
-    border-bottom: 1px solid #AFAFAF; 
-    font-size:  16px;
-    font-weight: bold;
-    margin: 0px;
-    padding: 0px;
-    color: #D20005;
+.topnav {
+    position:relative;
+    padding-top: 2%;
+    overflow: hidden;
 }
 
+.topnav ul { 
+    border:1px solid #ccc;
+    background-color: #2F5234;
+    border-width:1px 0;
+    list-style:none;
+    display: left;
+    text-align:center;
+}
+
+.topnav ul form li{
+    display: inline-block;
+}
+
+.topnav ul form li a {
+  display: inline-block;
+  color: white;
+  padding:30px;
+  font-size: 21px;
+}
+
+.topnav ul form li + li:before{
+    content: " | ";
+    color: white;
+    padding: 0 6px;
+    font-weight: 100;
+    font-size: 30px;
+}
+
+
 a:link, a:visited {
-  color: #045491;
-  font-weight : bold;
+  font-weight : normal;
   text-decoration: none;
 }
 
 a:link:hover, a:visited:hover  {
-  color: #045491;
-  font-weight : bold;
-  text-decoration : underline;
+  color: white;
+  background-color: gray;
 }

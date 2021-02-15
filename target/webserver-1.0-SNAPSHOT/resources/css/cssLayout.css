@@ -33,16 +33,62 @@
     display: block;
     margin-left: auto;
     margin-right: auto;
-    padding: 2%;
+    margin-bottom: -1%;
 }
 
 .center_content {
-    position: centered;
-    background-color: #fffaf2;
+    position: relative;
+    background-color: #fffaf2; 
     text-align: left;
-    margin-left: 30%; /*kan ändras satt detta hyfsat centrerat */
-    margin-right: 30%;
+    margin-left: 20%; /*kan ändras satt detta hyfsat centrerat */
+    margin-right: 20%;
     padding-bottom: 13em; /*keep footer at bottom of screen, (height of footer + 1em)*/
+}
+
+.responsive {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  height: auto;
+}
+
+#book{
+    position: relative;
+    display: block;
+    margin-left: 25%;
+    margin-right: 10%;
+}
+#book div a{
+    font-size: 150%;
+    color: #47525E;
+    display: inline-block;
+    margin: 1%;
+    border-radius: 10px;
+}
+#book div select{
+    display: inline-block;
+    margin: 1%;
+    border-radius: 10px;
+    padding: 0.5%;
+}
+#book div input{
+    display: inline-block;
+    margin: 1%;
+    border-radius: 10px;
+    padding: 0.5%;
+}
+
+#book div{
+    display: flex;
+    padding: 0.5%;
+}
+
+.bokaKnapp{
+    width: 15%;
+    height: 5%; 
+    background-color: #2F5234;
+    color: white;
 }
 
 .left_content {
