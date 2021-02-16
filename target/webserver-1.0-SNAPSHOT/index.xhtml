@@ -8,23 +8,49 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <h:outputStylesheet name="/css/default.css"/>
         <h:outputStylesheet name="/css/cssLayout.css"/>
+        <h:outputStylesheet name="/css/cssLayout.css"/>
+        <h:outputStylesheet name="/image/vildResturang.jpg"/>
         <title>Facelets Template</title>
     </h:head>
 
     <h:body>
 
         <ui:composition template="template/layout.xhtml">
-            
+
             <ui:define name="content">
-                #{menuBean.menu}
+                <div name="index" class="index">
+                    <div name="lunchMeny" class="greenBox1">
+                        <h1>Lunch Meny</h1>
+                        <p>2021-02-15</p>
+                        <p>Dagens lunch serveras melllan 11.00 - 14.00</p>
+                        <br/>
+                        <h2>KOLBULLAR</h2>
+                        <p>med lingon</p>
+                    
+                        <h2>Falsk hummersoppa</h2>
+                        <p>med syrlig grädde</p>
+                   
+                        <h2>Ärtsoppa och pannkaka</h2>
+                        <p>med grädde och hjortronsylt</p>
+                    
+                        <br/>
+                        <h:outputLink value="menu.xhtml">klicka här för att läsa mer</h:outputLink>
+                    
+                    </div>
+                
+                
+                    <div name="evenemangKort" class="greenBox2">
+                        <h1>Rock kväll med Led Zeppelin</h1>
+                        <p>2021-02-19</p><br/><br/>
+                        <p>Dom gamla rocklegendarerna har bestämt sig att återförenas en sista gång hos antonsSkafferi!</p>
+                        <p>Detta är en upplevelse ni sent kommer att glömma.</p>
+                    </div>
+                </div>
             </ui:define>
+
             
             
-            
-            <ui:define name="footer">
-                <h2>This is page1 Updated Footer
-                #{menuBean.menu}</h2>
-            </ui:define>
+           
             
             
         </ui:composition>

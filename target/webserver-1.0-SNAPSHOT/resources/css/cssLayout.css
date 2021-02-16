@@ -33,11 +33,10 @@
     display: block;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: -1%;
 }
 
 .center_content {
-    position: relative;
+
     background-color: #fffaf2; 
     text-align: left;
     margin-left: 20%; /*kan ändras satt detta hyfsat centrerat */
@@ -89,6 +88,7 @@
     height: 5%; 
     background-color: #2F5234;
     color: white;
+    text-align: center;
 }
 
 .left_content {
@@ -166,8 +166,45 @@ input {
     text-align: center;
     
 }
+.greenBox1 h1 {
+    font-size: 28px;
+}
+.greenBox1 a {
+    font-size: 28px;
+    color: white;
+}
+.greenBox1 {
+    width: 400px;
+    height: 415px;
+    background-color: #2F5234;
+    margin-left: 10%;
+    padding: 2%;
+    color: white;
+    border-radius: 2%;
+}
+.greenBox2 {
+    width: 900px;
+    height: 180px;
+    background-color: #2F5234;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 2%;
+    padding: 2%;
+    color: white;
+}
+.topParts {
+    display: flex;
+}
 
+.index {
+    background-image: url("../../image/vildResturang.jpg");
+    background-size: cover;
+    background-attachment: fixed; 
+    margin-top: -2%;
+    margin-left: -34.5%;
+    margin-right: -34%;
 
+}
 
 #top a:link, #top a:visited {
   color: white;

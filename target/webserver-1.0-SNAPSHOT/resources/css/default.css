@@ -10,14 +10,13 @@ body {
 
 .topnav {
     position:relative;
-    padding-top: 2%;
-    overflow: hidden;
+    overflow: show;
+    margin-left: -1%;
+    margin-right: -0.5%;
 }
 
 .topnav ul { 
-    border:1px solid #ccc;
     background-color: #2F5234;
-    border-width:1px 0;
     list-style:none;
     display: left;
     text-align:center;

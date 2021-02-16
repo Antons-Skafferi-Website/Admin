@@ -33,11 +33,10 @@
     display: block;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: -1%;
 }
 
 .center_content {
-    position: relative;
+
     background-color: #fffaf2; 
     text-align: left;
     margin-left: 20%; /*kan ändras satt detta hyfsat centrerat */
@@ -181,6 +180,7 @@ input {
     margin-left: 10%;
     padding: 2%;
     color: white;
+    border-radius: 2%;
 }
 .greenBox2 {
     width: 900px;
@@ -195,10 +195,15 @@ input {
 .topParts {
     display: flex;
 }
-#vildBild {
-    padding-left: 2%;
-    height: 460px;
-    width: 480px; 
+
+.index {
+    background-image: url("../../image/vildResturang.jpg");
+    background-size: cover;
+    background-attachment: fixed; 
+    margin-top: -2%;
+    margin-left: -34.5%;
+    margin-right: -34%;
+
 }
 
 #top a:link, #top a:visited {
