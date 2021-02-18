@@ -28,12 +28,17 @@
     width: 150px;
 }
 
-#header_image {
-    position: relative;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+.header_image {
+    width: 200px;
+    height: 100px;
+    background: url("../../image/logo2.png") no-repeat;
+    margin: -20%;
+    margin-left: 0.01%;
 }
+
+.header_image:hover {
+        background: url("../../image/logo.png") no-repeat;
+    }
 
 .center_content {
 

@@ -6,17 +6,15 @@
     
     <body>
         <ui:composition>
-            <div class="headImage">
-                <h:outputLink value="index.xhtml"><img id="header_image" src="image/logo.png" /></h:outputLink>
-            </div>
+
             <div id="menu_bar" class="topnav"> 
                 <ul id="header_menu">
                     <h:form>
                         <li><h:commandLink value="MENYER" action="menu?faces-redirect=true"></h:commandLink></li>
                         <li><h:commandLink value="BOKNING" action="booking?faces-redirect=true"></h:commandLink></li>
+                        <li><h:outputLink value="index.xhtml"><div class="header_image"></div></h:outputLink></li>
                         <li><h:commandLink value="OM OSS" action="about?faces-redirect=true"></h:commandLink></li>
                         <li><h:commandLink value="KONTAKT" action="kontakt?faces-redirect=true"></h:commandLink></li>
-                        <li><h:commandLink value="LOGGA UT" action="index?faces-redirect=true"></h:commandLink></li>
                     </h:form>
                     
                 </ul>

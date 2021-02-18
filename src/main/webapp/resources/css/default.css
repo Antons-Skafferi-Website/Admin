@@ -1,5 +1,8 @@
 body {
-    background-color: #fffaf2;
+    background-image: url("../../image/vildResturang.jpg");
+    background-size: cover;
+    background-attachment: fixed; 
+    margin-top: -2%;
     font-size: 12px;
     font-family: Verdana, "Verdana CE",  Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
     color: #47525E;  
@@ -10,27 +13,31 @@ body {
 
 .topnav {
     position:relative;
-    overflow: show;
-    margin-left: -1%;
-    margin-right: -0.5%;
+    overflow: hidden;
 }
 
 .topnav ul { 
-    background-color: #2F5234;
-    list-style:none;
+
+    list-style: none;
     display: left;
-    text-align:center;
+    text-align: center;
+
 }
 
 .topnav ul form li{
     display: inline-block;
+
 }
 
 .topnav ul form li a {
   display: inline-block;
   color: white;
-  padding:30px;
+  padding: 30px;
   font-size: 21px;
+  font-family: serif;
+  font-weight: 400;
+
+
 }
 
 .topnav ul form li + li:before{
@@ -48,6 +55,9 @@ a:link, a:visited {
 }
 
 a:link:hover, a:visited:hover  {
-  color: white;
-  background-color: gray;
+  color: #2F5234;
+}
+
+#header_image:hover  {
+  background-image: url("../../image/logo.png");
 }
