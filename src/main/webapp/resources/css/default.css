@@ -2,11 +2,9 @@ body {
     background-image: url("../../image/vildResturang.jpg");
     background-size: cover;
     background-attachment: fixed; 
-    margin-top: -2%;
     font-size: 12px;
     font-family: Verdana, "Verdana CE",  Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
     color: #47525E;  
-    margin: 10px;
     min-height:100vh; /* to keep footer at bottom*/
     position:relative;/* to keep footer at bottom*/
 }
@@ -17,7 +15,6 @@ body {
 }
 
 .topnav ul { 
-
     list-style: none;
     display: left;
     text-align: center;
