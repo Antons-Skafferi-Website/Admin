@@ -18,7 +18,8 @@
         <ui:composition template="./template/layout.xhtml">
             
             <ui:define name="content">
-                <img src="image/bordsbokning.jpg" class="responsive"/>
+                <div class="book-content">
+                
                     <h:form id="book">
                         <h1>Boka Bord</h1><br/><br/>
                         <div name="antal">
@@ -53,15 +54,18 @@
                                 <f:selectItem itemValue="2000" itemLabel="20.00"/>
                             </h:selectOneMenu>
                         </div>
-                        <div name="mailAndBookButton">
+                        <div name="mail">
                             <h:inputText id="email" pt:placeholder="e-mail" size="30" /> <!--man får sätta ett value="{nånbeans}" -->
+                        </div>
+                        <div name="BookButton">
                             <h:button value="BOKA" class="bokaKnapp"/>
                            
                         </div>
                         
                         
+                        
                     </h:form>
-                    
+                    </div>
                     
                     
             
