@@ -15,38 +15,33 @@
 
         <ui:composition template="template/layout.xhtml">
             
-            <ui:define name="content">
-                
-                <div id="main" >
-                
-                <div id="sub" >
-                    <h1>DAGENS TEST</h1>
-                    <p>Dagens lunch serveras mellan 11:00 - 14:00</p>
+            <ui:define name="content" class="center_content">
+                <div class="topParts">
+                <div name="lunchMeny" class="greenBox1">
+                    <h1>#{lunchBean.todaysWeekday}</h1>
+                    <h:dataTable value="#{lunchBean.todaysLunch}" var="dish">
+                        <h:column>
+                            <div class="food_item">
+                                <h3>#{dish.name}</h3>
+                                <p>#{dish.description}</p>
+                                <p>#{dish.price}</p>
+                            </div>
+                        </h:column>
+                    </h:dataTable>
                     
-                    <h2>Kolpudding</h2>
-                    <p>Serveras med bröd</p>
+                    <br/>
+                    <h:outputLink value="menu.xhtml">klicka här för att läsa mer</h:outputLink>
                     
-                    <h2>Carbonara</h2>
-                    <p>Serveras med bröd</p>
-                    
-                    <h2>Antons pizza</h2>
-                    <p>Pizza med älgkött och svamp</p>
                 </div>
-                
-                <div id="sub">
-                    <img id="header_image" src="image/rest.jpg" ></img>
+                <img id="vildBild" src="image/vildResturang.jpg"/>
                 </div>
-                    
-                <div id="sub">
-                    <h1>Kommande spelningar</h1>
-                    <p>På kommande fredag så kommer det lokala bandet "Älgarna" att spela hos oss mellan 18:00-19:30</p>
-                
+                <div name="evenemangKort" class="greenBox2">
+                    <h1>Rock kväll med Led Zeppelin</h1>
+                    <p>2021-02-19</p><br/><br/>
+                    <p>Dom gamla rocklegendarerna har bestämt sig att återförenas en sista gång hos antonsSkafferi!</p>
+                    <p>Detta är en upplevelse ni sent kommer att glömma.</p>
                 </div>
-                    
-                    
-                
-            </div>
-                
+
             </ui:define>
             
             
@@ -54,8 +49,12 @@
             
             
             <ui:define name="footer">
+
                 <h2>This is page1 Updated Footer
                 </h2>
+
+                <h2>Gott med #{menuBean.menu}</h2>
+
             </ui:define>
             
             

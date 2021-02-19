@@ -7,6 +7,8 @@ package beans;
 
 import classes.Database;
 import java.io.Serializable;
+import java.util.Calendar;
+import java.util.Collections;
 import java.util.List;
 import javax.enterprise.context.Dependent;
 import javax.faces.bean.ManagedBean;
@@ -63,6 +65,46 @@ public class Lunch implements Serializable {
     
     public List<Dish> getFridayLunch() {
         return connection.getSubMenu(5);
+    }
+    
+    public List<Dish> getTodaysLunch() {
+        
+        int day = Calendar.getInstance().get(Calendar.DAY_OF_WEEK);
+        
+        switch(day) {
+            case Calendar.MONDAY:
+                return getMondayLunch();
+            case Calendar.TUESDAY:
+                return getTuesdayLunch();
+            case Calendar.WEDNESDAY:
+                return getWednesdayLunch();
+            case Calendar.THURSDAY:
+                return getThursdayLunch();
+            case Calendar.FRIDAY:
+                return getFridayLunch();
+        }
+        
+        return Collections.emptyList();
+    }
+    
+    public String getTodaysWeekday() {
+        
+        int day = Calendar.getInstance().get(Calendar.DAY_OF_WEEK);
+        
+        switch(day) {
+            case Calendar.MONDAY:
+                return "Måndag";
+            case Calendar.TUESDAY:
+                return "Tisdag";
+            case Calendar.WEDNESDAY:
+                return "Onsdag";
+            case Calendar.THURSDAY:
+                return "Torsdag";
+            case Calendar.FRIDAY:
+                return "Fredag";
+        }
+        
+        return "Kommer på måndag";
     }
     
     public void removeDishFromMonday(long dishId) {

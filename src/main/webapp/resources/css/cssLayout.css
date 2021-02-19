@@ -93,6 +93,7 @@
     height: 5%; 
     background-color: #2F5234;
     color: white;
+    text-align: center;
 }
 
 .left_content {
@@ -169,6 +170,39 @@ input {
 #login{
     text-align: center;
     
+}
+.greenBox1 h1 {
+    font-size: 28px;
+}
+.greenBox1 a {
+    font-size: 28px;
+    color: white;
+}
+.greenBox1 {
+    width: 400px;
+    height: 415px;
+    background-color: #2F5234;
+    margin-left: 10%;
+    padding: 2%;
+    color: white;
+}
+.greenBox2 {
+    width: 900px;
+    height: 180px;
+    background-color: #2F5234;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 2%;
+    padding: 2%;
+    color: white;
+}
+.topParts {
+    display: flex;
+}
+#vildBild {
+    padding-left: 2%;
+    height: 460px;
+    width: 480px; 
 }
 
 .in_line {
