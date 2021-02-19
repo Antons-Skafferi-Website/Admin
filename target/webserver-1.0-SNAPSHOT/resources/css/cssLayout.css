@@ -220,7 +220,7 @@ input {
     width: 30%;
     margin: auto;
     background-color: #2F5234;
-    background: rgba(47, 82, 52, 0.9);
+    background: rgba(47, 82, 52, 0.98);
     padding: 2%;
     color: white;
     border-radius: 5em;
@@ -231,7 +231,7 @@ input {
 
 .defaultGreenBox{
     background-color: #2F5234;
-    background: rgba(47, 82, 52, 0.9);
+    background: rgba(47, 82, 52, 0.98);
     padding: 2%;
     color: white;
     border-radius: 5em;
@@ -241,7 +241,7 @@ input {
 
 .roundedTopGreenBox{
     background-color: #2F5234;
-    background: rgba(47, 82, 52, 0.9);
+    background: rgba(47, 82, 52, 0.98);
     padding: 2%;
     color: white;
     border-top-left-radius: 5em;
