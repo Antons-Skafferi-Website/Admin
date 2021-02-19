@@ -7,6 +7,8 @@ body {
     color: #47525E;  
     min-height:100vh; /* to keep footer at bottom*/
     position:relative;/* to keep footer at bottom*/
+    margin:0; 
+    padding:0;
 }
 
 .topnav {
