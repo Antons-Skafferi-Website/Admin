@@ -1,7 +1,7 @@
-entities/Submenu.class
-beans/MenuBean.class
-com/antonsskafferi/webserver/resources/JavaEE8Resource.class
-com/antonsskafferi/webserver/JAXRSConfiguration.class
-entities/Dish.class
-servlets/MenuServlet.class
-entities/Menu.class
+entities\Dish.class
+beans\MenuBean.class
+servlets\MenuServlet.class
+entities\Menu.class
+entities\Submenu.class
+com\antonsskafferi\webserver\resources\JavaEE8Resource.class
+com\antonsskafferi\webserver\JAXRSConfiguration.class

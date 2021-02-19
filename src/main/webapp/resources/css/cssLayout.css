@@ -172,7 +172,37 @@ input {
 
 #login{
     text-align: center;
+    width: 30%;
+    margin: auto;
+    background-color: #2F5234;
+    background: rgba(47, 82, 52, 0.9);
+    padding: 2%;
+    color: white;
+    border-radius: 5em;
+    border-style: double;
+    border-color: white;
     
+}
+
+.defaultGreenBox{
+    background-color: #2F5234;
+    background: rgba(47, 82, 52, 0.9);
+    padding: 2%;
+    color: white;
+    border-radius: 5em;
+    border-style: double;
+    border-color: white;
+}
+
+.roundedTopGreenBox{
+    background-color: #2F5234;
+    background: rgba(47, 82, 52, 0.9);
+    padding: 2%;
+    color: white;
+    border-top-left-radius: 5em;
+    border-top-right-radius: 5em;
+    border-style: double;
+    border-color: white;
 }
 .greenBox1 h1 {
     font-size: 35px;
