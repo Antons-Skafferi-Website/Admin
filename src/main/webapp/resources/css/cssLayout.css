@@ -1,4 +1,8 @@
 
+#main {
+    
+}
+
 #top {
     position: relative;
     background-color: #036fab;
@@ -302,6 +306,11 @@ input {
     margin-top: 2%;
 
 }
+
+.in_line {
+    display: inline-block;
+}
+
 
 #top a:link, #top a:visited {
   color: white;

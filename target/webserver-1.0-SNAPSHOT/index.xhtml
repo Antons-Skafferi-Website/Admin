@@ -19,18 +19,16 @@
             <ui:define name="content">
                 <div name="index" class="index">
                     <div name="lunchMeny" class="greenBox1">
-                        <h1>Dagens Lunch Meny</h1>
-                        <p>2021-02-15</p>
-                        <p>Dagens lunch serveras melllan 11.00 - 14.00</p>
-                        <br/>
-                        <h2>KOLBULLAR</h2>
-                        <p>med lingon</p>
-                    
-                        <h2>Falsk hummersoppa</h2>
-                        <p>med syrlig grädde</p>
-                   
-                        <h2>Ärtsoppa och pannkaka</h2>
-                        <p>med grädde och hjortronsylt</p>
+                        <h1>#{lunchBean.todaysWeekday}</h1>
+                        <h:dataTable value="#{lunchBean.todaysLunch}" var="dish">
+                            <h:column>
+                                <div class="food_item">
+                                    <h3>#{dish.name}</h3>
+                                    <p>#{dish.description}</p>
+                                    <p>#{dish.price}</p>
+                                </div>
+                            </h:column>
+                        </h:dataTable>
                     
                         <br/><br/><br/><br/><br/><br/><br/><br/>
                         <br/><br/><br/><br/><br/><br/>

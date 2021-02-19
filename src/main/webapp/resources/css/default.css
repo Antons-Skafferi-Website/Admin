@@ -11,6 +11,25 @@ body {
     padding:0;
 }
 
+#main {
+    background-color: #fffaf2;
+    font-size: 12px;
+    font-family: Verdana, "Verdana CE",  Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
+    margin: 10px;
+    min-height:100vh; /* to keep footer at bottom*/
+    position:relative;/* to keep footer at bottom*/
+}
+
+#sub {
+    background-color: #fffaf2;
+}
+
+#sub img {
+    max-height: 100%;
+    max-width: 100%;
+    border: 10px;
+}
+
 .topnav {
     position:relative;
     overflow: hidden;
@@ -23,12 +42,12 @@ body {
 
 }
 
-.topnav ul form li{
+.topnav ul  li{
     display: inline-block;
 
 }
 
-.topnav ul form li a {
+.topnav ul  li a {
   display: inline-block;
   color: white;
   padding: 30px;
@@ -39,7 +58,7 @@ body {
 
 }
 
-.topnav ul form li + li:before{
+.topnav ul  li + li:before{
     content: " | ";
     color: white;
     padding: 0 6px;
