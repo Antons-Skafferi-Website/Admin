@@ -1,7 +1,8 @@
-C:\Users\zered\OneDrive\Documents\Antons-Skafferi-Website\src\main\java\entities\Menu.java
-C:\Users\zered\OneDrive\Documents\Antons-Skafferi-Website\src\main\java\beans\MenuBean.java
-C:\Users\zered\OneDrive\Documents\Antons-Skafferi-Website\src\main\java\com\antonsskafferi\webserver\resources\JavaEE8Resource.java
-C:\Users\zered\OneDrive\Documents\Antons-Skafferi-Website\src\main\java\servlets\MenuServlet.java
-C:\Users\zered\OneDrive\Documents\Antons-Skafferi-Website\src\main\java\entities\Submenu.java
-C:\Users\zered\OneDrive\Documents\Antons-Skafferi-Website\src\main\java\com\antonsskafferi\webserver\JAXRSConfiguration.java
-C:\Users\zered\OneDrive\Documents\Antons-Skafferi-Website\src\main\java\entities\Dish.java
+C:\Users\jonas\OneDrive\Documents\NetBeansProjects\Antons-Skafferi-Website\src\main\java\beans\Alacarte.java
+C:\Users\jonas\OneDrive\Documents\NetBeansProjects\Antons-Skafferi-Website\src\main\java\beans\Lunch.java
+C:\Users\jonas\OneDrive\Documents\NetBeansProjects\Antons-Skafferi-Website\src\main\java\beans\Submenu.java
+C:\Users\jonas\OneDrive\Documents\NetBeansProjects\Antons-Skafferi-Website\src\main\java\beans\Dish.java
+C:\Users\jonas\OneDrive\Documents\NetBeansProjects\Antons-Skafferi-Website\src\main\java\classes\Database.java
+C:\Users\jonas\OneDrive\Documents\NetBeansProjects\Antons-Skafferi-Website\src\main\java\com\antonsskafferi\webserver\resources\JavaEE8Resource.java
+C:\Users\jonas\OneDrive\Documents\NetBeansProjects\Antons-Skafferi-Website\src\main\java\com\antonsskafferi\webserver\JAXRSConfiguration.java
+C:\Users\jonas\OneDrive\Documents\NetBeansProjects\Antons-Skafferi-Website\src\main\java\servlets\MenuServlet.java

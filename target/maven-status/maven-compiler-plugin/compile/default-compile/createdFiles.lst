@@ -1,7 +1,8 @@
-entities\Dish.class
-beans\MenuBean.class
+classes\Database.class
+beans\Submenu.class
 servlets\MenuServlet.class
-entities\Menu.class
-entities\Submenu.class
+beans\Alacarte.class
 com\antonsskafferi\webserver\resources\JavaEE8Resource.class
 com\antonsskafferi\webserver\JAXRSConfiguration.class
+beans\Lunch.class
+beans\Dish.class

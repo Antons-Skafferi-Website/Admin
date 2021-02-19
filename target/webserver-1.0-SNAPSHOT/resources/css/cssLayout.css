@@ -1,4 +1,8 @@
 
+#main {
+    
+}
+
 #top {
     position: relative;
     background-color: #036fab;
@@ -167,6 +171,9 @@ input {
     
 }
 
+.in_line {
+    display: inline-block;
+}
 
 
 #top a:link, #top a:visited {

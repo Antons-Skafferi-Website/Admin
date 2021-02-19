@@ -16,14 +16,46 @@
         <ui:composition template="template/layout.xhtml">
             
             <ui:define name="content">
-                #{menuBean.menu}
+                
+                <div id="main" >
+                
+                <div id="sub" >
+                    <h1>DAGENS TEST</h1>
+                    <p>Dagens lunch serveras mellan 11:00 - 14:00</p>
+                    
+                    <h2>Kolpudding</h2>
+                    <p>Serveras med bröd</p>
+                    
+                    <h2>Carbonara</h2>
+                    <p>Serveras med bröd</p>
+                    
+                    <h2>Antons pizza</h2>
+                    <p>Pizza med älgkött och svamp</p>
+                </div>
+                
+                <div id="sub">
+                    <img id="header_image" src="image/rest.jpg" ></img>
+                </div>
+                    
+                <div id="sub">
+                    <h1>Kommande spelningar</h1>
+                    <p>På kommande fredag så kommer det lokala bandet "Älgarna" att spela hos oss mellan 18:00-19:30</p>
+                
+                </div>
+                    
+                    
+                
+            </div>
+                
             </ui:define>
+            
+            
             
             
             
             <ui:define name="footer">
                 <h2>This is page1 Updated Footer
-                #{menuBean.menu}</h2>
+                </h2>
             </ui:define>
             
             
