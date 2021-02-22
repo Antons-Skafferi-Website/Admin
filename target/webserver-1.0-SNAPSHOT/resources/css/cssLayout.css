@@ -56,6 +56,8 @@
   display: block;
   margin-left: auto;
   margin-right: auto;
+  max-height: 30em;
+  max-width: 30em;
   width: 50%;
   height: auto;
 }
@@ -127,8 +129,9 @@
 
 }
 
-.book-content {
+.bookContent {
     background-color: #2F5234;
+    background: rgba(47, 82, 52, 0.98);
     padding: 2%;
     border-radius: 10em;
     height: 50em;
@@ -206,9 +209,6 @@
 }
 
 
-
-
-
 input {
     display: block;
     margin: 0 auto;
@@ -231,39 +231,6 @@ input {
     border-style: double;
     border-color: white;
     
-}
-.greenBox1 h1 {
-    font-size: 28px;
-}
-.greenBox1 a {
-    font-size: 28px;
-    color: white;
-}
-.greenBox1 {
-    width: 400px;
-    height: 415px;
-    background-color: #2F5234;
-    margin-left: 10%;
-    padding: 2%;
-    color: white;
-}
-.greenBox2 {
-    width: 900px;
-    height: 180px;
-    background-color: #2F5234;
-    margin-left: 10%;
-    margin-right: 10%;
-    margin-top: 2%;
-    padding: 2%;
-    color: white;
-}
-.topParts {
-    display: flex;
-}
-#vildBild {
-    padding-left: 2%;
-    height: 460px;
-    width: 480px; 
 }
 
 .defaultGreenBox{
@@ -339,6 +306,43 @@ input {
     margin-top: 2%;
 
 }
+.sub_menu{
+    width: auto;
+    height: auto;
+}
+.dish_item{
+    text-align: left;
+}
+.update_menu{
+    display: flex;
+
+    
+}
+.foodType {
+    padding-left: 10%;
+    
+    
+}
+.foodContent {
+    background-color: #2F5234;
+    background: rgba(47, 82, 52, 0.98);
+    color: white;
+    padding: 2%;
+    text-align: center;
+    border-radius: 10em;
+    min-height: 45em;
+    height: auto;
+    width: 90em;
+    margin-left: auto;
+    margin-right: auto;
+    border: 5px double;
+    border-color: white;
+}
+.in_line {
+    display: inline-block;
+}
+
+
 
 #top a:link, #top a:visited {
   color: white;

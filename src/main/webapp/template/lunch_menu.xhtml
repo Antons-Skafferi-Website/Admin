@@ -24,7 +24,7 @@
             </ul>
         </div>
         
-        <div class="main_div">
+        <div class="foodContent">
             
         <!--Lunch menu tab-->
         <div id="lunch_menu" class="sub_menu">
@@ -37,7 +37,7 @@
                     <ul>
                         <h:dataTable value="#{lunchBean.mondayLunch}" var="dish">
                             <h:column>
-                                <div>
+                                <div class="dish_item">
                                     <h3>#{dish.name}</h3>   
                                     <p>#{dish.description}   #{dish.price}:-</p>
                                 </div>
@@ -50,7 +50,7 @@
                     <ul>
                         <h:dataTable value="#{lunchBean.tuesdayLunch}" var="dish">
                             <h:column>
-                                <div>
+                                <div class="dish_item">
                                     <h3>#{dish.name}</h3>   
                                     <p>#{dish.description}   #{dish.price}:-</p>
                                 </div>
@@ -63,7 +63,7 @@
                     <ul>
                         <h:dataTable value="#{lunchBean.wednesdayLunch}" var="dish">
                             <h:column>
-                                <div>
+                                <div class="dish_item">
                                     <h3>#{dish.name}</h3>   
                                     <p>#{dish.description}   #{dish.price}:-</p>
                                 </div>
@@ -76,7 +76,7 @@
                     <ul>
                         <h:dataTable value="#{lunchBean.thursdayLunch}" var="dish">
                             <h:column>
-                                <div>
+                                <div class="dish_item">
                                     <h3>#{dish.name}</h3>   
                                     <p>#{dish.description}   #{dish.price}:-</p>
                                 </div>
@@ -89,7 +89,7 @@
                     <ul>
                         <h:dataTable value="#{lunchBean.fridayLunch}" var="dish">
                             <h:column>
-                                <div>
+                                <div class="dish_item">
                                     <h3>#{dish.name}</h3>   
                                     <p>#{dish.description}   #{dish.price}:-</p>
                                 </div>
@@ -115,8 +115,10 @@
                     <ul>
                         <h:dataTable value="#{alacarteBean.starters}" var="dish">
                             <h:column>
+                                <div class="dish_item">
                                 <h3>#{dish.name}</h3>   
                                 <p>#{dish.description}   #{dish.price}:-</p>
+                                </div>
                             </h:column>
                         </h:dataTable>
                     </ul>
@@ -127,15 +129,17 @@
                     <ul>
                         <h:dataTable value="#{alacarteBean.mainDishes}" var="dish">
                             <h:column>
+                                <div class="dish_item">
                                 <h3>#{dish.name}</h3>   
                                 <p>#{dish.description}   #{dish.price}:-</p>
+                                </div>
                             </h:column>
                         </h:dataTable>
                     </ul>
             </div>
             
             <div>
-                <img src="image/alacarte.jpg" ></img>
+                
             </div>
                                 
         </div>
@@ -144,10 +148,10 @@
         
         
         <!--Update menu tab-->
-        <div id="update" class="sub_menu">
+        <div id="update" class="update_menu">
             
             <!--Lunch menu update section-->
-            <div>
+            <div >
 
                 <h1>Lunchmeny för veckan</h1>
 
@@ -230,7 +234,7 @@
             
 
             <!--Á la carte menu update section-->
-            <div>
+            <div class="foodType">
 
                 <h1>Á la carte</h1>
             
@@ -270,7 +274,7 @@
             
             
             <!--Add new dish section-->
-            <div>
+            <div class="foodType">
                 
             <h1>Uppdatera menyér</h1>
             <h2>Lägg till nya rätter</h2>
@@ -291,7 +295,7 @@
                             <td><h:outputText value="Pris:"/></td>
                             <td><h:inputText value="#{dishBean.price}"/></td>
                         </tr>
-                        <td><h:commandButton value="Lägg till" action="#{dishBean.addToDatabase()}"/></td>
+                        <td><h:commandButton value="Lägg till" action="#{dishBean.addNewDish()}"/></td>
                                 
                     </table>
                 </h:form>

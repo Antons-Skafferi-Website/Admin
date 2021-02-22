@@ -56,6 +56,8 @@
   display: block;
   margin-left: auto;
   margin-right: auto;
+  max-height: 30em;
+  max-width: 30em;
   width: 50%;
   height: auto;
 }
@@ -127,7 +129,7 @@
 
 }
 
-.book-content {
+.bookContent {
     background-color: #2F5234;
     background: rgba(47, 82, 52, 0.98);
     padding: 2%;
@@ -304,10 +306,42 @@ input {
     margin-top: 2%;
 
 }
+.sub_menu{
+    width: auto;
+    height: auto;
+}
+.dish_item{
+    text-align: left;
+}
+.update_menu{
+    display: flex;
 
+    
+}
+.foodType {
+    padding-left: 10%;
+    
+    
+}
+.foodContent {
+    background-color: #2F5234;
+    background: rgba(47, 82, 52, 0.98);
+    color: white;
+    padding: 2%;
+    text-align: center;
+    border-radius: 10em;
+    min-height: 45em;
+    height: auto;
+    width: 90em;
+    margin-left: auto;
+    margin-right: auto;
+    border: 5px double;
+    border-color: white;
+}
 .in_line {
     display: inline-block;
 }
+
 
 
 #top a:link, #top a:visited {

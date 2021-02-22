@@ -58,14 +58,16 @@ body {
 
 }
 
-.topnav ul  li + li:before{
+.topnav ul li + li:before{
     content: " | ";
     color: white;
     padding: 0 6px;
     font-weight: 100;
     font-size: 30px;
 }
-
+.topnav ul li a:hover{
+    color: #2F5234;
+}
 
 a:link, a:visited {
   font-weight : normal;
