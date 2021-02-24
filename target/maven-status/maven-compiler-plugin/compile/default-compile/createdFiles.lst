@@ -2,6 +2,7 @@ beans/Alacarte.class
 beans/Lunch.class
 com/antonsskafferi/webserver/resources/JavaEE8Resource.class
 classes/Database.class
+beans/Menu.class
 com/antonsskafferi/webserver/JAXRSConfiguration.class
 beans/Submenu.class
 servlets/MenuServlet.class

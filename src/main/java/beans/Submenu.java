@@ -32,9 +32,14 @@ public class Submenu implements Serializable {
         this.submenuId = submenuId;
     }
     
-    public List<Submenu> getSubmenus() {
-        return connection.getAllSubmenus();
+    public List<Submenu> getSubmenusLunch() {
+        return connection.getLunchSubmenus();
     }
+    
+    public List<Submenu> getSubmenusSpecial() {
+        return connection.getSpecialSubmenus();
+    }
+    
     
     public void addDishToSubmenu(int dishId, int submenuId) {
         connection.addDishToSubmenu(dishId, submenuId);

@@ -7,6 +7,7 @@ package classes;
 
 
 import beans.Dish;
+import beans.Menu;
 import beans.Submenu;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -45,7 +46,11 @@ public class Database {
     
     private String getAllDishes = "SELECT * FROM APP.DISH";
     
-    private String getAllSubmenus = "SELECT * FROM APP.SUB_MENU";
+    private String getSpecialSubmenus = "SELECT * FROM APP.SUB_MENU WHERE SUB_MENU_ID > 5";
+    
+    private String getLunchSubmenus = "SELECT * FROM APP.SUB_MENU WHERE SUB_MENU_ID < 6";
+    
+    private String getMenus = "SELECT * FROM APP.MENU";
     
     public Database() {
         this.dbURL = "jdbc:derby://localhost:1527/AntonsSkafferi";
@@ -141,17 +146,55 @@ public class Database {
         }
     }
 
-    public List<Submenu> getAllSubmenus() {
+    public List<Submenu> getLunchSubmenus() {
         
         List<Submenu> list = new ArrayList<>();
         
         try (Connection connection = DriverManager.getConnection(dbURL, user, pw);
-             PreparedStatement statement = connection.prepareCall(getAllSubmenus);
+             PreparedStatement statement = connection.prepareCall(getLunchSubmenus);
         ){
             ResultSet rs = statement.executeQuery();
             
             while(rs.next()) 
                 list.add(new Submenu(rs.getLong(1), rs.getString(2)));
+            
+        }catch(SQLException e) {
+            e.printStackTrace();
+        }
+        
+        return list;
+    }
+    
+    public List<Submenu> getSpecialSubmenus() {
+        
+        List<Submenu> list = new ArrayList<>();
+        
+        try (Connection connection = DriverManager.getConnection(dbURL, user, pw);
+             PreparedStatement statement = connection.prepareCall(getSpecialSubmenus);
+        ){
+            ResultSet rs = statement.executeQuery();
+            
+            while(rs.next()) 
+                list.add(new Submenu(rs.getLong(1), rs.getString(2)));
+            
+        }catch(SQLException e) {
+            e.printStackTrace();
+        }
+        
+        return list;
+    }
+    
+    public List<Menu> getMenus() {
+        
+        List<Menu> list = new ArrayList<>();
+        
+        try (Connection connection = DriverManager.getConnection(dbURL, user, pw);
+             PreparedStatement statement = connection.prepareCall(getMenus);
+        ){
+            ResultSet rs = statement.executeQuery();
+            
+            while(rs.next()) 
+                list.add(new Menu(rs.getLong(1), rs.getString(2)));
             
         }catch(SQLException e) {
             e.printStackTrace();

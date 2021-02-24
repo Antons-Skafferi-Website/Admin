@@ -307,8 +307,13 @@
                 <h3>Meny</h3>
                 
                 <h:form>
-                <h:selectOneMenu value="#{submenuBean.selectedSubmenuId}">
-                    <f:selectItems value="#{submenuBean.submenus}" var="menuItem" itemLabel="#{menuItem.name}" itemValue="#{menuItem.submenuId}"></f:selectItems>
+                    <h:selectOneMenu value="#{menuBean.selectedMenuId}">
+                        <f:selectItems value="#{menuBean.menus}" var="menuItes" itemLabel="#{menuItes.name}" itemValue="#{menuItes.menuId}"></f:selectItems>
+                </h:selectOneMenu>
+                    
+                <h3>Dag</h3>
+                <h:selectOneMenu value="#{submenuBean.selectedSubmenuId}"> 
+                    <f:selectItems value="#{submenuBean.submenusLunch}" var="menuItem" itemLabel="#{menuItem.name}" itemValue="#{menuItem.submenuId}"></f:selectItems>
                 </h:selectOneMenu>
               
                 <h3>Maträtt</h3>
@@ -328,7 +333,7 @@
                 
                 <h:form>
                 <h:selectOneMenu value="#{submenuBean.selectedSubmenuId}">
-                    <f:selectItems value="#{submenuBean.submenus}" var="menuItem" itemLabel="#{menuItem.name}" itemValue="#{menuItem.submenuId}"></f:selectItems>
+                    <f:selectItems value="#{submenuBean.submenusLunch}" var="menuItem" itemLabel="#{menuItem.name}" itemValue="#{menuItem.submenuId}"></f:selectItems>
                 </h:selectOneMenu>
               
                 <h3>Maträtt</h3>
