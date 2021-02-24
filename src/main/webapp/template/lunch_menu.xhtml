@@ -163,8 +163,8 @@
                             <h:column>
                                 <div class="food_item">
                                     <h3>#{dish.name}</h3>
+                                    <p>#{dish.description}</p>
                                 </div>
-                                <h:commandButton value="Ta bort" action="#{lunchBean.removeDishFromMonday(dish.dishId)}"/>
                             </h:column>
                         </h:dataTable>
                         </h:form>
@@ -178,8 +178,8 @@
                             <h:column>
                                 <div class="food_item">
                                     <h3>#{dish.name}</h3>
+                                    <p>#{dish.description}</p>
                                 </div>
-                                <h:commandButton value="Ta bort" action="#{lunchBean.removeDishFromTueday(dish.dishId)}"/>
                             </h:column>
                         </h:dataTable>
                         </h:form>
@@ -193,8 +193,8 @@
                             <h:column>
                                 <div class="food_item">
                                     <h3>#{dish.name}</h3>
+                                    <p>#{dish.description}</p>
                                 </div>
-                                <h:commandButton value="Ta bort" action="#{lunchBean.removeDishFromWednesday(dish.dishId)}"/>
                             </h:column>
                         </h:dataTable>
                         </h:form>
@@ -208,8 +208,8 @@
                             <h:column>
                                 <div class="food_item">
                                     <h3>#{dish.name}</h3>
+                                    <p>#{dish.description}</p>
                                 </div>
-                                <h:commandButton value="Ta bort" action="#{lunchBean.removeDishFromThursday(dish.dishId)}"/>
                             </h:column>
                         </h:dataTable>
                         </h:form>
@@ -223,8 +223,8 @@
                             <h:column>
                                 <div class="food_item">
                                     <h3>#{dish.name}</h3>
+                                    <p>#{dish.description}</p>
                                 </div>
-                                <h:commandButton value="Ta bort" action="#{lunchBean.removeDishFromFriday(dish.dishId)}"/>
                             </h:column>
                         </h:dataTable>
                         </h:form>
@@ -246,8 +246,8 @@
                             <h:column>
                                 <div class="food_item">
                                     <h3>#{dish.name}</h3>
+                                    <p>#{dish.description}</p>
                                 </div>
-                                <h:commandButton value="Ta bort" action="#{alacarteBean.deleteFromStarters(dish.dishId)}"/>
                             </h:column>
                         </h:dataTable>
                         </h:form>
@@ -262,8 +262,8 @@
                             <h:column>
                                 <div class="food_item">
                                     <h3>#{dish.name}</h3>
+                                    <p>#{dish.description}</p>
                                 </div>
-                                <h:commandButton value="Ta bort" action="#{alacarteBean.deleteFromMain(dish.dishId)}"/>
                             </h:column>
                         </h:dataTable>
                         </h:form>
@@ -298,8 +298,10 @@
                         <td><h:commandButton value="Lägg till" action="#{dishBean.addNewDish()}"/></td>
                                 
                     </table>
+                    
                 </h:form>
-                
+                <div class="add_remove">
+                <div>
                 <h2>Lägg till i meny</h2>
                 
                 <h3>Meny</h3>
@@ -317,7 +319,28 @@
                 
                 <h:commandButton value="Lägg till" action="#{submenuBean.addDishToSubmenu(dishBean.selectedDishId, submenuBean.selectedSubmenuId)}"/>
                 </h:form>
-            
+                
+                </div>
+                <div>
+                <h2>Tabort i meny</h2>
+                
+                <h3>Meny</h3>
+                
+                <h:form>
+                <h:selectOneMenu value="#{submenuBean.selectedSubmenuId}">
+                    <f:selectItems value="#{submenuBean.submenus}" var="menuItem" itemLabel="#{menuItem.name}" itemValue="#{menuItem.submenuId}"></f:selectItems>
+                </h:selectOneMenu>
+              
+                <h3>Maträtt</h3>
+                
+                <h:selectOneMenu value="#{dishBean.selectedDishId}">
+                    <f:selectItems value="#{dishBean.allDishes}" var="dishItem" itemLabel="#{dishItem.name}" itemValue="#{dishItem.dishId}"></f:selectItems>
+                </h:selectOneMenu>
+                
+                <h:commandButton value="Ta bort" action="#{submenuBean.removeDishFromSubmenu(dishBean.selectedDishId, submenuBean.selectedSubmenuId)}"/>
+                </h:form>
+                </div>
+                </div>
                 
             </div>
             </div>

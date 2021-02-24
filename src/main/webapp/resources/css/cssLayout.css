@@ -341,7 +341,13 @@ input {
 .in_line {
     display: inline-block;
 }
-
+.add_remove{
+    display: flex;
+    margin-left: -10em;
+}
+.add_remove div{
+    padding: 5%;
+}
 
 
 #top a:link, #top a:visited {

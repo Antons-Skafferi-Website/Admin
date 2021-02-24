@@ -40,6 +40,10 @@ public class Submenu implements Serializable {
         connection.addDishToSubmenu(dishId, submenuId);
     }
     
+    public void removeDishFromSubmenu(int dishId, int submenuId) {
+        connection.removeDishFromSubmenu(submenuId, submenuId);
+    }
+    
     public String getName() {
         return name;
     }
