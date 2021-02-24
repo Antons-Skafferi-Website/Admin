@@ -21,18 +21,18 @@
                 <div id="login">
                     <h:form>
                     <h3>Logga in</h3>
-                    <h:outputText value="Username" />
+                    <h:outputText value="Användarnamn" />
                     <h:inputText id="username" value="#{login.user}"></h:inputText>
                     <h:message for="username"></h:message>
                     <br></br><br></br>
 
-                    <h:outputText value="Password" />
+                    <h:outputText value="Lösenord" />
                     <h:inputSecret id="password" value="#{login.pwd}"></h:inputSecret>
                     <h:message for="password"></h:message>
                     <br></br><br></br>
 
                     <h:commandButton action="#{login.validateUsernamePassword}"
-                            value="Login"></h:commandButton>
+                            value="Logga in"></h:commandButton>
                     <h:messages globalOnly="true" layout="table" />
 
                     </h:form>
