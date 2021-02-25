@@ -308,19 +308,36 @@
                 <h3>Meny</h3>
                 
                 <h:form>
-                <h:selectOneMenu value="#{menuBean.selectedMenuId}" class="menuPick">
-                    <f:selectItems value="#{menuBean.menus}" var="menuItes" itemLabel="#{menuItes.name}" itemValue="#{menuItes.menuId}"></f:selectItems>
-                </h:selectOneMenu>
+                    <h:selectOneMenu value="#{menuBean.selectedMenuId}" class="menuPickAdd">
+                        <f:selectItems value="#{menuBean.menus}" var="menuItes" itemLabel="#{menuItes.name}" itemValue="#{menuItes.menuId}"></f:selectItems>
+                    </h:selectOneMenu>
                 </h:form>
-                <div id="day">    
+                
+                <div id="dayAdd">    
+                    <h:form>
+                        <h3>Dag</h3>
+                        <h:selectOneMenu value="#{submenuBean.selectedSubmenuId}"> 
+                            <f:selectItems value="#{submenuBean.submenusLunch}" var="menuItem" itemLabel="#{menuItem.name}" itemValue="#{menuItem.submenuId}"></f:selectItems>
+                        </h:selectOneMenu>
+                        <h3>Maträtt</h3>
+                
+                        <h:selectOneMenu value="#{dishBean.selectedDishId}">
+                            <f:selectItems value="#{dishBean.allDishes}" var="dishItem" itemLabel="#{dishItem.name}" itemValue="#{dishItem.dishId}"></f:selectItems>
+                        </h:selectOneMenu>
+                
+                        <h:commandButton value="Lägg till" action="#{submenuBean.addDishToSubmenu(dishBean.selectedDishId, submenuBean.selectedSubmenuId)}"/>
+                    </h:form>
+                </div>
+                
+                <div id="specialsAdd">    
                 <h:form>
-                <h3>Dag</h3>
-                <h:selectOneMenu value="#{submenuBean.selectedSubmenuId}"> 
-                    <f:selectItems value="#{submenuBean.submenusLunch}" var="menuItem" itemLabel="#{menuItem.name}" itemValue="#{menuItem.submenuId}"></f:selectItems>
+                <h:selectOneMenu value="#{submenuBean.selectedSubmenuId}" style="display: none;"> 
+                    <f:selectItems value="#{submenuBean.submenusSpecials}" var="menuItem" itemLabel="#{menuItem.name}" itemValue="#{menuItem.submenuId}"></f:selectItems>
                 </h:selectOneMenu>
+                
                 <h3>Maträtt</h3>
                 
-                <h:selectOneMenu value="#{dishBean.selectedDishId}">
+                <h:selectOneMenu value="#{dishBean.selectedDishId}" >
                     <f:selectItems value="#{dishBean.allDishes}" var="dishItem" itemLabel="#{dishItem.name}" itemValue="#{dishItem.dishId}"></f:selectItems>
                 </h:selectOneMenu>
                 
@@ -328,11 +345,10 @@
                 </h:form>
                 </div>
                 
-                <div id="specials">    
+                <div id="startersAdd">    
                 <h:form>
-                <h3>A La Carte</h3>
-                <h:selectOneMenu value="#{submenuBean.selectedSubmenuId}"> 
-                    <f:selectItems value="#{submenuBean.submenusSpecial}" var="menuItem" itemLabel="#{menuItem.name}" itemValue="#{menuItem.submenuId}"></f:selectItems>
+                <h:selectOneMenu value="#{submenuBean.selectedSubmenuId}" style="display: none;">  
+                    <f:selectItems value="#{submenuBean.submenusStarters}" var="menuItem" itemLabel="#{menuItem.name}" itemValue="#{menuItem.submenuId}"></f:selectItems>
                 </h:selectOneMenu>
                 
                 <h3>Maträtt</h3>
@@ -352,12 +368,51 @@
                 <h2>Tabort i meny</h2>                   <!--ta bort i menyn -->
                 
                 <h3>Meny</h3>
-                
                 <h:form>
-                <h:selectOneMenu value="#{submenuBean.selectedSubmenuId}">
-                    <f:selectItems value="#{submenuBean.submenusLunch}" var="menuItem" itemLabel="#{menuItem.name}" itemValue="#{menuItem.submenuId}"></f:selectItems>
+                    <h:selectOneMenu value="#{menuBean.selectedMenuId}" class="menuPickRemove">
+                        <f:selectItems value="#{menuBean.menus}" var="menuItes" itemLabel="#{menuItes.name}" itemValue="#{menuItes.menuId}"></f:selectItems>
+                    </h:selectOneMenu>
+                </h:form>
+                
+                <div id="dayRemove">    
+                    <h:form>
+                        <h3>Dag</h3>
+                        <h:selectOneMenu value="#{submenuBean.selectedSubmenuId}"> 
+                            <f:selectItems value="#{submenuBean.submenusLunch}" var="menuItem" itemLabel="#{menuItem.name}" itemValue="#{menuItem.submenuId}"></f:selectItems>
+                        </h:selectOneMenu>
+                        <h3>Maträtt</h3>
+                
+                        <h:selectOneMenu value="#{dishBean.selectedDishId}">
+                            <f:selectItems value="#{dishBean.allDishes}" var="dishItem" itemLabel="#{dishItem.name}" itemValue="#{dishItem.dishId}"></f:selectItems>
+                        </h:selectOneMenu>
+                
+                        <h:commandButton value="Ta bort" action="#{submenuBean.removeDishFromSubmenu(dishBean.selectedDishId, submenuBean.selectedSubmenuId)}"/>
+                    </h:form>
+                </div>
+                
+                
+                <div id="specialsRemove">    
+                <h:form>
+                <h:selectOneMenu value="#{submenuBean.selectedSubmenuId}" style="display: none;"> 
+                    <f:selectItems value="#{submenuBean.submenusSpecials}" var="menuItem" itemLabel="#{menuItem.name}" itemValue="#{menuItem.submenuId}"></f:selectItems>
                 </h:selectOneMenu>
-              
+                
+                <h3>Maträtt</h3>
+                
+                <h:selectOneMenu value="#{dishBean.selectedDishId}" >
+                    <f:selectItems value="#{dishBean.allDishes}" var="dishItem" itemLabel="#{dishItem.name}" itemValue="#{dishItem.dishId}"></f:selectItems>
+                </h:selectOneMenu>
+                
+                <h:commandButton value="Ta bort" action="#{submenuBean.removeDishFromSubmenu(dishBean.selectedDishId, submenuBean.selectedSubmenuId)}"/>
+                </h:form>
+                </div>
+                
+                <div id="startersRemove">    
+                <h:form>
+                <h:selectOneMenu value="#{submenuBean.selectedSubmenuId}" style="display: none;"> 
+                    <f:selectItems value="#{submenuBean.submenusStarters}" var="menuItem" itemLabel="#{menuItem.name}" itemValue="#{menuItem.submenuId}"></f:selectItems>
+                </h:selectOneMenu>
+                
                 <h3>Maträtt</h3>
                 
                 <h:selectOneMenu value="#{dishBean.selectedDishId}">
@@ -366,6 +421,9 @@
                 
                 <h:commandButton value="Ta bort" action="#{submenuBean.removeDishFromSubmenu(dishBean.selectedDishId, submenuBean.selectedSubmenuId)}"/>
                 </h:form>
+                </div>
+            
+                
                 </div>
                 </div>
                 
@@ -420,7 +478,10 @@
                 $("#lunch_menu").show();
                 $("#a_la_carte").hide();
                 $("#update").hide();
-                $("#specials").hide();
+                $("#specialsAdd").hide();
+                $("#startersAdd").hide();
+                $("#specialsRemove").hide();
+                $("#startersRemove").hide();
                 
                 $("#lunch_button").click(function(){
                     $("#a_la_carte").hide();
@@ -440,16 +501,39 @@
                     $("#lunch_menu").hide();
                 });
                 
-                $(".menuPick").change(function(){
+                $(".menuPickAdd").change(function(){
                     if(this.value === "2"){
-                        $("#specials").show();
-                        $("#day").hide();
+                        $("#specialsAdd").show();
+                        $("#dayAdd").hide();
+                        $("#startersAdd").hide();
+                        
+                    }else if(this.value === "3"){
+                        $("#specialsAdd").hide();
+                        $("#dayAdd").hide();
+                        $("#startersAdd").show();
                     }else{
-                        $("#specials").hide();
-                        $("#day").show();
+                        $("#specialsAdd").hide();
+                        $("#dayAdd").show();
+                        $("#startersAdd").hide();
                     }
                 });
                 
+                $(".menuPickRemove").change(function(){
+                    if(this.value === "2"){
+                        $("#specialsRemove").show();
+                        $("#dayRemove").hide();
+                        $("#startersRemove").hide();
+                        
+                    }else if(this.value === "3"){
+                        $("#specialsRemove").hide();
+                        $("#dayRemove").hide();
+                        $("#startersRemove").show();
+                    }else{
+                        $("#specialsRemove").hide();
+                        $("#dayRemove").show();
+                        $("#startersRemove").hide();
+                    }
+                });
                 
                 
             });

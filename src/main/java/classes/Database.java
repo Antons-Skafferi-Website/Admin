@@ -46,7 +46,9 @@ public class Database {
     
     private String getAllDishes = "SELECT * FROM APP.DISH";
     
-    private String getSpecialSubmenus = "SELECT * FROM APP.SUB_MENU WHERE SUB_MENU_ID > 5";
+    private String getStartersSubmenus = "SELECT * FROM APP.SUB_MENU WHERE SUB_MENU_ID = 6";
+    
+    private String getSpecialsSubmenus = "SELECT * FROM APP.SUB_MENU WHERE SUB_MENU_ID = 7";
     
     private String getLunchSubmenus = "SELECT * FROM APP.SUB_MENU WHERE SUB_MENU_ID < 6";
     
@@ -165,12 +167,31 @@ public class Database {
         return list;
     }
     
-    public List<Submenu> getSpecialSubmenus() {
+    public List<Submenu> getStartersSubmenus() {
         
         List<Submenu> list = new ArrayList<>();
         
         try (Connection connection = DriverManager.getConnection(dbURL, user, pw);
-             PreparedStatement statement = connection.prepareCall(getSpecialSubmenus);
+             PreparedStatement statement = connection.prepareCall(getStartersSubmenus);
+        ){
+            ResultSet rs = statement.executeQuery();
+            
+            while(rs.next()) 
+                list.add(new Submenu(rs.getLong(1), rs.getString(2)));
+            
+        }catch(SQLException e) {
+            e.printStackTrace();
+        }
+        
+        return list;
+    }
+    
+    public List<Submenu> getSpecialsSubmenus() {
+        
+        List<Submenu> list = new ArrayList<>();
+        
+        try (Connection connection = DriverManager.getConnection(dbURL, user, pw);
+             PreparedStatement statement = connection.prepareCall(getSpecialsSubmenus);
         ){
             ResultSet rs = statement.executeQuery();
             
