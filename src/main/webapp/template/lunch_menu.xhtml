@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
 
     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -302,20 +303,21 @@
                 </h:form>
                 <div class="add_remove">
                 <div>
-                <h2>Lägg till i meny</h2>
+                <h2>Lägg till i meny</h2>                        <!--lägg till i menyn -->
                 
                 <h3>Meny</h3>
                 
                 <h:form>
-                    <h:selectOneMenu value="#{menuBean.selectedMenuId}">
-                        <f:selectItems value="#{menuBean.menus}" var="menuItes" itemLabel="#{menuItes.name}" itemValue="#{menuItes.menuId}"></f:selectItems>
+                <h:selectOneMenu value="#{menuBean.selectedMenuId}" class="menuPick">
+                    <f:selectItems value="#{menuBean.menus}" var="menuItes" itemLabel="#{menuItes.name}" itemValue="#{menuItes.menuId}"></f:selectItems>
                 </h:selectOneMenu>
-                    
+                </h:form>
+                <div id="day">    
+                <h:form>
                 <h3>Dag</h3>
                 <h:selectOneMenu value="#{submenuBean.selectedSubmenuId}"> 
                     <f:selectItems value="#{submenuBean.submenusLunch}" var="menuItem" itemLabel="#{menuItem.name}" itemValue="#{menuItem.submenuId}"></f:selectItems>
                 </h:selectOneMenu>
-              
                 <h3>Maträtt</h3>
                 
                 <h:selectOneMenu value="#{dishBean.selectedDishId}">
@@ -324,10 +326,30 @@
                 
                 <h:commandButton value="Lägg till" action="#{submenuBean.addDishToSubmenu(dishBean.selectedDishId, submenuBean.selectedSubmenuId)}"/>
                 </h:form>
+                </div>
+                
+                <div id="specials">    
+                <h:form>
+                <h3>A La Carte</h3>
+                <h:selectOneMenu value="#{submenuBean.selectedSubmenuId}"> 
+                    <f:selectItems value="#{submenuBean.submenusSpecial}" var="menuItem" itemLabel="#{menuItem.name}" itemValue="#{menuItem.submenuId}"></f:selectItems>
+                </h:selectOneMenu>
+                
+                <h3>Maträtt</h3>
+                
+                <h:selectOneMenu value="#{dishBean.selectedDishId}">
+                    <f:selectItems value="#{dishBean.allDishes}" var="dishItem" itemLabel="#{dishItem.name}" itemValue="#{dishItem.dishId}"></f:selectItems>
+                </h:selectOneMenu>
+                
+                <h:commandButton value="Lägg till" action="#{submenuBean.addDishToSubmenu(dishBean.selectedDishId, submenuBean.selectedSubmenuId)}"/>
+                </h:form>
+                </div>
+                
                 
                 </div>
                 <div>
-                <h2>Tabort i meny</h2>
+                    
+                <h2>Tabort i meny</h2>                   <!--ta bort i menyn -->
                 
                 <h3>Meny</h3>
                 
@@ -365,6 +387,8 @@
             
             $(document).ready(function() {
                 
+               
+                
                 function showTodaysLunch() {
                     
                     //Mon-Fre
@@ -396,6 +420,7 @@
                 $("#lunch_menu").show();
                 $("#a_la_carte").hide();
                 $("#update").hide();
+                $("#specials").hide();
                 
                 $("#lunch_button").click(function(){
                     $("#a_la_carte").hide();
@@ -414,6 +439,18 @@
                     $("#update").hide();
                     $("#lunch_menu").hide();
                 });
+                
+                $(".menuPick").change(function(){
+                    if(this.value === "2"){
+                        $("#specials").show();
+                        $("#day").hide();
+                    }else{
+                        $("#specials").hide();
+                        $("#day").show();
+                    }
+                });
+                
+                
                 
             });
  

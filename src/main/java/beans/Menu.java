@@ -36,6 +36,7 @@ public class Menu implements Serializable {
     public String getName() {
         return name;
     }
+    
 
     public long getMenuId() {
         return menuId;
