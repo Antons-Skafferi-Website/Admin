@@ -23,6 +23,7 @@ public class Dish implements Serializable {
     private String name;
     private String description;
     private double price;
+    private long menuId;
     
     private long selectedDishId;
     
@@ -30,15 +31,21 @@ public class Dish implements Serializable {
     
     public Dish() {}
     
-    public Dish(long dishId, String name, String description, double price) {
+    public Dish(long dishId, String name, String description, double price, long menuId) {
         this.dishId = dishId;
         this.name = name;
         this.description = description;
         this.price = price;
+        this.menuId = menuId;
     }
+    
     
     public String getName() {
         return name;
+    }
+    
+    public long getMenuId() {
+        return menuId;
     }
 
     public String getDescription() {
@@ -73,8 +80,12 @@ public class Dish implements Serializable {
         this.price = price;
     }
     
+    public void setMenuId(long menuId) {
+        this.menuId = menuId;
+    }
+    
     public void addNewDish() {
-        new Database().addNewDish(name, description, price);
+        new Database().addNewDish(name, description, price, menuId);
     }
     
     public void removeDish() {
@@ -85,4 +96,19 @@ public class Dish implements Serializable {
         return connection.getAllDishes();
     }
     
+    public List<Dish> getLunchDishes() {
+        return connection.getLunchDishes();
+    }
+    
+    public List<Dish> getSpecialDishes() {
+        return connection.getSpecialDishes();
+    }
+    
+    public List<Dish> getStarterDishes() {
+        return connection.getStarterDishes();
+    }
+    
+    public List<Dish> getDessertDishes() {
+        return connection.getDessertDishes();
+    }
 }

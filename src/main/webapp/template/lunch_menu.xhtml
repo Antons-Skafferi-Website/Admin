@@ -296,6 +296,11 @@
                             <td><h:outputText value="Pris:"/></td>
                             <td><h:inputText value="#{dishBean.price}"/></td>
                         </tr>
+                        <tr>
+                            <h:selectOneMenu value="#{dishBean.menuId}">
+                                <f:selectItems value="#{menuBean.menus}" var="menuItes" itemLabel="#{menuItes.name}" itemValue="#{menuItes.menuId}"></f:selectItems>
+                            </h:selectOneMenu>
+                        </tr>
                         <td><h:commandButton value="Lägg till" action="#{dishBean.addNewDish()}"/></td>
                                 
                     </table>
@@ -322,7 +327,7 @@
                         <h3>Maträtt</h3>
                 
                         <h:selectOneMenu value="#{dishBean.selectedDishId}">
-                            <f:selectItems value="#{dishBean.allDishes}" var="dishItem" itemLabel="#{dishItem.name}" itemValue="#{dishItem.dishId}"></f:selectItems>
+                            <f:selectItems value="#{dishBean.lunchDishes}" var="dishItem" itemLabel="#{dishItem.name}" itemValue="#{dishItem.dishId}"></f:selectItems>
                         </h:selectOneMenu>
                 
                         <h:commandButton value="Lägg till" action="#{submenuBean.addDishToSubmenu(dishBean.selectedDishId, submenuBean.selectedSubmenuId)}"/>
@@ -338,7 +343,7 @@
                 <h3>Maträtt</h3>
                 
                 <h:selectOneMenu value="#{dishBean.selectedDishId}" >
-                    <f:selectItems value="#{dishBean.allDishes}" var="dishItem" itemLabel="#{dishItem.name}" itemValue="#{dishItem.dishId}"></f:selectItems>
+                    <f:selectItems value="#{dishBean.specialDishes}" var="dishItem" itemLabel="#{dishItem.name}" itemValue="#{dishItem.dishId}"></f:selectItems>
                 </h:selectOneMenu>
                 
                 <h:commandButton value="Lägg till" action="#{submenuBean.addDishToSubmenu(dishBean.selectedDishId, submenuBean.selectedSubmenuId)}"/>
@@ -354,7 +359,23 @@
                 <h3>Maträtt</h3>
                 
                 <h:selectOneMenu value="#{dishBean.selectedDishId}">
-                    <f:selectItems value="#{dishBean.allDishes}" var="dishItem" itemLabel="#{dishItem.name}" itemValue="#{dishItem.dishId}"></f:selectItems>
+                    <f:selectItems value="#{dishBean.starterDishes}" var="dishItem" itemLabel="#{dishItem.name}" itemValue="#{dishItem.dishId}"></f:selectItems>
+                </h:selectOneMenu>
+                
+                <h:commandButton value="Lägg till" action="#{submenuBean.addDishToSubmenu(dishBean.selectedDishId, submenuBean.selectedSubmenuId)}"/>
+                </h:form>
+                </div>
+                
+                <div id="dessertAdd">    
+                <h:form>
+                <h:selectOneMenu value="#{submenuBean.selectedSubmenuId}" style="display: none;">  
+                    <f:selectItems value="#{submenuBean.submenusDessert}" var="menuItem" itemLabel="#{menuItem.name}" itemValue="#{menuItem.submenuId}"></f:selectItems>
+                </h:selectOneMenu>
+                
+                <h3>Maträtt</h3>
+                
+                <h:selectOneMenu value="#{dishBean.selectedDishId}">
+                    <f:selectItems value="#{dishBean.dessertDishes}" var="dishItem" itemLabel="#{dishItem.name}" itemValue="#{dishItem.dishId}"></f:selectItems>
                 </h:selectOneMenu>
                 
                 <h:commandButton value="Lägg till" action="#{submenuBean.addDishToSubmenu(dishBean.selectedDishId, submenuBean.selectedSubmenuId)}"/>
@@ -383,7 +404,7 @@
                         <h3>Maträtt</h3>
                 
                         <h:selectOneMenu value="#{dishBean.selectedDishId}">
-                            <f:selectItems value="#{dishBean.allDishes}" var="dishItem" itemLabel="#{dishItem.name}" itemValue="#{dishItem.dishId}"></f:selectItems>
+                            <f:selectItems value="#{dishBean.lunchDishes}" var="dishItem" itemLabel="#{dishItem.name}" itemValue="#{dishItem.dishId}"></f:selectItems>
                         </h:selectOneMenu>
                 
                         <h:commandButton value="Ta bort" action="#{submenuBean.removeDishFromSubmenu(dishBean.selectedDishId, submenuBean.selectedSubmenuId)}"/>
@@ -400,7 +421,7 @@
                 <h3>Maträtt</h3>
                 
                 <h:selectOneMenu value="#{dishBean.selectedDishId}" >
-                    <f:selectItems value="#{dishBean.allDishes}" var="dishItem" itemLabel="#{dishItem.name}" itemValue="#{dishItem.dishId}"></f:selectItems>
+                    <f:selectItems value="#{dishBean.specialDishes}" var="dishItem" itemLabel="#{dishItem.name}" itemValue="#{dishItem.dishId}"></f:selectItems>
                 </h:selectOneMenu>
                 
                 <h:commandButton value="Ta bort" action="#{submenuBean.removeDishFromSubmenu(dishBean.selectedDishId, submenuBean.selectedSubmenuId)}"/>
@@ -416,7 +437,23 @@
                 <h3>Maträtt</h3>
                 
                 <h:selectOneMenu value="#{dishBean.selectedDishId}">
-                    <f:selectItems value="#{dishBean.allDishes}" var="dishItem" itemLabel="#{dishItem.name}" itemValue="#{dishItem.dishId}"></f:selectItems>
+                    <f:selectItems value="#{dishBean.starterDishes}" var="dishItem" itemLabel="#{dishItem.name}" itemValue="#{dishItem.dishId}"></f:selectItems>
+                </h:selectOneMenu>
+                
+                <h:commandButton value="Ta bort" action="#{submenuBean.removeDishFromSubmenu(dishBean.selectedDishId, submenuBean.selectedSubmenuId)}"/>
+                </h:form>
+                </div>
+                
+                <div id="dessertRemove">    
+                <h:form>
+                <h:selectOneMenu value="#{submenuBean.selectedSubmenuId}" style="display: none;"> 
+                    <f:selectItems value="#{submenuBean.submenusDessert}" var="menuItem" itemLabel="#{menuItem.name}" itemValue="#{menuItem.submenuId}"></f:selectItems>
+                </h:selectOneMenu>
+                
+                <h3>Maträtt</h3>
+                
+                <h:selectOneMenu value="#{dishBean.selectedDishId}">
+                    <f:selectItems value="#{dishBean.dessertDishes}" var="dishItem" itemLabel="#{dishItem.name}" itemValue="#{dishItem.dishId}"></f:selectItems>
                 </h:selectOneMenu>
                 
                 <h:commandButton value="Ta bort" action="#{submenuBean.removeDishFromSubmenu(dishBean.selectedDishId, submenuBean.selectedSubmenuId)}"/>
@@ -480,8 +517,11 @@
                 $("#update").hide();
                 $("#specialsAdd").hide();
                 $("#startersAdd").hide();
+                $("#dessertAdd").hide();
                 $("#specialsRemove").hide();
                 $("#startersRemove").hide();
+                $("#dessertRemove").hide();
+                
                 
                 $("#lunch_button").click(function(){
                     $("#a_la_carte").hide();
@@ -506,15 +546,22 @@
                         $("#specialsAdd").show();
                         $("#dayAdd").hide();
                         $("#startersAdd").hide();
-                        
+                        $("#dessertAdd").hide(); 
                     }else if(this.value === "3"){
                         $("#specialsAdd").hide();
                         $("#dayAdd").hide();
                         $("#startersAdd").show();
+                        $("#dessertAdd").hide();
+                    }else if(this.value === "4"){
+                        $("#dessertAdd").show();
+                        $("#specialsAdd").hide();
+                        $("#dayAdd").hide();
+                        $("#startersAdd").hide();
                     }else{
                         $("#specialsAdd").hide();
                         $("#dayAdd").show();
                         $("#startersAdd").hide();
+                        $("#dessertAdd").hide();
                     }
                 });
                 
@@ -523,15 +570,22 @@
                         $("#specialsRemove").show();
                         $("#dayRemove").hide();
                         $("#startersRemove").hide();
-                        
+                        $("#dessertRemove").hide();
                     }else if(this.value === "3"){
                         $("#specialsRemove").hide();
                         $("#dayRemove").hide();
                         $("#startersRemove").show();
+                        $("#dessertRemove").hide();
+                    }else if(this.value === "4"){
+                        $("#specialsRemove").hide();
+                        $("#dayRemove").hide();
+                        $("#startersRemove").hide();
+                        $("#dessertRemove").show();
                     }else{
                         $("#specialsRemove").hide();
                         $("#dayRemove").show();
                         $("#startersRemove").hide();
+                        $("#dessertRemove").hide();
                     }
                 });
                 
