@@ -20,7 +20,7 @@
         <div id="menu_bar" class="topnav">
             <ul id="header_menu">
                 <li><a id="lunch_button">DAGENS LUNCH</a></li>
-                <li><a id="carte_button">Á LA CARTE</a></li>
+                <li><a id="carte_button">MENYER</a></li>
                 <li><a id="update_button">UPPDATERA</a></li>
             </ul>
         </div>
@@ -28,6 +28,8 @@
         <div class="foodContent">
             
         <!--Lunch menu tab-->
+        
+            
         <div id="lunch_menu" class="sub_menu">
             
             <h1>Lunchmeny för veckan</h1>
@@ -101,15 +103,17 @@
             
                 
             </div>
-   
+            
         </div>
+            
+        
         
         
         
         <!--Á la carte menu tab-->
-        <div id="a_la_carte" class="sub_menu">
+        <div id="a_la_carte" class="sub_menu2">
                 
-            <h1>Á la carte</h1>
+            <h1>Menyer</h1>
             
             <div class="dish_list in_line">
                 <h2>Förrätt</h2>
@@ -126,7 +130,7 @@
             </div>
             
             <div class="dish_list in_line">
-                <h2>Från grillen</h2>
+                <h2>Á La Carte</h2>
                     <ul>
                         <h:dataTable value="#{alacarteBean.mainDishes}" var="dish">
                             <h:column>
@@ -139,18 +143,28 @@
                     </ul>
             </div>
             
-            <div>
-                
+            <div class="dish_list in_line">
+                <h2>Efterrätt</h2>
+                    <ul>
+                        <h:dataTable value="#{alacarteBean.desserts}" var="dish">
+                            <h:column>
+                                <div class="dish_item">
+                                <h3>#{dish.name}</h3>   
+                                <p>#{dish.description}   #{dish.price}:-</p>
+                                </div>
+                            </h:column>
+                        </h:dataTable>
+                    </ul>
             </div>
                                 
         </div>
         
         
-        
+      
         
         <!--Update menu tab-->
         <div id="update" class="update_menu">
-            
+            <div class="food_update_menu">
             <!--Lunch menu update section-->
             <div >
 
@@ -237,7 +251,7 @@
             <!--Á la carte menu update section-->
             <div class="foodType">
 
-                <h1>Á la carte</h1>
+                <h1>Menyer</h1>
             
                 <div class="dish_list in_line">
                     <h2>Förrätt</h2>
@@ -256,7 +270,7 @@
                 </div>
 
                 <div class="dish_list in_line">
-                    <h2>Huvudrätt</h2>
+                    <h2>Á La Carte</h2>
                     <div>
                         <h:form>
                             <h:dataTable value="#{alacarteBean.mainDishes}" var="dish">
@@ -271,13 +285,30 @@
                     </div>
                 </div>
                 
+                <div class="dish_list in_line">
+                    <h2>Efterrätt</h2>
+                    <div>
+                        <h:form>
+                            <h:dataTable value="#{alacarteBean.desserts}" var="dish">
+                            <h:column>
+                                <div class="food_item">
+                                    <h3>#{dish.name}</h3>
+                                    <p>#{dish.description}</p>
+                                </div>
+                            </h:column>
+                        </h:dataTable>
+                        </h:form>
+                    </div>
+                </div>
+                
+            </div>
             </div>
             
             
             <!--Add new dish section-->
-            <div class="foodType">
+            <div class="foodType2">
                 
-            <h1>Uppdatera menyér</h1>
+            <h1>Uppdatera Menyer</h1>
             <h2>Lägg till nya rätter</h2>
 
             <div class="dish_input">

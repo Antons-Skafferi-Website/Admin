@@ -310,19 +310,34 @@ input {
     width: auto;
     height: auto;
 }
+.sub_menu2 div{
+    margin-left: 5%;
+    margin-right: 5%;
+    
+}
 .dish_item{
     text-align: left;
 }
-.update_menu{
-    display: flex;
 
-    
+food_update_menu{
+    display: inline;
 }
-.foodType {
-    padding-left: 10%;
-    
-    
+
+.update_menu{
+    margin-left: 10%;
+    display: flex;
 }
+
+.foodType2 {
+    margin-left: 20%;
+}
+
+.foodType div{
+    text-align: center;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
 .foodContent {
     background-color: #2F5234;
     background: rgba(47, 82, 52, 0.98);
@@ -338,19 +353,18 @@ input {
     border: 5px double;
     border-color: white;
 }
+
 .in_line {
     display: inline-block;
 }
+
 .add_remove{
     display: flex;
-    margin-left: -10em;
 }
+
 .add_remove div{
     padding: 5%;
 }
-
-
-
 
 #top a:link, #top a:visited {
   color: white;
