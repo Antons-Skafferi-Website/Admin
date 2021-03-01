@@ -16,6 +16,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.ArrayDeque;
+import java.util.Deque;
 import java.util.List;
 
 /**
@@ -64,10 +66,108 @@ public class Database {
     
     private String getMenus = "SELECT * FROM APP.MENU";
     
+    private String getReservationTimeCount
+            = "SELECT RESERVATION_TIME, SUM(CUSTOMER_COUNT) FROM APP.RESERVATION "
+            + "WHERE RESERVATION_DATE = ? "
+            + "GROUP BY RESERVATION_TIME";
+
+    private String getComments
+            = "SELECT DISTINCT RESERVATION_TIME, CUSTOMER_NAME, COMMENT FROM APP.RESERVATION "
+            + "WHERE RESERVATION_DATE = ? AND COMMENT IS NOT NULL "
+            + "ORDER BY RESERVATION_TIME";
+
+    private String getCustomerCount
+            = "SELECT SUM(CUSTOMER_COUNT) FROM APP.RESERVATION "
+            + "WHERE RESERVATION_DATE = ? ";
+    
     public Database() {
         this.dbURL = "jdbc:derby://localhost:1527/AntonsSkafferi";
         this.user = "anton";
         this.pw = "anton";
+    }
+    
+    public List<DayBooking> getReservations(String date) {
+
+        List<DayBooking> list = new ArrayList<>();
+
+        try (Connection connection = DriverManager.getConnection(dbURL, user, pw);
+                PreparedStatement statementA = connection.prepareCall(getReservationTimeCount);
+                PreparedStatement statementB = connection.prepareCall(getComments);) {
+
+            statementA.setString(1, date);
+            statementB.setString(1, date);
+
+            ResultSet reservationsResult = statementA.executeQuery();
+            ResultSet commentsResult = statementB.executeQuery();
+
+            //Class to hold data temporary
+            class Row {
+                
+                String time;
+                String name;
+                String comment;
+
+                Row(String time, String name, String comment) {
+                    this.time = time;
+                    this.name = name;
+                    this.comment = comment;
+                }
+            }
+
+            Deque<Row> comments = new ArrayDeque<>();
+
+            //Fill stack with comments
+            while (commentsResult.next())
+                comments.add(new Row(commentsResult.getString(1), commentsResult.getString(2), commentsResult.getString(3)));
+            
+            //Fill list with bookings and comments
+            while (reservationsResult.next()) {
+
+                String time = reservationsResult.getString(1);
+                List<String> commentList = new ArrayList<>();
+
+                //Fill with comments
+                while (!comments.isEmpty()) {
+                    
+                    //Add right comment to right time
+                    if (time.equals(comments.peekFirst().time)) {
+                        Row row = comments.removeFirst();
+                        commentList.add(row.comment + " - " + row.name);
+                    } else {
+                        break;
+                    }
+                }
+                list.add(new DayBooking(time, reservationsResult.getInt(2), commentList));
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        
+        return list;
+    }
+
+    public int getCustomerCount(String date) {
+
+        int count = -1;
+        
+        try (Connection connection = DriverManager.getConnection(dbURL, user, pw);
+                PreparedStatement statement = connection.prepareCall(getCustomerCount);) {
+            
+            
+            
+            statement.setString(1, date);
+            ResultSet rs = statement.executeQuery();
+
+            if (rs.next()) {
+                count = rs.getInt(1);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return count;
     }
 
     public List<Dish> getSubMenu(long menuId) {

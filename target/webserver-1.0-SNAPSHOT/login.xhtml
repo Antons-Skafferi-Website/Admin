@@ -18,14 +18,25 @@
             
             <ui:define name="content">
                 
-                <div id="login">    
-                <h2>Login</h2>
-                <form method="post">
-                    <input type="text" name="u" placeholder="Username" required="required" />
-                    <input type="password" name="p" placeholder="Password" required="required" />
-                    <button type="submit" class="btn-primary">Logga in</button>
-                </form>   
-                </div>    
+                <div id="login">
+                    <h:form>
+                    <h3>Logga in</h3>
+                    <h:outputText value="Användarnamn" />
+                    <h:inputText id="username" value="#{login.user}"></h:inputText>
+                    <h:message for="username"></h:message>
+                    <br></br><br></br>
+
+                    <h:outputText value="Lösenord" />
+                    <h:inputSecret id="password" value="#{login.pwd}"></h:inputSecret>
+                    <h:message for="password"></h:message>
+                    <br></br><br></br>
+
+                    <h:commandButton action="#{login.validateUsernamePassword}"
+                            value="Logga in"></h:commandButton>
+                    <h:messages globalOnly="true" layout="table" />
+
+                    </h:form>
+                </div>
 
             </ui:define>
             

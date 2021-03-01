@@ -2,24 +2,153 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
-    
-    <body>
-        <ui:composition>
-    
-            <h1>This is default content</h1>
-            <div>
-                <p>
-                    Test
-                    test
-                    test
-                    test
-                    test
-                </p>
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <h:outputStylesheet name="/css/default.css"/>
+        <h:outputStylesheet name="/css/cssLayout.css"/>
+        <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+        <title>Boka Bord</title>
+    </h:head>
+
+    <h:body>
+
+        <div class="bookContent">
+
+            <div id="book">
+                <h1>Veckans bokningar</h1>
+
+                <div id="mon" class="booking_list in_line">
+                    <h2>Måndag</h2>
+                    <h3>Kunder totalt: #{bookingBean.mondayCustomerCount}</h3>
+                    <h:dataTable value="#{bookingBean.mondayReservations}" var="res">
+                        <h:column>
+                            <div class="booking_item">
+                                <h4>#{res.reservationTime} - Kunder: #{res.customerCount}</h4>
+                                <h:dataTable value="#{res.comments}" var="comment">
+                                    <h:column><p>#{comment}</p></h:column>
+                                </h:dataTable>
+                            </div>
+                        </h:column>
+                    </h:dataTable>
+                </div>
                 
+                <div id="tue" class="booking_list in_line">
+                    <h2>Tisdag</h2>
+                    <h3>Kunder totalt: #{bookingBean.tuesdayCustomerCount}</h3>
+                    <h:dataTable value="#{bookingBean.tuesdayReservations}" var="res">
+                        <h:column>
+                            <div class="booking_item">
+                                <h4>#{res.reservationTime} - Kunder: #{res.customerCount}</h4>
+                                <h:dataTable value="#{res.comments}" var="comment">
+                                    <h:column><p>#{comment}</p></h:column>
+                                </h:dataTable>
+                            </div>
+                        </h:column>
+                    </h:dataTable>
+                </div>
+                
+                <div id="wed" class="booking_list in_line">
+                    <h2>Onsdag</h2>
+                    <h3>Kunder totalt: #{bookingBean.wednesdayCustomerCount}</h3>
+                    <h:dataTable value="#{bookingBean.wednesdayReservations}" var="res">
+                        <h:column>
+                            <div class="booking_item">
+                                <h4>#{res.reservationTime} - Kunder: #{res.customerCount}</h4>
+                                <h:dataTable value="#{res.comments}" var="comment">
+                                    <h:column><p>#{comment}</p></h:column>
+                                </h:dataTable>
+                            </div>
+                        </h:column>
+                    </h:dataTable>
+                </div>
+                
+                <div id="thr" class="booking_list in_line">
+                    <h2>Torsdag</h2>
+                    <h3>Kunder totalt: #{bookingBean.thursdayCustomerCount}</h3>
+                    <h:dataTable value="#{bookingBean.thursdayeservations}" var="res">
+                        <h:column>
+                            <div class="booking_item">
+                                <h4>#{res.reservationTime} - Kunder: #{res.customerCount}</h4>
+                                <h:dataTable value="#{res.comments}" var="comment">
+                                    <h:column><p>#{comment}</p></h:column>
+                                </h:dataTable>
+                            </div>
+                        </h:column>
+                    </h:dataTable>
+                </div>
+                
+                <div id="fri" class="booking_list in_line">
+                    <h2>Fredag</h2>
+                    <h3>Kunder totalt: #{bookingBean.fridayCustomerCount}</h3>
+                    <h:dataTable value="#{bookingBean.fridayReservations}" var="res">
+                        <h:column>
+                            <div class="booking_item">
+                                <h4>#{res.reservationTime} - Kunder: #{res.customerCount}</h4>
+                                <h:dataTable value="#{res.comments}" var="comment">
+                                    <h:column><p>#{comment}</p></h:column>
+                                </h:dataTable>
+                            </div>
+                        </h:column>
+                    </h:dataTable>
+                </div>
+       
+               
+
+             
+
             </div>
-                
-        </ui:composition>
-    </body>
+
+        </div>
+
+        <script>
+
+            $(document).ready(function () {
+
+                $("#mon").show();
+                $("#tue").show();
+                $("#wed").show();
+                $("#thr").show();
+                $("#fri").show();
+
+                //Mon-Fre
+                switch (new Date().getDay()) {
+
+                    case 1:
+                        $("#mon").show();
+                        $("#tue").show();
+                        $("#wed").show();
+                        break;
+                    case 2:
+                        $("#mon").hide();
+                        $("#tue").show();
+                        $("#wed").show();
+                        break;
+                    case 3:
+                        $("#mon").hide();
+                        $("#tue").show();
+                        $("#wed").show();
+                        break;
+                    case 4:
+
+                        break;
+                    case 5:
+
+                        break;
+                    default:
+
+                }
+
+
+
+            });
+
+        </script>
+
+
+    </h:body>
 
 </html>
