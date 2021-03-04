@@ -35,13 +35,13 @@ public class Booking implements Serializable {
     
     public Booking() {}
     
-    public Booking(String name, String email, int customerCount, String date, String time, String comment) {
+    public Booking(String name, String email, int customerCount, String date, String time, String comment, String phone) {
         this.name = name;
         this.email = email;
         this.customerCount = customerCount;
         this.date = date;
         this.time = time;
-        this.phone = "073-8282122";
+        this.phone = phone;
         
         if(comment == null)
             this.comment = "Inga önskemål";
