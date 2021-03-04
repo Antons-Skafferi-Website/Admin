@@ -11,7 +11,9 @@ classes\Database.class
 login\LoginDAO.class
 beans\Menu.class
 login\DataConnect.class
+beans\EventsBean.class
 com\antonsskafferi\webserver\resources\JavaEE8Resource.class
+classes\Events.class
 classes\DayBooking.class
 beans\Dish.class
 login\Login.class

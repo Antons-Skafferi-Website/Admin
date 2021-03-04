@@ -1,0 +1,247 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <h:outputStylesheet name="/css/default.css"/>
+        <h:outputStylesheet name="/css/cssLayout.css"/>
+        <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+        <title>Facelets Template</title>
+    </h:head>
+
+    <h:body>
+        
+        <!--Sub menu-->
+        <div id="menu_bar" class="topnav">
+            <ul id="header_menu">
+                <li><a id="lunch_button">EVANEMANG</a></li>
+                <li><a id="update_button">UPPDATERA</a></li>
+            </ul>
+        </div>
+        
+        <div class="foodContent">
+            
+        <!--Lunch menu tab-->
+        
+            
+        <div id="events" class="sub_menu">
+            
+            <h1>Evanemang</h1>
+            
+            <div>
+                <div class="events_list in_line">
+                    <ul>
+                        <h:dataTable value="#{eventsBean.events}" var="event">
+                            <h:column>
+                                <div class="eventItem">
+                                    <h2>#{event.eventName}</h2>   
+                                    <h3>#{event.eventDate}, #{event.eventTime}</h3>
+                                    <p>#{event.description}</p>
+                                </div>
+                            </h:column>
+                        </h:dataTable>
+                    </ul>
+                </div>
+            
+                
+            </div>
+            
+        </div>
+        
+        
+      
+        
+        <!--Update menu tab-->
+        <div id="update" class="update_menu">
+            
+            
+            <!--Add new dish section-->
+            <div class="foodType2">
+                
+            <h1>Lägg Till Evanemang</h1>
+
+            <div class="dish_input">
+                
+                <h:form>
+                    <table> 
+                        <tr>
+                            <td><h:outputText value="Namn:"/></td>
+                            <td><h:inputText value="#{eventsBean.name}"/></td>
+                        </tr>
+                        <tr>
+                            <td><h:outputText value="Beskrivning:"/></td>
+                            <td><h:inputText value="#{eventsBean.description}"/></td>
+                        </tr>
+                        <tr>
+                            <td><h:outputText value="Datum (YY/MM/DD):"/></td>
+                            <td><h:inputText value="#{eventsBean.year}"/><h:inputText value="#{eventsBean.month}"/><h:inputText value="#{eventsBean.day}"/></td>
+                        </tr>
+                        <tr>
+                            <td><h:outputText value="Tid (HH:MM):"/></td>
+                            <td><h:inputText value="#{eventsBean.hour}"/><h:inputText value="#{eventsBean.minute}"/></td>
+                        </tr>
+                        <td><h:commandButton value="Lägg till" action="#{eventsBean.addNewEvent()}"/></td>
+                                
+                    </table>
+                    
+                </h:form>
+                <div class="add_remove">
+                
+                <div>
+                    
+                <h2>Ta bort Evanemang</h2>                   <!--ta bort evanemang-->
+                
+                
+                <div id="dayRemove">
+                    <h:form>
+                        <h3>Evanemang</h3>
+                        <h:selectOneMenu value="#{eventsBean.selectedEventId}">
+                            <f:selectItems value="#{eventsBean.events}" var="eventItem" itemLabel="#{eventItem.eventName}" itemValue="#{eventItem.eventId}"></f:selectItems>
+                        </h:selectOneMenu>
+                
+                        <h:commandButton value="Ta bort" action="#{eventsBean.removeEvent(eventsBean.selectedEventId)}"/>
+                    </h:form>
+                </div>
+            
+                
+                </div>
+                </div>
+                
+            </div>
+            </div>
+
+        
+        </div>
+        
+        
+        
+        </div>
+        
+        
+        
+        
+        
+        <script>
+            
+            $(document).ready(function() {
+                
+               
+                
+                function showTodaysLunch() {
+                    
+                    //Mon-Fre
+                    switch(new Date().getDay()) {
+                        
+                        case 1:
+                          
+                          break;
+                        case 2:
+                          
+                          break;
+                        case 3:
+                          
+                          break;
+                        case 4:
+                          
+                          break;
+                        case 5:
+                          
+                          break;
+                        default:
+                          
+                      }
+                    
+                }
+                
+                showTodaysLunch();
+                
+                $("#lunch_menu").show();
+                $("#a_la_carte").hide();
+                $("#update").hide();
+                $("#specialsAdd").hide();
+                $("#startersAdd").hide();
+                $("#dessertAdd").hide();
+                $("#specialsRemove").hide();
+                $("#startersRemove").hide();
+                $("#dessertRemove").hide();
+                
+                
+                $("#lunch_button").click(function(){
+                    $("#a_la_carte").hide();
+                    $("#update").hide();
+                    $("#lunch_menu").show();
+                });
+                
+                $("#update_button").click(function(){
+                    $("#a_la_carte").hide();
+                    $("#update").show();
+                    $("#lunch_menu").hide();
+                });
+                
+                $("#carte_button").click(function(){
+                    $("#a_la_carte").show();
+                    $("#update").hide();
+                    $("#lunch_menu").hide();
+                });
+                
+                $(".menuPickAdd").change(function(){
+                    if(this.value === "2"){
+                        $("#specialsAdd").show();
+                        $("#dayAdd").hide();
+                        $("#startersAdd").hide();
+                        $("#dessertAdd").hide(); 
+                    }else if(this.value === "3"){
+                        $("#specialsAdd").hide();
+                        $("#dayAdd").hide();
+                        $("#startersAdd").show();
+                        $("#dessertAdd").hide();
+                    }else if(this.value === "4"){
+                        $("#dessertAdd").show();
+                        $("#specialsAdd").hide();
+                        $("#dayAdd").hide();
+                        $("#startersAdd").hide();
+                    }else{
+                        $("#specialsAdd").hide();
+                        $("#dayAdd").show();
+                        $("#startersAdd").hide();
+                        $("#dessertAdd").hide();
+                    }
+                });
+                
+                $(".menuPickRemove").change(function(){
+                    if(this.value === "2"){
+                        $("#specialsRemove").show();
+                        $("#dayRemove").hide();
+                        $("#startersRemove").hide();
+                        $("#dessertRemove").hide();
+                    }else if(this.value === "3"){
+                        $("#specialsRemove").hide();
+                        $("#dayRemove").hide();
+                        $("#startersRemove").show();
+                        $("#dessertRemove").hide();
+                    }else if(this.value === "4"){
+                        $("#specialsRemove").hide();
+                        $("#dayRemove").hide();
+                        $("#startersRemove").hide();
+                        $("#dessertRemove").show();
+                    }else{
+                        $("#specialsRemove").hide();
+                        $("#dayRemove").show();
+                        $("#startersRemove").hide();
+                        $("#dessertRemove").hide();
+                    }
+                });
+                
+                
+            });
+ 
+        </script>
+        
+    </h:body>
+
+</html>

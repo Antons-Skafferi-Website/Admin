@@ -9,12 +9,16 @@ package classes;
 import beans.Dish;
 import beans.Menu;
 import beans.Submenu;
+import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Time;
 import java.util.ArrayList;
 import java.util.ArrayDeque;
 import java.util.Deque;
@@ -79,6 +83,15 @@ public class Database {
     private String getCustomerCount
             = "SELECT SUM(CUSTOMER_COUNT) FROM APP.RESERVATION "
             + "WHERE RESERVATION_DATE = ? ";
+    
+    private String getEvents
+            = "SELECT EVENT_ID, EVENT_NAME, EVENT_DESC, EVENT_DATE, EVENT_TIME FROM APP.EVENTS ";
+    
+    
+    private String addNewEvent = 
+    "INSERT INTO APP.EVENTS (EVENT_NAME, EVENT_DESC, EVENT_DATE, EVENT_TIME) " +
+    "VALUES (?, ?, ?, ?)";
+    
     
     public Database() {
         this.dbURL = "jdbc:derby://localhost:1527/AntonsSkafferi";
@@ -147,6 +160,55 @@ public class Database {
         return list;
     }
 
+    
+    public List<Events> getEvents(String date) {
+
+        List<Events> list = new ArrayList<>();
+
+        try (Connection connection = DriverManager.getConnection(dbURL, user, pw);
+                PreparedStatement statement = connection.prepareCall(getEvents);) {
+
+           // statement.setString(1, date);
+
+            ResultSet eventsResult = statement.executeQuery();
+
+
+            //Fill list with bookings and comments
+            while (eventsResult.next()) {
+                list.add(new Events(eventsResult.getLong(1),eventsResult.getString(2), eventsResult.getString(3),eventsResult.getDate(4).toString(),eventsResult.getTime(5).toString()));
+            }
+
+        } catch (SQLException e) {
+            StringWriter errors = new StringWriter();
+            e.printStackTrace(new PrintWriter(errors));
+        list.add(new Events(0,"Error:",errors.toString(),"",""));
+            
+        }
+
+        return list;
+    }
+    
+    
+    public void addNewEvent(String name, String description, Date date, Time time) {
+        
+        
+        
+        try (Connection connection = DriverManager.getConnection(dbURL, user, pw);
+             PreparedStatement statement = connection.prepareStatement(addNewEvent);
+        ){
+            
+            statement.setString(1, name);
+            statement.setString(2, description);
+            statement.setDate(3, date);
+            statement.setTime(4, time);
+            statement.executeUpdate();
+            
+        }catch(SQLException e) {
+            
+            e.printStackTrace();
+        }
+    }
+    
     public int getCustomerCount(String date) {
 
         int count = -1;
