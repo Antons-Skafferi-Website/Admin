@@ -1,4 +1,21 @@
 beans/Alacarte.class
+<<<<<<< OURS
+classes/Database$1Row.class
+beans/Menu.class
+login/Login.class
+login/SessionUtils.class
+com/antonsskafferi/webserver/JAXRSConfiguration.class
+beans/Booking.class
+beans/Submenu.class
+servlets/MenuServlet.class
+beans/Lunch.class
+com/antonsskafferi/webserver/resources/JavaEE8Resource.class
+classes/Database.class
+classes/DayBooking.class
+login/AuthorizationFilter.class
+login/DataConnect.class
+login/LoginDAO.class
+=======
 beans/Lunch.class
 com/antonsskafferi/webserver/resources/JavaEE8Resource.class
 classes/Database.class
@@ -6,4 +23,5 @@ beans/Menu.class
 com/antonsskafferi/webserver/JAXRSConfiguration.class
 beans/Submenu.class
 servlets/MenuServlet.class
+>>>>>>> THEIRS
 beans/Dish.class
