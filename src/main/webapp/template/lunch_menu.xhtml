@@ -25,11 +25,65 @@
             </ul>
         </div>
         
-        <div class="foodContent">
+        <!--Á la carte menu tab-->
+        <h:panelGroup id="laCarte">
+        <div class="a_la_carte" id="a_la_carte">
+            
+        <div  class="a_la_carte_body">
+                
+            <h1>Menyer</h1><br/><br/>
+            <div class="containerMeny">
+                <div class="dish_list in_line" id="leftSideMeny">
+                <h2>Förrätt</h2>
+                    <ul>
+                        <h:dataTable value="#{alacarteBean.starters}" var="dish">
+                            <h:column>
+                                <div class="dish_item">
+                                <h3>#{dish.name}</h3>   
+                                <p>#{dish.description}   #{dish.price}:-</p>
+                                </div>
+                            </h:column>
+                        </h:dataTable>
+                    </ul><br/><br/>
+                <h2>Efterrätt</h2>
+                    <ul>
+                        <h:dataTable value="#{alacarteBean.desserts}" var="dish">
+                            <h:column>
+                                <div class="dish_item">
+                                <h3>#{dish.name}</h3>   
+                                <p>#{dish.description}   #{dish.price}:-</p>
+                                </div>
+                            </h:column>
+                        </h:dataTable>
+                    </ul>
+            </div>
+
+            <div class="dish_list in_line" id="rightSideMeny">
+                <h2>Á La Carte</h2>
+                    <ul>
+                        <h:dataTable value="#{alacarteBean.mainDishes}" var="dish">
+                            <h:column>
+                                <div class="dish_item">
+                                <h3>#{dish.name}</h3>   
+                                <p>#{dish.description}   #{dish.price}:-</p>
+                                </div>
+                            </h:column>
+                        </h:dataTable>
+                    </ul>
+            </div>
+            </div>  
+            
+                           
+        </div>
+        
+        </div>
+        </h:panelGroup>
+        
+        <div class="foodContent" id="foodContent">
             
         <!--Lunch menu tab-->
         
-            
+
         <div id="lunch_menu" class="sub_menu">
             
             <h1>Lunchmeny för veckan</h1>
@@ -107,66 +161,11 @@
         </div>
             
         
-        
-        
-        
-        <!--Á la carte menu tab-->
-        <div id="a_la_carte" class="sub_menu2">
-                
-            <h1>Menyer</h1>
-            
-            <div class="dish_list in_line">
-                <h2>Förrätt</h2>
-                    <ul>
-                        <h:dataTable value="#{alacarteBean.starters}" var="dish">
-                            <h:column>
-                                <div class="dish_item">
-                                <h3>#{dish.name}</h3>   
-                                <p>#{dish.description}   #{dish.price}:-</p>
-                                </div>
-                            </h:column>
-                        </h:dataTable>
-                    </ul>
-            </div>
-            
-            <div class="dish_list in_line">
-                <h2>Á La Carte</h2>
-                    <ul>
-                        <h:dataTable value="#{alacarteBean.mainDishes}" var="dish">
-                            <h:column>
-                                <div class="dish_item">
-                                <h3>#{dish.name}</h3>   
-                                <p>#{dish.description}   #{dish.price}:-</p>
-                                </div>
-                            </h:column>
-                        </h:dataTable>
-                    </ul>
-            </div>
-            
-            <div class="dish_list in_line">
-                <h2>Efterrätt</h2>
-                    <ul>
-                        <h:dataTable value="#{alacarteBean.desserts}" var="dish">
-                            <h:column>
-                                <div class="dish_item">
-                                <h3>#{dish.name}</h3>   
-                                <p>#{dish.description}   #{dish.price}:-</p>
-                                </div>
-                            </h:column>
-                        </h:dataTable>
-                    </ul>
-            </div>
-                                
-        </div>
-        
-        
-      
-        
         <!--Update menu tab-->
         <div id="update" class="update_menu">
             <div class="food_update_menu">
             <!--Lunch menu update section-->
-            <div >
+            <h:panelGroup id="luncher">
 
                 <h1>Lunchmeny för veckan</h1>
 
@@ -245,7 +244,7 @@
                         </h:form>
                     </div>
                 </div>
-            </div>
+            
             
 
             <!--Á la carte menu update section-->
@@ -300,8 +299,9 @@
                         </h:form>
                     </div>
                 </div>
-                
+             
             </div>
+            </h:panelGroup>   
             </div>
             
             
@@ -332,12 +332,17 @@
                                 <f:selectItems value="#{menuBean.menus}" var="menuItes" itemLabel="#{menuItes.name}" itemValue="#{menuItes.menuId}"></f:selectItems>
                             </h:selectOneMenu>
                         </tr>
-                        <td><h:commandButton value="Lägg till" action="#{dishBean.addNewDish()}"/></td>
+                        <td id="addButtonForLunch">
+                            <h:commandButton value="Lägg till">
+                                <f:ajax  execute="@form" listener="#{dishBean.addNewDish()}" render="@this renderDishes1 renderDishes2 renderDishes3 renderDishes4 renderDishes5 renderDishes6 renderDishes7 renderDishes8"/>
+                            </h:commandButton>
+                        </td>
+                        
                                 
                     </table>
                     
                 </h:form>
-                <div class="add_remove">
+                <h:panelGroup class="add_remove" id="add_remove">
                 <div>
                 <h2>Lägg till i meny</h2>                        <!--lägg till i menyn -->
                 
@@ -350,9 +355,9 @@
                 </h:form>
                 
                 <div id="dayAdd">    
-                    <h:form>
+                    <h:form id="renderDishes1">
                         <h3>Dag</h3>
-                        <h:selectOneMenu value="#{submenuBean.selectedSubmenuId}"> 
+                        <h:selectOneMenu value="#{submenuBean.selectedSubmenuId}" > 
                             <f:selectItems value="#{submenuBean.submenusLunch}" var="menuItem" itemLabel="#{menuItem.name}" itemValue="#{menuItem.submenuId}"></f:selectItems>
                         </h:selectOneMenu>
                         <h3>Maträtt</h3>
@@ -361,12 +366,14 @@
                             <f:selectItems value="#{dishBean.lunchDishes}" var="dishItem" itemLabel="#{dishItem.name}" itemValue="#{dishItem.dishId}"></f:selectItems>
                         </h:selectOneMenu>
                 
-                        <h:commandButton value="Lägg till" action="#{submenuBean.addDishToSubmenu(dishBean.selectedDishId, submenuBean.selectedSubmenuId)}"/>
+                        <h:commandButton value="Lägg till" >
+                            <f:ajax  execute="@form" render=":luncher" listener="#{submenuBean.addDishToSubmenu(dishBean.selectedDishId, submenuBean.selectedSubmenuId)}"/>
+                        </h:commandButton>
                     </h:form>
                 </div>
                 
                 <div id="specialsAdd">    
-                <h:form>
+                <h:form id="renderDishes2">
                 <h:selectOneMenu value="#{submenuBean.selectedSubmenuId}" style="display: none;"> 
                     <f:selectItems value="#{submenuBean.submenusSpecials}" var="menuItem" itemLabel="#{menuItem.name}" itemValue="#{menuItem.submenuId}"></f:selectItems>
                 </h:selectOneMenu>
@@ -377,12 +384,14 @@
                     <f:selectItems value="#{dishBean.specialDishes}" var="dishItem" itemLabel="#{dishItem.name}" itemValue="#{dishItem.dishId}"></f:selectItems>
                 </h:selectOneMenu>
                 
-                <h:commandButton value="Lägg till" action="#{submenuBean.addDishToSubmenu(dishBean.selectedDishId, submenuBean.selectedSubmenuId)}"/>
+                    <h:commandButton value="Lägg till" >
+                        <f:ajax  execute="@form" render=":luncher" listener="#{submenuBean.addDishToSubmenu(dishBean.selectedDishId, submenuBean.selectedSubmenuId)}"/>
+                    </h:commandButton>
                 </h:form>
                 </div>
                 
                 <div id="startersAdd">    
-                <h:form>
+                <h:form id="renderDishes3">
                 <h:selectOneMenu value="#{submenuBean.selectedSubmenuId}" style="display: none;">  
                     <f:selectItems value="#{submenuBean.submenusStarters}" var="menuItem" itemLabel="#{menuItem.name}" itemValue="#{menuItem.submenuId}"></f:selectItems>
                 </h:selectOneMenu>
@@ -393,12 +402,14 @@
                     <f:selectItems value="#{dishBean.starterDishes}" var="dishItem" itemLabel="#{dishItem.name}" itemValue="#{dishItem.dishId}"></f:selectItems>
                 </h:selectOneMenu>
                 
-                <h:commandButton value="Lägg till" action="#{submenuBean.addDishToSubmenu(dishBean.selectedDishId, submenuBean.selectedSubmenuId)}"/>
+                <h:commandButton value="Lägg till" >
+                    <f:ajax  execute="@form" render=":luncher" listener="#{submenuBean.addDishToSubmenu(dishBean.selectedDishId, submenuBean.selectedSubmenuId)}"/>
+                </h:commandButton>
                 </h:form>
                 </div>
                 
                 <div id="dessertAdd">    
-                <h:form>
+                <h:form id="renderDishes4">
                 <h:selectOneMenu value="#{submenuBean.selectedSubmenuId}" style="display: none;">  
                     <f:selectItems value="#{submenuBean.submenusDessert}" var="menuItem" itemLabel="#{menuItem.name}" itemValue="#{menuItem.submenuId}"></f:selectItems>
                 </h:selectOneMenu>
@@ -409,7 +420,9 @@
                     <f:selectItems value="#{dishBean.dessertDishes}" var="dishItem" itemLabel="#{dishItem.name}" itemValue="#{dishItem.dishId}"></f:selectItems>
                 </h:selectOneMenu>
                 
-                <h:commandButton value="Lägg till" action="#{submenuBean.addDishToSubmenu(dishBean.selectedDishId, submenuBean.selectedSubmenuId)}"/>
+                <h:commandButton value="Lägg till" >
+                    <f:ajax  execute="@form" render=":luncher"  listener="#{submenuBean.addDishToSubmenu(dishBean.selectedDishId, submenuBean.selectedSubmenuId)}"/>
+                </h:commandButton>
                 </h:form>
                 </div>
                 
@@ -427,7 +440,7 @@
                 </h:form>
                 
                 <div id="dayRemove">    
-                    <h:form>
+                    <h:form id="renderDishes5">
                         <h3>Dag</h3>
                         <h:selectOneMenu value="#{submenuBean.selectedSubmenuId}"> 
                             <f:selectItems value="#{submenuBean.submenusLunch}" var="menuItem" itemLabel="#{menuItem.name}" itemValue="#{menuItem.submenuId}"></f:selectItems>
@@ -438,13 +451,15 @@
                             <f:selectItems value="#{dishBean.lunchDishes}" var="dishItem" itemLabel="#{dishItem.name}" itemValue="#{dishItem.dishId}"></f:selectItems>
                         </h:selectOneMenu>
                 
-                        <h:commandButton value="Ta bort" action="#{submenuBean.removeDishFromSubmenu(dishBean.selectedDishId, submenuBean.selectedSubmenuId)}"/>
+                        <h:commandButton value="Ta bort">
+                            <f:ajax  execute="@form" render=":luncher" listener="#{submenuBean.removeDishFromSubmenu(dishBean.selectedDishId, submenuBean.selectedSubmenuId)}"/>
+                        </h:commandButton>
                     </h:form>
                 </div>
                 
                 
                 <div id="specialsRemove">    
-                <h:form>
+                <h:form id="renderDishes6">
                 <h:selectOneMenu value="#{submenuBean.selectedSubmenuId}" style="display: none;"> 
                     <f:selectItems value="#{submenuBean.submenusSpecials}" var="menuItem" itemLabel="#{menuItem.name}" itemValue="#{menuItem.submenuId}"></f:selectItems>
                 </h:selectOneMenu>
@@ -455,12 +470,14 @@
                     <f:selectItems value="#{dishBean.specialDishes}" var="dishItem" itemLabel="#{dishItem.name}" itemValue="#{dishItem.dishId}"></f:selectItems>
                 </h:selectOneMenu>
                 
-                <h:commandButton value="Ta bort" action="#{submenuBean.removeDishFromSubmenu(dishBean.selectedDishId, submenuBean.selectedSubmenuId)}"/>
+                <h:commandButton value="Ta bort">
+                    <f:ajax  execute="@form" render=":luncher" listener="#{submenuBean.removeDishFromSubmenu(dishBean.selectedDishId, submenuBean.selectedSubmenuId)}"/>
+                </h:commandButton>
                 </h:form>
                 </div>
                 
                 <div id="startersRemove">    
-                <h:form>
+                <h:form id="renderDishes7">
                 <h:selectOneMenu value="#{submenuBean.selectedSubmenuId}" style="display: none;"> 
                     <f:selectItems value="#{submenuBean.submenusStarters}" var="menuItem" itemLabel="#{menuItem.name}" itemValue="#{menuItem.submenuId}"></f:selectItems>
                 </h:selectOneMenu>
@@ -471,12 +488,14 @@
                     <f:selectItems value="#{dishBean.starterDishes}" var="dishItem" itemLabel="#{dishItem.name}" itemValue="#{dishItem.dishId}"></f:selectItems>
                 </h:selectOneMenu>
                 
-                <h:commandButton value="Ta bort" action="#{submenuBean.removeDishFromSubmenu(dishBean.selectedDishId, submenuBean.selectedSubmenuId)}"/>
+                    <h:commandButton value="Ta bort">
+                        <f:ajax  execute="@form" render=":luncher" listener="#{submenuBean.removeDishFromSubmenu(dishBean.selectedDishId, submenuBean.selectedSubmenuId)}"/>
+                    </h:commandButton>
                 </h:form>
                 </div>
                 
                 <div id="dessertRemove">    
-                <h:form>
+                <h:form id="renderDishes8">
                 <h:selectOneMenu value="#{submenuBean.selectedSubmenuId}" style="display: none;"> 
                     <f:selectItems value="#{submenuBean.submenusDessert}" var="menuItem" itemLabel="#{menuItem.name}" itemValue="#{menuItem.submenuId}"></f:selectItems>
                 </h:selectOneMenu>
@@ -487,13 +506,15 @@
                     <f:selectItems value="#{dishBean.dessertDishes}" var="dishItem" itemLabel="#{dishItem.name}" itemValue="#{dishItem.dishId}"></f:selectItems>
                 </h:selectOneMenu>
                 
-                <h:commandButton value="Ta bort" action="#{submenuBean.removeDishFromSubmenu(dishBean.selectedDishId, submenuBean.selectedSubmenuId)}"/>
+                    <h:commandButton value="Ta bort">
+                        <f:ajax  execute="@form" render=":luncher" listener="#{submenuBean.removeDishFromSubmenu(dishBean.selectedDishId, submenuBean.selectedSubmenuId)}"/>
+                    </h:commandButton>
                 </h:form>
                 </div>
             
                 
                 </div>
-                </div>
+                </h:panelGroup>
                 
             </div>
             </div>
@@ -558,18 +579,31 @@
                     $("#a_la_carte").hide();
                     $("#update").hide();
                     $("#lunch_menu").show();
+                    $("#lunch_menu").load(" #lunch_menu > *");
+                    $("#foodContent").show();
                 });
                 
                 $("#update_button").click(function(){
                     $("#a_la_carte").hide();
                     $("#update").show();
+                    $("#update").load();
                     $("#lunch_menu").hide();
+                    $("#foodContent").show();
+                });
+                $("#addDishToMenu").click(function(){
+                    $("#a_la_carte").hide();
+                    $("#update").show();
+                    $("#update").load(" #update > *");
+                    $("#lunch_menu").hide();
+                    $("#foodContent").show();
                 });
                 
                 $("#carte_button").click(function(){
                     $("#a_la_carte").show();
+                    $("#a_la_carte").load(" #a_la_carte > *");
                     $("#update").hide();
                     $("#lunch_menu").hide();
+                    $("#foodContent").hide();
                 });
                 
                 $(".menuPickAdd").change(function(){
