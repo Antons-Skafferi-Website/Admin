@@ -92,6 +92,14 @@ public class Dish implements Serializable {
         //Derby has no DELETE ON CASCADE so this should not be implemented right now.
     }
     
+     public void resetDishBean() {
+        this.name = null;
+        this.description = null;
+        this.price = 0.0;
+        this.menuId = 1;
+    }
+    
+    
     public List<Dish> getAllDishes() {
         return connection.getAllDishes();
     }

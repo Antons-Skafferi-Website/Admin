@@ -313,29 +313,39 @@
 
             <div class="dish_input">
                 
-                <h:form>
+                <h:form id="newDishForm">
                     <table>
                         <tr>
                             <td><h:outputText value="Namn:"/></td>
-                            <td><h:inputText value="#{dishBean.name}"/></td>
+                            <td><h:inputText id="v1" value="#{dishBean.name}"/></td>
                         </tr>
                         <tr>
                             <td><h:outputText value="Beskrivning:"/></td>
-                            <td><h:inputText value="#{dishBean.description}"/></td>
+                            <td><h:inputText id="v2" value="#{dishBean.description}"/></td>
                         </tr>
                         <tr>
                             <td><h:outputText value="Pris:"/></td>
-                            <td><h:inputText value="#{dishBean.price}"/></td>
+                            <td><h:inputText id="v3" value="#{dishBean.price}"/></td>
                         </tr>
                         <tr>
                             <h:selectOneMenu value="#{dishBean.menuId}">
                                 <f:selectItems value="#{menuBean.menus}" var="menuItes" itemLabel="#{menuItes.name}" itemValue="#{menuItes.menuId}"></f:selectItems>
                             </h:selectOneMenu>
                         </tr>
-                        <td id="addButtonForLunch">
-                            <h:commandButton value="Lägg till">
-                                <f:ajax  execute="@form" listener="#{dishBean.addNewDish()}" render="@this renderDishes1 renderDishes2 renderDishes3 renderDishes4 renderDishes5 renderDishes6 renderDishes7 renderDishes8"/>
-                            </h:commandButton>
+                        <td>
+                            <div class="addRemoveButtons">
+                                <div>
+                                    <h:commandButton value="Lägg till" id="addDishButton">
+                                        <f:ajax execute="@form" listener="#{dishBean.addNewDish()}" render="@this renderDishes1 renderDishes2 renderDishes3 renderDishes4 renderDishes5 renderDishes6 renderDishes7 renderDishes8" resetValues="true"/>  
+                                        <f:ajax listener="#{dishBean.resetDishBean()}" render="v1 v2 v3"/>
+                                    </h:commandButton>
+                                </div>
+                                <div>
+                                    <h:commandButton value="Rensa" >
+                                        <f:ajax execute="@form" listener="#{dishBean.resetDishBean()}" render="v1 v2 v3"/>
+                                    </h:commandButton>
+                                </div>
+                            </div>
                         </td>
                         
                                 
@@ -586,16 +596,11 @@
                 $("#update_button").click(function(){
                     $("#a_la_carte").hide();
                     $("#update").show();
-                    $("#update").load();
                     $("#lunch_menu").hide();
                     $("#foodContent").show();
                 });
                 $("#addDishToMenu").click(function(){
-                    $("#a_la_carte").hide();
-                    $("#update").show();
-                    $("#update").load(" #update > *");
-                    $("#lunch_menu").hide();
-                    $("#foodContent").show();
+                    
                 });
                 
                 $("#carte_button").click(function(){

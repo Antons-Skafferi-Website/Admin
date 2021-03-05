@@ -297,7 +297,7 @@ food_update_menu{
 }
 
 .foodType2 {
-    margin-left: 20%;
+    margin-left: 5%;
 }
 
 .foodType div{
@@ -305,7 +305,15 @@ food_update_menu{
     padding-left: 10px;
     padding-right: 10px;
 }
-
+.addRemoveButtons {
+    display: flex;
+}
+.addRemoveButtons div {
+    margin-left: 5px;
+}
+#addDishButton{
+    padding-right: 10px;
+}
 .foodContent {
     background-color: #2F5234;
     background: rgba(47, 82, 52, 0.98);
