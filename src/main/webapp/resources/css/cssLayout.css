@@ -324,11 +324,12 @@ food_update_menu{
 }
 
 .update_menu{
+    margin-left: 10%;
     display: flex;
 }
 
 .foodType2 {
-    margin-left: 10%;
+    margin-left: 20%;
 }
 
 .foodType div{
@@ -362,80 +363,7 @@ food_update_menu{
 }
 
 .add_remove div{
-    padding: 2%;
-}
-
-.a_la_carte{
-    padding: 1px;
-    background-color: #FFFAF2;
-    background-image: url("../../image/BorderFrameGreen.png");
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    transform-style: preserve-3d;  
-    position:relative;
-    border: 1px solid #2F5234;
-    border-radius: 5em;
-    width: 90em;
-    min-height: 90em;
-    height: 100%;
-    margin: auto;
-    color: #2F5234;
-    opacity: 0.98;
-    -moz-box-shadow: inset -5px -5px 5px #888;
-    -webkit-box-shadow: inset -5px -5px 5px #888;
-    box-shadow: inset -5px -5px 5px #888;
-
-  
-}
-
-
-.a_la_carte_body {      
-    text-align: center;
-    padding-top: 25%;
-    padding-bottom: 25%;
-
-} 
-
-.a_la_carte_body h1{
-    margin-top: -5%;
-    font-size: 30px;
-    text-decoration: underline;
-    text-align: center;
-    font-family: Snell Roundhand, cursive;
-}
-
-.containerMeny{
-    text-align: center;
-    display: flex;
-    font-family: Snell Roundhand, cursive;
-    column-gap: 6em;
-    column-width: 10em;
-    padding-left: 20%;
-    
-}
-.containerMeny div h2{
-   font-size: 25px;
-}
-.containerMeny div h3{
-   font-size: 20px;
-}
-.containerMeny div p{
-   font-size: 18px;
-}
-.in_line {
-    display: inline-block;
-}
-#leftSideMeny{
-    float: left;
-
-}
-#rightSideMeny{
-    float: right;
-
-}
-
-#menu_bar2{
-    margin-left: -3%;
+    padding: 5%;
 }
 
 #top a:link, #top a:visited {
