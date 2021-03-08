@@ -2,24 +2,147 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
-    
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <h:outputStylesheet name="/css/default.css"/>
         <h:outputStylesheet name="/css/cssLayout.css"/>
-        <title>Facelets Template</title>
+        <title>Bokningar</title>
     </h:head>
 
     <h:body>
 
-        <ui:composition template="template/layout.xhtml">
-            <ui:define  name="content" >
-                
-             <ui:include src="template/booking.xhtml" />
-               
-            </ui:define >
-        </ui:composition>
+        <div class="bookContent">
+
+            <div class="booking">
+                <h1>Veckans bokningar</h1>
+
+                <div class="booking_list in_line">
+
+                    <h2>Måndag</h2>
+                    <h3>Kunder totalt: #{bookingBean.mondayCustomerCount}</h3>
+
+                    <h:dataTable value="#{bookingBean.mondayReservations}" var="res">
+
+                        <h:column>
+                            <h3>#{res.time}</h3>
+                            <h:dataTable  value="#{res.bookings}" var="customer">
+
+                                <h:column class="booking_item">
+                                    <h4>#{customer.name} - Sällskap: #{customer.customerCount}</h4>
+                                    <a href="mailTo:#{customer.email}">#{customer.email}</a>
+                                    <p>Telefon: #{customer.phone}</p>
+                                    <p>Önskemål: #{customer.comment}</p>
+                                </h:column>
+
+                            </h:dataTable>
+                        </h:column>
+
+                    </h:dataTable>
+                </div>
+
+                <div class="booking_list in_line">
+
+                    <h2>Tisdag</h2>
+                    <h3>Kunder totalt: #{bookingBean.tuesdayCustomerCount}</h3>
+
+                    <h:dataTable value="#{bookingBean.tuesdayReservations}" var="res">
+
+                        <h:column>
+                            <h3>#{res.time}</h3>
+                            <h:dataTable  value="#{res.bookings}" var="customer">
+
+                                <h:column class="booking_item">
+                                    <h4>#{customer.name} - Sällskap: #{customer.customerCount}</h4>
+                                    <a href="mailTo:#{customer.email}">#{customer.email}</a>
+                                    <p>Telefon: #{customer.phone}</p>
+                                    <p>Önskemål: #{customer.comment}</p>
+                                </h:column>
+
+                            </h:dataTable>
+                        </h:column>
+
+                    </h:dataTable>
+                </div>
+
+                <div class="booking_list in_line">
+
+                    <h2>Onsdag</h2>
+                    <h3>Kunder totalt: #{bookingBean.wednesdayCustomerCount}</h3>
+
+                    <h:dataTable value="#{bookingBean.wednesdayReservations}" var="res">
+
+                        <h:column>
+                            <h3>#{res.time}</h3>
+                            <h:dataTable  value="#{res.bookings}" var="customer">
+
+                                <h:column class="booking_item">
+                                    <h4>#{customer.name} - Sällskap: #{customer.customerCount}</h4>
+                                    <a href="mailTo:#{customer.email}">#{customer.email}</a>
+                                    <p>Telefon: #{customer.phone}</p>
+                                    <p>Önskemål: #{customer.comment}</p>
+                                </h:column>
+
+                            </h:dataTable>
+                        </h:column>
+
+                    </h:dataTable>
+                </div>
+
+                <div class="booking_list in_line">
+
+                    <h2>Torsdag</h2>
+                    <h3>Kunder totalt: #{bookingBean.thursdayCustomerCount}</h3>
+
+                    <h:dataTable value="#{bookingBean.thursdayeservations}" var="res">
+
+                        <h:column>
+                            <h3>#{res.time}</h3>
+                            <h:dataTable  value="#{res.bookings}" var="customer">
+
+                                <h:column class="booking_item">
+                                    <h4>#{customer.name} - Sällskap: #{customer.customerCount}</h4>
+                                    <a href="mailTo:#{customer.email}">#{customer.email}</a>
+                                    <p>Telefon: #{customer.phone}</p>
+                                    <p>Önskemål: #{customer.comment}</p>
+                                </h:column>
+
+                            </h:dataTable>
+                        </h:column>
+
+                    </h:dataTable>
+                </div>
+
+                <div class="booking_list in_line">
+
+                    <h2>Fredag</h2>
+                    <h3>Kunder totalt: #{bookingBean.fridayCustomerCount}</h3>
+
+                    <h:dataTable value="#{bookingBean.fridayReservations}" var="res">
+
+                        <h:column>
+                            <h3>#{res.time}</h3>
+                            <h:dataTable  value="#{res.bookings}" var="customer">
+
+                                <h:column class="booking_item">
+                                    <h4>#{customer.name} - Sällskap: #{customer.customerCount}</h4>
+                                    <a href="mailTo:#{customer.email}">#{customer.email}</a>
+                                    <p>Telefon: #{customer.phone}</p>
+                                    <p>Önskemål: #{customer.comment}</p>
+                                </h:column>
+
+                            </h:dataTable>
+                        </h:column>
+
+                    </h:dataTable>
+                </div>
+
+            </div>
+
+        </div>
 
 
     </h:body>
