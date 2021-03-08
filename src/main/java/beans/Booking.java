@@ -6,15 +6,11 @@
 package beans;
 
 import classes.Database;
-import classes.DayBooking;
+import classes.ReservationHolder;
 import java.io.Serializable;
 import java.sql.Date;
-import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Collections;
 import java.util.List;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
@@ -29,22 +25,28 @@ public class Booking implements Serializable {
     
     private final Database connection = new Database();
     
-    private long tableId;
     private String name;
     private String email;
     private int customerCount;
-    private Timestamp dateTime;
     private String comment;
+    private String time;
+    private String date;
+    private String phone;
     
     public Booking() {}
     
-    public Booking(long tableId, String name, String email, int customerCount, Timestamp dateTime, String comment) {
-        this.tableId = tableId;
+    public Booking(String name, String email, int customerCount, String date, String time, String comment, String phone) {
         this.name = name;
         this.email = email;
         this.customerCount = customerCount;
-        this.dateTime = dateTime;
-        this.comment = comment;
+        this.date = date;
+        this.time = time;
+        this.phone = phone;
+        
+        if(comment == null)
+            this.comment = "Inga önskemål";
+        else
+            this.comment = comment;
     }
     
     private String getWeekDay(int day) {
@@ -57,40 +59,32 @@ public class Booking implements Serializable {
         return sdf.format(date);
     }
         
-    public List<DayBooking> getMondayReservations() {
-        String string = getWeekDay(Calendar.MONDAY);
-        List<DayBooking> list = connection.getReservations(string);
-        return list;
+    public List<ReservationHolder> getMondayReservations() {
+        return connection.getReservations(getWeekDay(Calendar.MONDAY));
     }
     
-    public List<DayBooking> getTuesdayReservations() {
-        List<DayBooking> list = connection.getReservations(getWeekDay(Calendar.TUESDAY));
-        return list;
+    public List<ReservationHolder> getTuesdayReservations() {
+        return connection.getReservations(getWeekDay(Calendar.TUESDAY));
     }
     
-    public List<DayBooking> getWednesdayReservations() {
-        List<DayBooking> list = connection.getReservations(getWeekDay(Calendar.WEDNESDAY));
-        return list;
+    public List<ReservationHolder> getWednesdayReservations() {
+        return connection.getReservations(getWeekDay(Calendar.WEDNESDAY));
     }
     
-    public List<DayBooking> getThursdayeservations() {
-        List<DayBooking> list = connection.getReservations(getWeekDay(Calendar.THURSDAY));
-        return list;
+    public List<ReservationHolder> getThursdayeservations() {
+        return connection.getReservations(getWeekDay(Calendar.THURSDAY));
     }
     
-    public List<DayBooking> getFridayReservations() {
-        List<DayBooking> list = connection.getReservations(getWeekDay(Calendar.FRIDAY));
-        return list;
+    public List<ReservationHolder> getFridayReservations() {
+        return connection.getReservations(getWeekDay(Calendar.FRIDAY));
     }
     
-    public List<DayBooking> getSaturdayReservations() {
-        List<DayBooking> list = connection.getReservations(getWeekDay(Calendar.SATURDAY));
-        return list;
+    public List<ReservationHolder> getSaturdayReservations() {
+        return connection.getReservations(getWeekDay(Calendar.SATURDAY));
     }
     
-    public List<DayBooking> getSundayReservations() {
-        List<DayBooking> list = connection.getReservations(getWeekDay(Calendar.SUNDAY));
-        return list;
+    public List<ReservationHolder> getSundayReservations() {
+        return connection.getReservations(getWeekDay(Calendar.SUNDAY));
     }
     
     public int getMondayCustomerCount() {
@@ -133,12 +127,16 @@ public class Booking implements Serializable {
         return email;
     }
 
+    public String getTime() {
+        return time;
+    }
+
     public String getName() {
         return name;
     }
 
-    public Timestamp getDateTime() {
-        return dateTime;
+    public String getPhone() {
+        return phone;
     }
     
 }
