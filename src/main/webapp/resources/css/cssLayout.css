@@ -63,13 +63,13 @@
 }
 
 
-#book h1 {
+.booking h1 {
     font-size: 40px;
     text-shadow: 2px 2px #000000;
     color: white;
 }
 
-#book{
+.booking{
     position: relative;
     display: block;
     margin-left: auto;
@@ -83,30 +83,37 @@
     padding: 2%;
     border-radius: 10em;
     height: auto;
-    width: 70%;
+    width: 80%;
     margin-left: auto;
     margin-right: auto;
     border: 5px double;
     border-color: white;
     color: white;
-    
 }
 
 .booking_list {
-    border: 5px double;
-    border-color: white;
-    text-align: left;
+    text-align: center;
     padding-left: 10px;
     padding-right: 10px;
     margin: 5px;
-   
 }
 
 .booking_item {
-   
+    margin-top: 3%;
+    display: inline-block;
+    padding: 3%;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    border-radius: 25px;
+    text-align: left;
+    border: 5px double;
+    border-color: white;
+    background: url(../..//image/paper.jpg);
 }
 
-
+.booking_item h4{
+    text-align: center;
+    text-shadow: 2px 2px 4px #000000;
+}
 
 
 
