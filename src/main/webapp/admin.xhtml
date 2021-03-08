@@ -19,10 +19,10 @@
             <ui:define name="content">
                 
                 <div class="defaultGreenBox">
-                    <h:form>
-                            <p>Welcome #{login.user}</p>
-                            <h:commandLink action="#{login.logout}" value="Logout"></h:commandLink>
-                    </h:form>
+                    <div class="adminWelcome">
+                            <h1>Welcome #{login.user}</h1>
+                            <p>Detta är Adminsidan och får ej visas eller användas av obehöriga personer</p>
+                    </div>
                 </div>
 
             </ui:define>

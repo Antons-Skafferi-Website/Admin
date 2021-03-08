@@ -115,7 +115,10 @@
     text-shadow: 2px 2px 4px #000000;
 }
 
-
+.adminWelcome {
+    text-align: center;
+    padding: 2%;
+}
 
 .left_content {
     background-color: #dddddd;

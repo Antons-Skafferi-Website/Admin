@@ -1,5 +1,4 @@
 beans/Alacarte.class
-classes/Database$1Row.class
 beans/EventsBean.class
 beans/Menu.class
 login/Login.class
@@ -12,8 +11,8 @@ beans/Lunch.class
 com/antonsskafferi/webserver/resources/JavaEE8Resource.class
 classes/Events.class
 classes/Database.class
-classes/DayBooking.class
 login/AuthorizationFilter.class
 login/DataConnect.class
 login/LoginDAO.class
+classes/ReservationHolder.class
 beans/Dish.class

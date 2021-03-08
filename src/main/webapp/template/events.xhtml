@@ -19,7 +19,7 @@
         <!--Sub menu-->
         <div id="menu_bar" class="topnav">
             <ul id="header_menu">
-                <li><a id="lunch_button">EVANEMANG</a></li>
+                <li><a id="lunch_button">EVENEMANG</a></li>
                 <li><a id="update_button">UPPDATERA</a></li>
             </ul>
         </div>
@@ -31,7 +31,7 @@
             
         <div id="events" class="sub_menu">
             
-            <h1>Evanemang</h1>
+            <h1>Evenemang</h1>
             
             <div>
                 <div class="events_list in_line">
@@ -63,7 +63,7 @@
             <!--Add new dish section-->
             <div class="foodType2">
                 
-            <h1>Lägg Till Evanemang</h1>
+            <h1>Lägg Till Evenemang</h1>
 
             <div class="dish_input">
                 
@@ -94,12 +94,12 @@
                 
                 <div>
                     
-                <h2>Ta bort Evanemang</h2>                   <!--ta bort evanemang-->
+                <h2>Ta bort Evenemang</h2>                   <!--ta bort evenemang-->
                 
                 
                 <div id="dayRemove">
                     <h:form>
-                        <h3>Evanemang</h3>
+                        <h3>Evenemang</h3>
                         <h:selectOneMenu value="#{eventsBean.selectedEventId}">
                             <f:selectItems value="#{eventsBean.events}" var="eventItem" itemLabel="#{eventItem.eventName}" itemValue="#{eventItem.eventId}"></f:selectItems>
                         </h:selectOneMenu>

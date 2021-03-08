@@ -6,6 +6,7 @@
 package classes;
 
 
+import beans.Booking;
 import beans.Dish;
 import beans.Menu;
 import beans.Submenu;

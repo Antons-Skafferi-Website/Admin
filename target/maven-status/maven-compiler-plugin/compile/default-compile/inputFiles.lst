@@ -1,5 +1,6 @@
 /Users/rickard1/NetBeansProjects/Admin123/Admin/Admin/src/main/java/login/Login.java
 /Users/rickard1/NetBeansProjects/Admin123/Admin/Admin/src/main/java/classes/Events.java
+/Users/rickard1/NetBeansProjects/Admin123/Admin/Admin/src/main/java/classes/ReservationHolder.java
 /Users/rickard1/NetBeansProjects/Admin123/Admin/Admin/src/main/java/beans/Menu.java
 /Users/rickard1/NetBeansProjects/Admin123/Admin/Admin/src/main/java/beans/EventsBean.java
 /Users/rickard1/NetBeansProjects/Admin123/Admin/Admin/src/main/java/beans/Submenu.java
@@ -11,7 +12,6 @@
 /Users/rickard1/NetBeansProjects/Admin123/Admin/Admin/src/main/java/beans/Booking.java
 /Users/rickard1/NetBeansProjects/Admin123/Admin/Admin/src/main/java/beans/Lunch.java
 /Users/rickard1/NetBeansProjects/Admin123/Admin/Admin/src/main/java/login/SessionUtils.java
-/Users/rickard1/NetBeansProjects/Admin123/Admin/Admin/src/main/java/classes/DayBooking.java
 /Users/rickard1/NetBeansProjects/Admin123/Admin/Admin/src/main/java/beans/Dish.java
 /Users/rickard1/NetBeansProjects/Admin123/Admin/Admin/src/main/java/login/LoginDAO.java
 /Users/rickard1/NetBeansProjects/Admin123/Admin/Admin/src/main/java/beans/Alacarte.java
