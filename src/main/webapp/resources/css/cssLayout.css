@@ -63,13 +63,13 @@
 }
 
 
-#book h1 {
+.booking h1 {
     font-size: 40px;
     text-shadow: 2px 2px #000000;
     color: white;
 }
 
-#book{
+.booking{
     position: relative;
     display: block;
     margin-left: auto;
@@ -83,32 +83,42 @@
     padding: 2%;
     border-radius: 10em;
     height: auto;
-    width: 70%;
+    width: 80%;
     margin-left: auto;
     margin-right: auto;
     border: 5px double;
     border-color: white;
     color: white;
-    
 }
 
 .booking_list {
-    border: 5px double;
-    border-color: white;
-    text-align: left;
+    text-align: center;
     padding-left: 10px;
     padding-right: 10px;
     margin: 5px;
-   
 }
 
 .booking_item {
-   
+    margin-top: 3%;
+    display: inline-block;
+    padding: 3%;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    border-radius: 25px;
+    text-align: left;
+    border: 5px double;
+    border-color: white;
+    background: url(../..//image/paper.jpg);
 }
 
+.booking_item h4{
+    text-align: center;
+    text-shadow: 2px 2px 4px #000000;
+}
 
-
-
+.adminWelcome {
+    text-align: center;
+    padding: 2%;
+}
 
 .left_content {
     background-color: #dddddd;
@@ -297,7 +307,8 @@ food_update_menu{
 }
 
 .foodType2 {
-    margin-left: 20%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .foodType div{
@@ -305,7 +316,15 @@ food_update_menu{
     padding-left: 10px;
     padding-right: 10px;
 }
-
+.addRemoveButtons {
+    display: flex;
+}
+.addRemoveButtons div {
+    margin-left: 5px;
+}
+#addDishButton{
+    padding-right: 10px;
+}
 .foodContent {
     background-color: #2F5234;
     background: rgba(47, 82, 52, 0.98);
@@ -332,6 +351,79 @@ food_update_menu{
 
 .add_remove div{
     padding: 5%;
+}
+
+.a_la_carte{
+    padding: 1px;
+    background-color: #FFFAF2;
+    background-image: url("../../image/BorderFrameGreen.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    transform-style: preserve-3d;  
+    position:relative;
+    border: 1px solid #2F5234;
+    border-radius: 5em;
+    width: 90em;
+    min-height: 90em;
+    height: 100%;
+    margin: auto;
+    color: #2F5234;
+    opacity: 0.98;
+    -moz-box-shadow: inset -5px -5px 5px #888;
+    -webkit-box-shadow: inset -5px -5px 5px #888;
+    box-shadow: inset -5px -5px 5px #888;
+
+  
+}
+
+
+.a_la_carte_body {      
+    text-align: center;
+    padding-top: 25%;
+    padding-bottom: 25%;
+
+} 
+
+.a_la_carte_body h1{
+    margin-top: -5%;
+    font-size: 30px;
+    text-decoration: underline;
+    text-align: center;
+    font-family: Snell Roundhand, cursive;
+}
+
+.containerMeny{
+    text-align: center;
+    display: flex;
+    font-family: Snell Roundhand, cursive;
+    column-gap: 6em;
+    column-width: 10em;
+    padding-left: 20%;
+    
+}
+.containerMeny div h2{
+   font-size: 25px;
+}
+.containerMeny div h3{
+   font-size: 20px;
+}
+.containerMeny div p{
+   font-size: 18px;
+}
+.in_line {
+    display: inline-block;
+}
+#leftSideMeny{
+    float: left;
+
+}
+#rightSideMeny{
+    float: right;
+
+}
+
+#menu_bar2{
+    margin-left: -3%;
 }
 
 #top a:link, #top a:visited {
