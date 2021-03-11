@@ -85,12 +85,12 @@ public class Database {
             + "WHERE RESERVATION_DATE = ? ";
     
     private String getEvents
-            = "SELECT EVENT_ID, EVENT_NAME, EVENT_DESC, EVENT_DATE, EVENT_TIME FROM APP.EVENTS ";
+            = "SELECT EVENT_ID, EVENT_NAME, EVENT_DESC, EVENT_DATE, EVENT_TIME, IMAGE_URL FROM APP.EVENTS ";
     
     
     private String addNewEvent = 
-    "INSERT INTO APP.EVENTS (EVENT_NAME, EVENT_DESC, EVENT_DATE, EVENT_TIME) " +
-    "VALUES (?, ?, ?, ?)";
+    "INSERT INTO APP.EVENTS (EVENT_NAME, EVENT_DESC, EVENT_DATE, EVENT_TIME, IMAGE_URL) " +
+    "VALUES (?, ?, ?, ?, ?)";
     
     
     public Database() {
@@ -175,13 +175,13 @@ public class Database {
 
             //Fill list with bookings and comments
             while (eventsResult.next()) {
-                list.add(new Events(eventsResult.getLong(1),eventsResult.getString(2), eventsResult.getString(3),eventsResult.getDate(4).toString(),eventsResult.getTime(5).toString()));
+                list.add(new Events(eventsResult.getLong(1),eventsResult.getString(2), eventsResult.getString(3),eventsResult.getDate(4).toString(),eventsResult.getTime(5).toString(),eventsResult.getString(6)));
             }
 
         } catch (SQLException e) {
             StringWriter errors = new StringWriter();
             e.printStackTrace(new PrintWriter(errors));
-        list.add(new Events(0,"Error:",errors.toString(),"",""));
+        list.add(new Events(0,"Error:",errors.toString(),"","",""));
             
         }
 
@@ -189,7 +189,7 @@ public class Database {
     }
     
     
-    public void addNewEvent(String name, String description, Date date, Time time) {
+    public void addNewEvent(String name, String description, Date date, Time time, String imageUrl) {
         
         
         
@@ -201,6 +201,7 @@ public class Database {
             statement.setString(2, description);
             statement.setDate(3, date);
             statement.setTime(4, time);
+            statement.setString(5, imageUrl);
             statement.executeUpdate();
             
         }catch(SQLException e) {

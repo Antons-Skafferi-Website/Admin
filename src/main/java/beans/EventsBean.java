@@ -35,11 +35,12 @@ public class EventsBean implements Serializable {
     private int day;
     private int hour;
     private int minute;
+    private String imageUrl;
     private String errorss;
     
     public EventsBean() {}
     
-    public EventsBean(String name, String description, int y, int m, int d, int h, int mn) {
+    public EventsBean(String name, String description, int y, int m, int d, int h, int mn, String imageUrl) {
         this.name = name;
         this.description = description; 
         this.year = y;
@@ -47,6 +48,7 @@ public class EventsBean implements Serializable {
         this.day = d;
         this.hour = h;
         this.minute = mn;
+        this.imageUrl = imageUrl;
     }
     
     private String getWeekDay(int day) {
@@ -131,6 +133,16 @@ public class EventsBean implements Serializable {
         description = nDesc;
     }
     
+    public String getImageUrl()
+    {
+        return imageUrl;
+    }
+    
+    public void setImageUrl(String nUrl)
+    {
+        imageUrl = nUrl;
+    }
+    
     public void setSelectedEventId(long selectedEventId) {
         this.selectedEventId = selectedEventId;
     }
@@ -154,6 +166,6 @@ public class EventsBean implements Serializable {
     public void addNewEvent() {
         Date nDate = new Date(year + 100,month - 1,day);
         Time nTime = new Time(hour,minute,0);
-        connection.addNewEvent(name, description, nDate, nTime);
+        connection.addNewEvent(name, description, nDate, nTime,imageUrl);
     }
 }

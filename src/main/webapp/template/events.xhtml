@@ -42,6 +42,7 @@
                                     <h2>#{event.eventName}</h2>   
                                     <h3>#{event.eventDate}, #{event.eventTime}</h3>
                                     <p>#{event.description}</p>
+                                    <img src="#{event.imageUrl}" ></img>
                                 </div>
                             </h:column>
                         </h:dataTable>
@@ -84,6 +85,10 @@
                         <tr>
                             <td><h:outputText value="Tid (HH:MM):"/></td>
                             <td><h:inputText value="#{eventsBean.hour}"/><h:inputText value="#{eventsBean.minute}"/></td>
+                        </tr>
+                        <tr>
+                            <td><h:outputText value="Bild URL:"/></td>
+                            <td><h:inputText value="#{eventsBean.imageUrl}"/></td>
                         </tr>
                         <td><h:commandButton value="Lägg till" action="#{eventsBean.addNewEvent()}"/></td>
                                 
