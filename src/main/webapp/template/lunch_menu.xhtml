@@ -306,15 +306,14 @@
             
             
             <!--Add new dish section-->
+           <h1>Uppdatera Menyer</h1>
             <div class="foodType2">
                 
-            <h1>Uppdatera Menyer</h1>
-            <h2>Lägg till nya rätter</h2>
-
             <div class="dish_input">
                 
                 <h:form id="newDishForm">
                     <table>
+                        <tr><h2>Lägg till nya rätter</h2></tr>
                         <tr>
                             <td><h:outputText value="Namn:"/></td>
                             <td><h:inputText id="v1" value="#{dishBean.name}"/></td>
@@ -352,7 +351,8 @@
                     </table>
                     
                 </h:form>
-                <h:panelGroup class="add_remove" id="add_remove">
+                
+                <h:panelGroup  class="add_remove" id="add_remove">
                 <div>
                 <h2>Lägg till rätt i meny</h2>                        <!--lägg till i menyn -->
                 

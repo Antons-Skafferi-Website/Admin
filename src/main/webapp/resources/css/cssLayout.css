@@ -297,18 +297,27 @@ input {
     text-align: left;
 }
 
-food_update_menu{
+.dish_input{
+    display: flex;
+    padding-left: 6%;    
+}
+
+.food_update_menu{
     display: inline;
 }
 
 .update_menu{
-    margin-left: 10%;
-    display: flex;
+    display: block;
 }
 
 .foodType2 {
-    margin-left: auto;
-    margin-right: auto;
+    display: flex;
+    padding-left: 10%;
+}
+
+.eventType2 {
+    display: flex;
+    padding-left: 30%;
 }
 
 .foodType div{
@@ -334,7 +343,8 @@ food_update_menu{
     border-radius: 10em;
     min-height: 45em;
     height: auto;
-    width: 90em;
+    min-width: 90em;
+    width: auto;
     margin-left: auto;
     margin-right: auto;
     border: 5px double;
@@ -346,11 +356,15 @@ food_update_menu{
 }
 
 .add_remove{
-    display: flex;
+    display: inline-flex;
+    margin-left: 5em;
+
+
 }
 
 .add_remove div{
-    padding: 5%;
+    padding-left: 2%;
+    padding-right: 2%;  
 }
 
 .a_la_carte{
