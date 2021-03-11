@@ -31,6 +31,7 @@ public class AuthorizationFilter implements Filter {
 
 	}
 
+        //Override doFilter, redirect user if trying to access other pages without logging in. 
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response,
 			FilterChain chain) throws IOException, ServletException {

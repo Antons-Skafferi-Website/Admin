@@ -19,11 +19,8 @@ import javax.servlet.http.HttpSession;
 @SessionScoped
 @Named
 public class Login implements Serializable {
-
-	private static final long serialVersionUID = 1094801825228386363L;
 	
 	private String pwd;
-	private String msg;
 	private String user;
 
 	public String getPwd() {
@@ -32,14 +29,6 @@ public class Login implements Serializable {
 
 	public void setPwd(String pwd) {
 		this.pwd = pwd;
-	}
-
-	public String getMsg() {
-		return msg;
-	}
-
-	public void setMsg(String msg) {
-		this.msg = msg;
 	}
 
 	public String getUser() {
@@ -52,9 +41,9 @@ public class Login implements Serializable {
 
 	//validate login
 	public String validateUsernamePassword() {
-		boolean valid = LoginDAO.validate(user, pwd);
+		boolean valid = LoginDAO.validate(user, pwd); //validate password
 		if (valid) {
-			HttpSession session = SessionUtils.getSession();
+			HttpSession session = SessionUtils.getSession(); //get session using the SessionUtils class
 			session.setAttribute("username", user);
 			return "admin";
 		} else {
@@ -67,10 +56,10 @@ public class Login implements Serializable {
 		}
 	}
 
-	//logout event, invalidate session
+	//logout
 	public String logout() {
 		HttpSession session = SessionUtils.getSession();
-		session.invalidate();
+		session.invalidate(); //invalidate session
 		return "login";
 	}
 }
