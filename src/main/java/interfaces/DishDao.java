@@ -6,7 +6,7 @@
 package interfaces;
 
 import java.util.List;
-import beans.Dish;
+import model.Dish;
 
 /**
  *

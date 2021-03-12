@@ -5,8 +5,8 @@
  */
 package interfaces;
 
-import beans.Submenu;
-import beans.Menu;
+import model.Submenu;
+import model.Menu;
 import java.util.List;
 
 /**

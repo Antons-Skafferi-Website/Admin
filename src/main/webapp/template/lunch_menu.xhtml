@@ -316,32 +316,33 @@
                                 <tr><h2>Lägg till nya rätter</h2></tr>
                                 <tr>
                                     <td><h:outputText value="Namn:"/></td>
-                                    <td><h:inputText id="v1" value="#{dishBean.name}"/></td>
+                                    <td><h:inputText id="v1" value="#{addBean.name}"/></td>
                                 </tr>
                                 <tr>
                                     <td><h:outputText value="Beskrivning:"/></td>
-                                    <td><h:inputText id="v2" value="#{dishBean.description}"/></td>
+                                    <td><h:inputText id="v2" value="#{addBean.description}"/></td>
                                 </tr>
                                 <tr>
                                     <td><h:outputText value="Pris:"/></td>
-                                    <td><h:inputText id="v3" value="#{dishBean.price}"/></td>
+                                    <td><h:inputText id="v3" value="#{addBean.price}"/></td>
                                 </tr>
                                 <tr>
-                                    <h:selectOneMenu value="#{dishBean.menuId}">
-                                        <f:selectItems value="#{menuBean.menus}" var="menuItes" itemLabel="#{menuItes.name}" itemValue="#{menuItes.menuId}"></f:selectItems>
+                                    <h:selectOneMenu value="#{menuBean.selectedMenuId}">
+                                        <f:selectItems value="#{menuBean.menus}" var="menuItem" itemLabel="#{menuItem.name}" itemValue="#{menuItem.menuId}"></f:selectItems>
                                     </h:selectOneMenu>
                                 </tr>
+                                
                                 <td>
                                     <div class="addRemoveButtons">
                                         <div>
                                             <h:commandButton value="Lägg till" id="addDishButton">
-                                                <f:ajax execute="@form" listener="#{dishBean.addNewDish()}" render="@this renderDishes1 renderDishes2 renderDishes3 renderDishes4 renderDishes5 renderDishes6 renderDishes7 renderDishes8" resetValues="true"/>  
-                                                <f:ajax listener="#{dishBean.resetDishBean()}" render="v1 v2 v3"/>
+                                                <f:ajax execute="@form" listener="#{dishBean.addNewDish(addBean.name, addBean.description, addBean.price, menuBean.selectedMenuId)}" render="@this renderDishes1 renderDishes2 renderDishes3 renderDishes4 renderDishes5 renderDishes6 renderDishes7 renderDishes8" resetValues="true"/>  
+                                                <f:ajax listener="#{addBean.reset()}" render="v1 v2 v3"/>
                                             </h:commandButton>
                                         </div>
                                         <div>
                                             <h:commandButton value="Rensa" >
-                                                <f:ajax execute="@form" listener="#{dishBean.resetDishBean()}" render="v1 v2 v3"/>
+                                                <f:ajax execute="@form" listener="#{addBean.reset()}" render="v1 v2 v3"/>
                                             </h:commandButton>
                                         </div>
                                     </div>
@@ -354,13 +355,13 @@
 
                         <h:panelGroup  class="add_remove" id="add_remove">
                             <div>
-                                <h2>Lägg till rätt i meny</h2>                        <!--lägg till i menyn -->
+                                <h2>Lägg till rätt i meny</h2>               
 
                                 <h3>Meny</h3>
 
                                 <h:form>
                                     <h:selectOneMenu value="#{menuBean.selectedMenuId}" class="menuPickAdd">
-                                        <f:selectItems value="#{menuBean.menus}" var="menuItes" itemLabel="#{menuItes.name}" itemValue="#{menuItes.menuId}"></f:selectItems>
+                                        <f:selectItems value="#{menuBean.menus}" var="menuItem" itemLabel="#{menuItem.name}" itemValue="#{menuItem.menuId}"></f:selectItems>
                                     </h:selectOneMenu>
                                 </h:form>
 
@@ -543,36 +544,6 @@
         <script>
 
             $(document).ready(function () {
-
-
-
-                function showTodaysLunch() {
-
-                    //Mon-Fre
-                    switch (new Date().getDay()) {
-
-                        case 1:
-
-                            break;
-                        case 2:
-
-                            break;
-                        case 3:
-
-                            break;
-                        case 4:
-
-                            break;
-                        case 5:
-
-                            break;
-                        default:
-
-                    }
-
-                }
-
-                showTodaysLunch();
 
                 $("#lunch_menu").show();
                 $("#a_la_carte").hide();

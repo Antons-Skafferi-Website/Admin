@@ -3,30 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package beans;
-
-import classes.EventDs;
-import classes.Events;
-import java.util.Calendar;
-import java.util.Collections;
-import java.util.List;
-import javax.inject.Named;
-import javax.enterprise.context.SessionScoped;
-import java.io.Serializable;
-import java.sql.Date;
-import java.sql.Time;
-import java.sql.Timestamp;
-import java.text.SimpleDateFormat;
+package model;
 
 /**
  *
  * @author zered
  */
-@Named(value = "eventsBean")
-@SessionScoped
-public class EventsBean implements Serializable {
-
-    private final EventDs ds = new EventDs();
+public class Event {
 
     private long selectedEventId;
     private String name;
@@ -39,28 +22,13 @@ public class EventsBean implements Serializable {
     private String imageUrl;
     private String errorss;
 
-    public EventsBean() {
+    public Event() {
     }
 
-    public EventsBean(String name, String description, int y, int m, int d, int h, int mn, String imageUrl) {
+    public Event(String name, String description, String imageUrl) {
         this.name = name;
         this.description = description;
-        this.year = y;
-        this.month = m;
-        this.day = d;
-        this.hour = h;
-        this.minute = mn;
         this.imageUrl = imageUrl;
-    }
-
-    private String getWeekDay(int day) {
-        Calendar calendar = Calendar.getInstance();
-        calendar.set(Calendar.DAY_OF_WEEK, day);
-
-        SimpleDateFormat sdf = new SimpleDateFormat("YYYY-MM-dd");
-        Date date = new Date(calendar.getTimeInMillis());
-
-        return sdf.format(date);
     }
 
     public String getName() {
@@ -135,20 +103,4 @@ public class EventsBean implements Serializable {
         return selectedEventId;
     }
 
-    public void removeEvent(long whichEvent) {
-        //Derby has no DELETE ON CASCADE so this should not be implemented right now.
-    }
-
-    public List<Events> getEvents() {
-        String string = getWeekDay(Calendar.TUESDAY);
-        List<Events> list = ds.getEvents(string);
-        //list.add(new Events(22,errorss,"","",""));
-        return list;
-    }
-
-    public void addNewEvent() {
-        Date nDate = new Date(year + 100, month - 1, day);
-        Time nTime = new Time(hour, minute, 0);
-        ds.addNewEvent(name, description, nDate, nTime, imageUrl);
-    }
 }

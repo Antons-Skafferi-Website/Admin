@@ -14,8 +14,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Time;
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
+import model.Event;
 
 /**
  *
@@ -31,40 +33,37 @@ public class EventDs implements EventDao {
             + "VALUES (?, ?, ?, ?, ?)";
 
     @Override
-    public List<Events> getEvents(String date) {
+    public List<Event> getEvents(String date) {
 
-        List<Events> list = new ArrayList<>();
+        List<Event> list = new ArrayList<>();
 
         try (Connection connection = Database.getConnection();
                 PreparedStatement statement = connection.prepareCall(getEvents);) {
             
             ResultSet eventsResult = statement.executeQuery();
-
-            //Fill list with bookings and comments
+            
             while (eventsResult.next()) {
-                list.add(new Events(eventsResult.getLong(1), eventsResult.getString(2), eventsResult.getString(3), eventsResult.getDate(4).toString(), eventsResult.getTime(5).toString(), eventsResult.getString(6)));
+                list.add(new Event(eventsResult.getString(2), eventsResult.getString(3), eventsResult.getString(6)));
             }
 
         } catch (SQLException e) {
             StringWriter errors = new StringWriter();
             e.printStackTrace(new PrintWriter(errors));
-            list.add(new Events(0, "Error:", errors.toString(), "", "", ""));
-
         }
 
         return list;
     }
 
     @Override
-    public void addNewEvent(String name, String description, Date date, Time time, String imageUrl) {
+    public void addNewEvent(String name, String description, String imageUrl) {
 
         try (Connection connection = Database.getConnection();
                 PreparedStatement statement = connection.prepareStatement(addNewEvent);) {
 
             statement.setString(1, name);
             statement.setString(2, description);
-            statement.setDate(3, date);
-            statement.setTime(4, time);
+            statement.setDate(3, Date.valueOf("2020-01-01"));
+            statement.setTime(4, Time.valueOf("11:11:22"));
             statement.setString(5, imageUrl);
             statement.executeUpdate();
 

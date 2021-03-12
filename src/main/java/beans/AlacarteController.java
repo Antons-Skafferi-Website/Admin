@@ -11,6 +11,7 @@ import java.io.Serializable;
 import java.util.List;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
+import model.Dish;
 
 /**
  *
@@ -18,12 +19,12 @@ import javax.inject.Named;
  */
 @Named(value = "alacarteBean")
 @SessionScoped
-public class Alacarte implements Serializable {
+public class AlacarteController implements Serializable {
 
     private final DishDs dishDs = new DishDs();
     private final MenuDs menuDs = new MenuDs();
 
-    public Alacarte() {
+    public AlacarteController() {
     }
 
     public List<Dish> getStarters() {

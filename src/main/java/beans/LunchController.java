@@ -13,6 +13,7 @@ import java.util.Collections;
 import java.util.List;
 import javax.enterprise.context.Dependent;
 import javax.inject.Named;
+import model.Dish;
 
 /**
  *
@@ -20,12 +21,12 @@ import javax.inject.Named;
  */
 @Named(value = "lunchBean")
 @Dependent
-public class Lunch implements Serializable {
+public class LunchController implements Serializable {
 
     private final DishDs dishDs = new DishDs();
     private final MenuDs menuDs = new MenuDs();
 
-    public Lunch() {
+    public LunchController() {
     }
 
     public void addDishToMonday(int dishId) {

@@ -5,7 +5,7 @@
  */
 package classes;
 
-import beans.Booking;
+import model.Booking;
 
 import interfaces.BookingDao;
 import java.sql.Connection;

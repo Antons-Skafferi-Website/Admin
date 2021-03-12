@@ -5,7 +5,6 @@
  */
 package classes;
 
-import beans.Dish;
 import interfaces.DishDao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -13,6 +12,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import model.Dish;
 
 /**
  *
@@ -79,15 +79,15 @@ public class DishDs implements DishDao {
 
     @Override
     public List<Dish> getLunchDishes() {
-
+        
         List<Dish> list = new ArrayList<>();
 
         try (Connection connection = Database.getConnection();
                 PreparedStatement statement = connection.prepareCall(getLunchDishes);) {
 
             ResultSet rs = statement.executeQuery();
-
             while (rs.next()) {
+                
                 list.add(new Dish(rs.getLong(1), rs.getString(2), rs.getString(3), rs.getDouble(4), rs.getLong(5)));
             }
 

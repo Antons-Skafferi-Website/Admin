@@ -5,7 +5,7 @@
  */
 package interfaces;
 
-import classes.Events;
+import model.Event;
 import java.sql.Date;
 import java.sql.Time;
 import java.util.List;
@@ -16,7 +16,7 @@ import java.util.List;
  */
 public interface EventDao {
 
-    List<Events> getEvents(String date);
+    List<Event> getEvents(String date);
 
-    void addNewEvent(String name, String description, Date date, Time time, String imageUrl);
+    void addNewEvent(String name, String description, String imageUrl);
 }

@@ -21,34 +21,11 @@ import javax.inject.Named;
  */
 @Named(value = "bookingBean")
 @SessionScoped
-public class Booking implements Serializable {
+public class BookingController implements Serializable {
 
     private final BookingDs ds = new BookingDs();
 
-    private String name;
-    private String email;
-    private int customerCount;
-    private String comment;
-    private String time;
-    private String date;
-    private String phone;
-
-    public Booking() {
-    }
-
-    public Booking(String name, String email, int customerCount, String date, String time, String comment, String phone) {
-        this.name = name;
-        this.email = email;
-        this.customerCount = customerCount;
-        this.date = date;
-        this.time = time;
-        this.phone = phone;
-
-        if (comment == null) {
-            this.comment = "Inga önskemål";
-        } else {
-            this.comment = comment;
-        }
+    public BookingController() {
     }
 
     private String getWeekDay(int day) {
@@ -115,30 +92,6 @@ public class Booking implements Serializable {
 
     public int getSundayCustomerCount() {
         return ds.getCustomerCount(getWeekDay(Calendar.SUNDAY));
-    }
-
-    public String getComment() {
-        return comment;
-    }
-
-    public int getCustomerCount() {
-        return customerCount;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public String getTime() {
-        return time;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getPhone() {
-        return phone;
     }
 
 }

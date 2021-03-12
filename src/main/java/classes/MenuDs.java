@@ -5,8 +5,6 @@
  */
 package classes;
 
-import beans.Menu;
-import beans.Submenu;
 import interfaces.MenuDao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -14,6 +12,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import model.Menu;
+import model.Submenu;
 
 /**
  *
@@ -149,7 +149,6 @@ public class MenuDs implements MenuDao {
 
     @Override
     public List<Menu> getMenus() {
-
         List<Menu> list = new ArrayList<>();
 
         try (Connection connection = Database.getConnection();
@@ -166,5 +165,8 @@ public class MenuDs implements MenuDao {
 
         return list;
     }
+
+  
+    
 
 }

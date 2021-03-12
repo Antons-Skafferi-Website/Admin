@@ -5,7 +5,7 @@
  */
 package classes;
 
-import beans.Booking;
+import model.Booking;
 import java.util.ArrayList;
 import java.util.List;
 

@@ -10,6 +10,7 @@ import java.io.Serializable;
 import java.util.List;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
+import model.Submenu;
 
 /**
  *
@@ -17,20 +18,13 @@ import javax.inject.Named;
  */
 @Named(value = "submenuBean")
 @SessionScoped
-public class Submenu implements Serializable {
+public class SubmenuController implements Serializable {
 
     private final MenuDs ds = new MenuDs();
-    private long submenuId;
-    private String name;
-
+    
     private long selectedSubmenuId;
 
-    public Submenu() {
-    }
-
-    public Submenu(long submenuId, String name) {
-        this.name = name;
-        this.submenuId = submenuId;
+    public SubmenuController() {
     }
 
     public List<Submenu> getSubmenusLunch() {
@@ -55,22 +49,6 @@ public class Submenu implements Serializable {
 
     public void removeDishFromSubmenu(int dishId, int submenuId) {
         ds.removeDishFromSubmenu(dishId, submenuId);
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public long getSubmenuId() {
-        return submenuId;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setSubmenuId(long submenuId) {
-        this.submenuId = submenuId;
     }
 
     public void setSelectedSubmenuId(long selectedSubmenuId) {
