@@ -20,10 +20,8 @@ import javax.servlet.http.HttpSession;
 @Named
 public class Login implements Serializable {
 
-	private static final long serialVersionUID = 1094801825228386363L;
 	
 	private String pwd;
-	private String msg;
 	private String user;
 
 	public String getPwd() {
@@ -32,14 +30,6 @@ public class Login implements Serializable {
 
 	public void setPwd(String pwd) {
 		this.pwd = pwd;
-	}
-
-	public String getMsg() {
-		return msg;
-	}
-
-	public void setMsg(String msg) {
-		this.msg = msg;
 	}
 
 	public String getUser() {
@@ -52,7 +42,8 @@ public class Login implements Serializable {
 
 	//validate login
 	public String validateUsernamePassword() {
-		boolean valid = LoginDAO.validate(user, pwd);
+                LoginDAOImpl loginDAO = new LoginDAOImpl();   //create DAO object
+		boolean valid = loginDAO.validate(user, pwd); //validate password
 		if (valid) {
 			HttpSession session = SessionUtils.getSession();
 			session.setAttribute("username", user);
