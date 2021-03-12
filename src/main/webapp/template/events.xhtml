@@ -15,7 +15,7 @@
     </h:head>
 
     <h:body>
-        
+
         <!--Sub menu-->
         <div id="menu_bar" class="topnav">
             <ul id="header_menu">
@@ -23,148 +23,148 @@
                 <li><a id="update_button">UPPDATERA</a></li>
             </ul>
         </div>
-        
+
         <div class="foodContent">
-            
-        <!--Lunch menu tab-->
-        
-            
-        <div id="events" class="sub_menu">
-            
-            <h1>Evenemang</h1>
-            
-            <div>
-                <div class="events_list in_line">
-                    <ul>
-                        <h:dataTable value="#{eventsBean.events}" var="event">
-                            <h:column>
-                                <div class="eventItem">
-                                    <h2>#{event.eventName}</h2>   
-                                    <h3>#{event.eventDate}, #{event.eventTime}</h3>
-                                    <p>#{event.description}</p>
-                                    <img src="#{event.imageUrl}" ></img>
-                                </div>
-                            </h:column>
-                        </h:dataTable>
-                    </ul>
-                </div>
-            
-                
-            </div>
-            
-        </div>
-        
-        
-      
-        
-        <!--Update menu tab-->
-        <div id="update" class="update_menu">
-            
-            <h1>Lägg Till Evenemang</h1>
-            <!--Add new dish section-->
-            <div class="eventType2">
-                
-            
 
-            <div class="dish_input">
-                
-                <h:form>
-                    <table> 
-                        <tr>
-                            <td><h:outputText value="Namn:"/></td>
-                            <td><h:inputText value="#{eventsBean.name}"/></td>
-                        </tr>
-                        <tr>
-                            <td><h:outputText value="Beskrivning:"/></td>
-                            <td><h:inputText value="#{eventsBean.description}"/></td>
-                        </tr>
-                        <tr>
-                            <td><h:outputText value="Datum (YY/MM/DD):"/></td>
-                            <td><h:inputText value="#{eventsBean.year}"/><h:inputText value="#{eventsBean.month}"/><h:inputText value="#{eventsBean.day}"/></td>
-                        </tr>
-                        <tr>
-                            <td><h:outputText value="Tid (HH:MM):"/></td>
-                            <td><h:inputText value="#{eventsBean.hour}"/><h:inputText value="#{eventsBean.minute}"/></td>
-                        </tr>
-                        <tr>
-                            <td><h:outputText value="Bild URL:"/></td>
-                            <td><h:inputText value="#{eventsBean.imageUrl}"/></td>
-                        </tr>
-                        <td><h:commandButton value="Lägg till" action="#{eventsBean.addNewEvent()}"/></td>
-                                
-                    </table>
-                    
-                </h:form>
-                <div class="add_remove">
-                
+            <!--Lunch menu tab-->
+
+
+            <div id="events" class="sub_menu">
+
+                <h1>Evenemang</h1>
+
                 <div>
-                    
-                <h2>Ta bort Evenemang</h2>                   <!--ta bort evenemang-->
-                
-                
-                <div id="dayRemove">
-                    <h:form>
-                        <h3>Evenemang</h3>
-                        <h:selectOneMenu value="#{eventsBean.selectedEventId}">
-                            <f:selectItems value="#{eventsBean.events}" var="eventItem" itemLabel="#{eventItem.eventName}" itemValue="#{eventItem.eventId}"></f:selectItems>
-                        </h:selectOneMenu>
-                
-                        <h:commandButton value="Ta bort" action="#{eventsBean.removeEvent(eventsBean.selectedEventId)}"/>
-                    </h:form>
+                    <div class="events_list in_line">
+                        <ul>
+                            <h:dataTable value="#{eventsBean.events}" var="event">
+                                <h:column>
+                                    <div class="eventItem">
+                                        <h2>#{event.eventName}</h2>   
+                                        <h3>#{event.eventDate}, #{event.eventTime}</h3>
+                                        <p>#{event.description}</p>
+                                        <img src="#{event.imageUrl}" ></img>
+                                    </div>
+                                </h:column>
+                            </h:dataTable>
+                        </ul>
+                    </div>
+
+
                 </div>
-            
-                
-                </div>
-                </div>
-                
-            </div>
+
             </div>
 
-        
+
+
+
+            <!--Update menu tab-->
+            <div id="update" class="update_menu">
+
+                <h1>Lägg Till Evenemang</h1>
+                <!--Add new dish section-->
+                <div class="eventType2">
+
+
+
+                    <div class="dish_input">
+
+                        <h:form>
+                            <table> 
+                                <tr>
+                                    <td><h:outputText value="Namn:"/></td>
+                                    <td><h:inputText value="#{addEvent.eventName}"/></td>
+                                </tr>
+                                <tr>
+                                    <td><h:outputText value="Beskrivning:"/></td>
+                                    <td><h:inputText value="#{addEvent.description}"/></td>
+                                </tr>
+                                <tr>
+                                    <td><h:outputText value="Datum (YY/MM/DD):"/></td>
+                                    
+                                </tr>
+                                <tr>
+                                    <td><h:outputText value="Tid (HH:MM):"/></td>
+                                    
+                                </tr>
+                                <tr>
+                                    <td><h:outputText value="Bild URL:"/></td>
+                                    <td><h:inputText value="#{addEvent.image}"/></td>
+                                </tr>
+                                <td><h:commandButton value="Lägg till" action="#{eventsBean.addNewEvent(addEvent.eventName, addEvent.description, addEvent.image)}"/></td>
+
+                            </table>
+
+                        </h:form>
+                        <div class="add_remove">
+
+                            <div>
+
+                                <h2>Ta bort Evenemang</h2>                   <!--ta bort evenemang-->
+
+
+                                <div id="dayRemove">
+                                    <h:form>
+                                        <h3>Evenemang</h3>
+                                        <h:selectOneMenu value="#{eventsBean.selectedEventId}">
+                                            <f:selectItems value="#{eventsBean.events}" var="eventItem" itemLabel="#{eventItem.eventName}" itemValue="#{eventItem.eventId}"></f:selectItems>
+                                        </h:selectOneMenu>
+
+                                        <h:commandButton value="Ta bort" action="#{eventsBean.removeEvent(eventsBean.selectedEventId)}"/>
+                                    </h:form>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </div>
+
+
+
         </div>
-        
-        
-        
-        </div>
-        
-        
-        
-        
-        
+
+
+
+
+
         <script>
-            
-            $(document).ready(function() {
-                
-               
-                
+
+            $(document).ready(function () {
+
+
+
                 function showTodaysLunch() {
-                    
+
                     //Mon-Fre
-                    switch(new Date().getDay()) {
-                        
+                    switch (new Date().getDay()) {
+
                         case 1:
-                          
-                          break;
+
+                            break;
                         case 2:
-                          
-                          break;
+
+                            break;
                         case 3:
-                          
-                          break;
+
+                            break;
                         case 4:
-                          
-                          break;
+
+                            break;
                         case 5:
-                          
-                          break;
+
+                            break;
                         default:
-                          
-                      }
-                    
+
+                    }
+
                 }
-                
+
                 showTodaysLunch();
-                
+
                 $("#lunch_menu").show();
                 $("#a_la_carte").hide();
                 $("#update").hide();
@@ -174,79 +174,79 @@
                 $("#specialsRemove").hide();
                 $("#startersRemove").hide();
                 $("#dessertRemove").hide();
-                
-                
-                $("#lunch_button").click(function(){
+
+
+                $("#lunch_button").click(function () {
                     $("#a_la_carte").hide();
                     $("#update").hide();
                     $("#events").show();
                 });
-                
-                $("#update_button").click(function(){
+
+                $("#update_button").click(function () {
                     $("#a_la_carte").hide();
                     $("#update").show();
                     $("#events").hide();
                 });
-                
-                $("#carte_button").click(function(){
+
+                $("#carte_button").click(function () {
                     $("#a_la_carte").show();
                     $("#update").hide();
                     $("#lunch_menu").hide();
                 });
-                
-                $(".menuPickAdd").change(function(){
-                    if(this.value === "2"){
+
+                $(".menuPickAdd").change(function () {
+                    if (this.value === "2") {
                         $("#specialsAdd").show();
                         $("#dayAdd").hide();
                         $("#startersAdd").hide();
-                        $("#dessertAdd").hide(); 
-                    }else if(this.value === "3"){
+                        $("#dessertAdd").hide();
+                    } else if (this.value === "3") {
                         $("#specialsAdd").hide();
                         $("#dayAdd").hide();
                         $("#startersAdd").show();
                         $("#dessertAdd").hide();
-                    }else if(this.value === "4"){
+                    } else if (this.value === "4") {
                         $("#dessertAdd").show();
                         $("#specialsAdd").hide();
                         $("#dayAdd").hide();
                         $("#startersAdd").hide();
-                    }else{
+                    } else {
                         $("#specialsAdd").hide();
                         $("#dayAdd").show();
                         $("#startersAdd").hide();
                         $("#dessertAdd").hide();
                     }
                 });
-                
-                $(".menuPickRemove").change(function(){
-                    if(this.value === "2"){
+
+                $(".menuPickRemove").change(function () {
+                    if (this.value === "2") {
                         $("#specialsRemove").show();
                         $("#dayRemove").hide();
                         $("#startersRemove").hide();
                         $("#dessertRemove").hide();
-                    }else if(this.value === "3"){
+                    } else if (this.value === "3") {
                         $("#specialsRemove").hide();
                         $("#dayRemove").hide();
                         $("#startersRemove").show();
                         $("#dessertRemove").hide();
-                    }else if(this.value === "4"){
+                    } else if (this.value === "4") {
                         $("#specialsRemove").hide();
                         $("#dayRemove").hide();
                         $("#startersRemove").hide();
                         $("#dessertRemove").show();
-                    }else{
+                    } else {
                         $("#specialsRemove").hide();
                         $("#dayRemove").show();
                         $("#startersRemove").hide();
                         $("#dessertRemove").hide();
                     }
                 });
-                
-                
+
+
             });
- 
+
         </script>
-        
+
     </h:body>
 
 </html>

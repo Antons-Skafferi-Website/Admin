@@ -5,11 +5,13 @@
  */
 package beans;
 
-import classes.Database;
+import classes.DishDs;
+import classes.MenuDs;
 import java.io.Serializable;
 import java.util.List;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
+import model.Dish;
 
 /**
  *
@@ -17,39 +19,39 @@ import javax.inject.Named;
  */
 @Named(value = "alacarteBean")
 @SessionScoped
-public class Alacarte implements Serializable {
+public class AlacarteController implements Serializable {
 
-    private final Database connection = new Database();
+    private final DishDs dishDs = new DishDs();
+    private final MenuDs menuDs = new MenuDs();
 
-    public Alacarte() {
-
+    public AlacarteController() {
     }
 
     public List<Dish> getStarters() {
-        return connection.getSubMenu(6);
+        return dishDs.getSubMenu(6);
     }
 
     public List<Dish> getMainDishes() {
-        return connection.getSubMenu(7);
+        return dishDs.getSubMenu(7);
     }
 
     public List<Dish> getDesserts() {
-        return connection.getSubMenu(8);
+        return dishDs.getSubMenu(8);
     }
 
     public void deleteFromStarters(int dishId) {
-        connection.removeDishFromSubmenu(dishId, 6);
+        menuDs.removeDishFromSubmenu(dishId, 6);
     }
 
     public void deleteFromMain(int dishId) {
-        connection.removeDishFromSubmenu(dishId, 7);
+        menuDs.removeDishFromSubmenu(dishId, 7);
     }
 
     public void addToMain(int dishId) {
-        connection.addDishToSubmenu(dishId, 7);
+        menuDs.addDishToSubmenu(dishId, 7);
     }
 
     public void addToStarters(int dishId) {
-        connection.addDishToSubmenu(dishId, 6);
+        menuDs.addDishToSubmenu(dishId, 6);
     }
 }

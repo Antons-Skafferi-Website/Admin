@@ -5,16 +5,16 @@
  */
 package classes;
 
-import beans.Booking;
+import model.Booking;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ReservationHolder {
+public class BookingHolder {
 
     private List<Booking> list = new ArrayList<>();
     private String time;
 
-    public ReservationHolder(String time) {
+    public BookingHolder(String time) {
         this.time = time;
     }
 

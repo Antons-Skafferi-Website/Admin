@@ -5,14 +5,15 @@
  */
 package beans;
 
-import classes.Database;
+import classes.DishDs;
+import classes.MenuDs;
 import java.io.Serializable;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.List;
 import javax.enterprise.context.Dependent;
-import javax.faces.bean.ManagedBean;
 import javax.inject.Named;
+import model.Dish;
 
 /**
  *
@@ -20,51 +21,52 @@ import javax.inject.Named;
  */
 @Named(value = "lunchBean")
 @Dependent
-public class Lunch implements Serializable {
+public class LunchController implements Serializable {
 
-    private final Database connection = new Database();
+    private final DishDs dishDs = new DishDs();
+    private final MenuDs menuDs = new MenuDs();
 
-    public Lunch() {
+    public LunchController() {
     }
 
     public void addDishToMonday(int dishId) {
-        connection.addDishToSubmenu(dishId, 1);
+        menuDs.addDishToSubmenu(dishId, 1);
     }
 
     public void addDishToTuesday(int dishId) {
-        connection.addDishToSubmenu(dishId, 2);
+        menuDs.addDishToSubmenu(dishId, 2);
     }
 
     public void addDishToWednesday(int dishId) {
-        connection.addDishToSubmenu(dishId, 3);
+        menuDs.addDishToSubmenu(dishId, 3);
     }
 
     public void addDishToThursday(int dishId) {
-        connection.addDishToSubmenu(dishId, 4);
+        menuDs.addDishToSubmenu(dishId, 4);
     }
 
     public void addDishToFriday(int dishId) {
-        connection.addDishToSubmenu(dishId, 5);
+        menuDs.addDishToSubmenu(dishId, 5);
     }
 
     public List<Dish> getMondayLunch() {
-        return connection.getSubMenu(1);
+        return dishDs.getSubMenu(1);
     }
 
     public List<Dish> getTuesdayLunch() {
-        return connection.getSubMenu(2);
+        return dishDs.getSubMenu(2);
     }
 
     public List<Dish> getWednesdayLunch() {
-        return connection.getSubMenu(3);
+        return dishDs.getSubMenu(3);
     }
 
     public List<Dish> getThursdayLunch() {
-        return connection.getSubMenu(4);
+        return dishDs.getSubMenu(4);
     }
 
     public List<Dish> getFridayLunch() {
-        return connection.getSubMenu(5);
+        return dishDs.getSubMenu(5);
     }
 
     public List<Dish> getTodaysLunch() {
@@ -108,22 +110,22 @@ public class Lunch implements Serializable {
     }
 
     public void removeDishFromMonday(long dishId) {
-        connection.removeDishFromSubmenu(dishId, 1);
+        menuDs.removeDishFromSubmenu(dishId, 1);
     }
 
     public void removeDishFromTueday(long dishId) {
-        connection.removeDishFromSubmenu(dishId, 2);
+        menuDs.removeDishFromSubmenu(dishId, 2);
     }
 
     public void removeDishFromWednesday(long dishId) {
-        connection.removeDishFromSubmenu(dishId, 3);
+        menuDs.removeDishFromSubmenu(dishId, 3);
     }
 
     public void removeDishFromThursday(long dishId) {
-        connection.removeDishFromSubmenu(dishId, 4);
+        menuDs.removeDishFromSubmenu(dishId, 4);
     }
 
     public void removeDishFromFriday(long dishId) {
-        connection.removeDishFromSubmenu(dishId, 5);
+        menuDs.removeDishFromSubmenu(dishId, 5);
     }
 }
