@@ -3,35 +3,15 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html">
-
-    <h:head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <h:outputStylesheet name="/css/default.css"/>
-        <h:outputStylesheet name="/css/cssLayout.css"/>
-        <title>Admin</title>
-        
-    </h:head>
-
+    
     <h:body>
 
         <ui:composition template="template/layout.xhtml">
-            
-            <ui:define name="content">
+            <ui:define  name="content" >
                 
-                <div class="defaultGreenBox">
-                    <div class="adminWelcome">
-                            <h1>Welcome #{login.user}</h1>
-                            <p>Detta är Adminsidan och får ej visas eller användas av obehöriga personer</p>
-                    </div>
-                </div>
-
-            </ui:define>
-            
-            
-            
-
-            
-            
+             <ui:include src="template/admin.xhtml" />
+               
+            </ui:define >
         </ui:composition>
 
 

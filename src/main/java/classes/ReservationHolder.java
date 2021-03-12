@@ -10,14 +10,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ReservationHolder {
-    
+
     private List<Booking> list = new ArrayList<>();
     private String time;
-    
+
     public ReservationHolder(String time) {
         this.time = time;
     }
-    
+
     public void addBooking(Booking booking) {
         list.add(booking);
     }
@@ -29,5 +29,5 @@ public class ReservationHolder {
     public String getTime() {
         return time;
     }
-    
+
 }

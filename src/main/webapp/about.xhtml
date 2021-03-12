@@ -3,39 +3,15 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html">
-
-    <h:head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <h:outputStylesheet name="/css/default.css"/>
-        <h:outputStylesheet name="/css/cssLayout.css"/>
-        <title>Om oss</title>
-    </h:head>
-
+    
     <h:body>
 
         <ui:composition template="template/layout.xhtml">
-            
-            <ui:define name="content">
-                <div class="defaultGreenBox">
-                    <h2>Om oss</h2>
-                    <p>Resturangen Antons Skafferi är en mysig resturang som finns på Storgatan 54 i Sundsvall.<br></br>
-                       Resturangen ägs av Anders Svensson och namnet Antons Skafferi kommer ifrån en tidigare resturang som vi vill ska leva vidare.<br></br>
-                       Vi erbjuder helatiden lokala råvaror och mycket vilt ifrån Sveriges skogar. 
-                       Tanken med Antons Skafferi är att ge en fantastisk upplevelse på våran resturang, det gör vi genom att laga riktigt god mat och ordna evenemang för företag och privatpersoner.<br></br>
-                       <br></br>
-                       Kontakta gärna oss på telefon 060-123456 eller <a href="mailto:antonsskafferi@gmail.com">antonsskafferi@gmail.com</a>
-                    </p>
-                    <img src="image/about.png" class="responsive"></img>
-                </div>
+            <ui:define  name="content" >
                 
-                
-                
-            </ui:define>
-            
-            
-           
-            
-            
+             <ui:include src="template/about.xhtml" />
+               
+            </ui:define >
         </ui:composition>
 
 

@@ -22,31 +22,29 @@ public class Menu implements Serializable {
     private final Database connection = new Database();
     private long menuId;
     private String name;
-    
+
     private long selectedMenuId;
-    
+
     public Menu() {
     }
-    
+
     public Menu(long id, String name) {
         this.menuId = id;
         this.name = name;
     }
-    
+
     public String getName() {
         return name;
     }
-    
 
     public long getMenuId() {
         return menuId;
     }
 
-    
     public List<Menu> getMenus() {
         return connection.getMenus();
     }
-    
+
     public long getSelectedMenuId() {
         return selectedMenuId;
     }

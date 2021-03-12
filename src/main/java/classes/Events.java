@@ -12,9 +12,10 @@ import java.util.List;
  * @author zered
  */
 public class Events {
+
     private long eventId;
     private String eventDate;
-    private String eventTime; 
+    private String eventTime;
     private String eventName;
     private String description;
     private String imageUrl;
@@ -31,7 +32,7 @@ public class Events {
     public String getEventName() {
         return eventName;
     }
-    
+
     public long getEventId() {
         return eventId;
     }
@@ -39,6 +40,7 @@ public class Events {
     public String getDescription() {
         return description;
     }
+
     public String getEventDate() {
         return eventDate;
     }
@@ -46,9 +48,8 @@ public class Events {
     public String getEventTime() {
         return eventTime;
     }
-    
-    public String getImageUrl()
-    {
+
+    public String getImageUrl() {
         return imageUrl;
     }
 

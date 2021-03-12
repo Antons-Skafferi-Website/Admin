@@ -18,19 +18,20 @@ import javax.inject.Named;
 @Named(value = "dishBean")
 @SessionScoped
 public class Dish implements Serializable {
-    
+
     private long dishId;
     private String name;
     private String description;
     private double price;
     private long menuId;
-    
+
     private long selectedDishId;
-    
+
     private final Database connection = new Database();
-    
-    public Dish() {}
-    
+
+    public Dish() {
+    }
+
     public Dish(long dishId, String name, String description, double price, long menuId) {
         this.dishId = dishId;
         this.name = name;
@@ -38,12 +39,11 @@ public class Dish implements Serializable {
         this.price = price;
         this.menuId = menuId;
     }
-    
-    
+
     public String getName() {
         return name;
     }
-    
+
     public long getMenuId() {
         return menuId;
     }
@@ -79,43 +79,42 @@ public class Dish implements Serializable {
     public void setPrice(double price) {
         this.price = price;
     }
-    
+
     public void setMenuId(long menuId) {
         this.menuId = menuId;
     }
-    
+
     public void addNewDish() {
         new Database().addNewDish(name, description, price, menuId);
     }
-    
+
     public void removeDish() {
         //Derby has no DELETE ON CASCADE so this should not be implemented right now.
     }
-    
-     public void resetDishBean() {
+
+    public void resetDishBean() {
         this.name = null;
         this.description = null;
         this.price = 0.0;
         this.menuId = 1;
     }
-    
-    
+
     public List<Dish> getAllDishes() {
         return connection.getAllDishes();
     }
-    
+
     public List<Dish> getLunchDishes() {
         return connection.getLunchDishes();
     }
-    
+
     public List<Dish> getSpecialDishes() {
         return connection.getSpecialDishes();
     }
-    
+
     public List<Dish> getStarterDishes() {
         return connection.getStarterDishes();
     }
-    
+
     public List<Dish> getDessertDishes() {
         return connection.getDessertDishes();
     }
