@@ -5,8 +5,8 @@
  */
 package beans;
 
-import classes.Database;
-import classes.ReservationHolder;
+import classes.BookingDs;
+import classes.BookingHolder;
 import java.io.Serializable;
 import java.sql.Date;
 import java.text.SimpleDateFormat;
@@ -23,7 +23,7 @@ import javax.inject.Named;
 @SessionScoped
 public class Booking implements Serializable {
 
-    private final Database connection = new Database();
+    private final BookingDs ds = new BookingDs();
 
     private String name;
     private String email;
@@ -61,60 +61,60 @@ public class Booking implements Serializable {
         return sdf.format(date);
     }
 
-    public List<ReservationHolder> getMondayReservations() {
-        return connection.getReservations(getWeekDay(Calendar.MONDAY));
+    public List<BookingHolder> getMondayReservations() {
+        return ds.getBookings(getWeekDay(Calendar.MONDAY));
     }
 
-    public List<ReservationHolder> getTuesdayReservations() {
-        return connection.getReservations(getWeekDay(Calendar.TUESDAY));
+    public List<BookingHolder> getTuesdayReservations() {
+        return ds.getBookings(getWeekDay(Calendar.TUESDAY));
     }
 
-    public List<ReservationHolder> getWednesdayReservations() {
-        return connection.getReservations(getWeekDay(Calendar.WEDNESDAY));
+    public List<BookingHolder> getWednesdayReservations() {
+        return ds.getBookings(getWeekDay(Calendar.WEDNESDAY));
     }
 
-    public List<ReservationHolder> getThursdayeservations() {
-        return connection.getReservations(getWeekDay(Calendar.THURSDAY));
+    public List<BookingHolder> getThursdayeservations() {
+        return ds.getBookings(getWeekDay(Calendar.THURSDAY));
     }
 
-    public List<ReservationHolder> getFridayReservations() {
-        return connection.getReservations(getWeekDay(Calendar.FRIDAY));
+    public List<BookingHolder> getFridayReservations() {
+        return ds.getBookings(getWeekDay(Calendar.FRIDAY));
     }
 
-    public List<ReservationHolder> getSaturdayReservations() {
-        return connection.getReservations(getWeekDay(Calendar.SATURDAY));
+    public List<BookingHolder> getSaturdayReservations() {
+        return ds.getBookings(getWeekDay(Calendar.SATURDAY));
     }
 
-    public List<ReservationHolder> getSundayReservations() {
-        return connection.getReservations(getWeekDay(Calendar.SUNDAY));
+    public List<BookingHolder> getSundayReservations() {
+        return ds.getBookings(getWeekDay(Calendar.SUNDAY));
     }
 
     public int getMondayCustomerCount() {
-        return connection.getCustomerCount(getWeekDay(Calendar.MONDAY));
+        return ds.getCustomerCount(getWeekDay(Calendar.MONDAY));
     }
 
     public int getTuesdayCustomerCount() {
-        return connection.getCustomerCount(getWeekDay(Calendar.TUESDAY));
+        return ds.getCustomerCount(getWeekDay(Calendar.TUESDAY));
     }
 
     public int getWednesdayCustomerCount() {
-        return connection.getCustomerCount(getWeekDay(Calendar.WEDNESDAY));
+        return ds.getCustomerCount(getWeekDay(Calendar.WEDNESDAY));
     }
 
     public int getThursdayCustomerCount() {
-        return connection.getCustomerCount(getWeekDay(Calendar.THURSDAY));
+        return ds.getCustomerCount(getWeekDay(Calendar.THURSDAY));
     }
 
     public int getFridayCustomerCount() {
-        return connection.getCustomerCount(getWeekDay(Calendar.FRIDAY));
+        return ds.getCustomerCount(getWeekDay(Calendar.FRIDAY));
     }
 
     public int getSaturdayCustomerCount() {
-        return connection.getCustomerCount(getWeekDay(Calendar.SATURDAY));
+        return ds.getCustomerCount(getWeekDay(Calendar.SATURDAY));
     }
 
     public int getSundayCustomerCount() {
-        return connection.getCustomerCount(getWeekDay(Calendar.SUNDAY));
+        return ds.getCustomerCount(getWeekDay(Calendar.SUNDAY));
     }
 
     public String getComment() {

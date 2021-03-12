@@ -5,7 +5,7 @@
  */
 package beans;
 
-import classes.Database;
+import classes.MenuDs;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
@@ -19,7 +19,7 @@ import java.util.List;
 @SessionScoped
 public class Menu implements Serializable {
 
-    private final Database connection = new Database();
+    private final MenuDs ds = new MenuDs();
     private long menuId;
     private String name;
 
@@ -42,7 +42,7 @@ public class Menu implements Serializable {
     }
 
     public List<Menu> getMenus() {
-        return connection.getMenus();
+        return ds.getMenus();
     }
 
     public long getSelectedMenuId() {

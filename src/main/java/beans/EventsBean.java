@@ -5,7 +5,7 @@
  */
 package beans;
 
-import classes.Database;
+import classes.EventDs;
 import classes.Events;
 import java.util.Calendar;
 import java.util.Collections;
@@ -26,7 +26,7 @@ import java.text.SimpleDateFormat;
 @SessionScoped
 public class EventsBean implements Serializable {
 
-    private final Database connection = new Database();
+    private final EventDs ds = new EventDs();
 
     private long selectedEventId;
     private String name;
@@ -141,7 +141,7 @@ public class EventsBean implements Serializable {
 
     public List<Events> getEvents() {
         String string = getWeekDay(Calendar.TUESDAY);
-        List<Events> list = connection.getEvents(string);
+        List<Events> list = ds.getEvents(string);
         //list.add(new Events(22,errorss,"","",""));
         return list;
     }
@@ -149,6 +149,6 @@ public class EventsBean implements Serializable {
     public void addNewEvent() {
         Date nDate = new Date(year + 100, month - 1, day);
         Time nTime = new Time(hour, minute, 0);
-        connection.addNewEvent(name, description, nDate, nTime, imageUrl);
+        ds.addNewEvent(name, description, nDate, nTime, imageUrl);
     }
 }

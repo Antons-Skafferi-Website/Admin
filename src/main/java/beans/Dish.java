@@ -5,7 +5,7 @@
  */
 package beans;
 
-import classes.Database;
+import classes.DishDs;
 import java.io.Serializable;
 import java.util.List;
 import javax.enterprise.context.SessionScoped;
@@ -27,7 +27,7 @@ public class Dish implements Serializable {
 
     private long selectedDishId;
 
-    private final Database connection = new Database();
+    private final DishDs ds = new DishDs();
 
     public Dish() {
     }
@@ -85,7 +85,7 @@ public class Dish implements Serializable {
     }
 
     public void addNewDish() {
-        new Database().addNewDish(name, description, price, menuId);
+        ds.addNewDish(name, description, price, menuId);
     }
 
     public void removeDish() {
@@ -100,22 +100,22 @@ public class Dish implements Serializable {
     }
 
     public List<Dish> getAllDishes() {
-        return connection.getAllDishes();
+        return ds.getAllDishes();
     }
 
     public List<Dish> getLunchDishes() {
-        return connection.getLunchDishes();
+        return ds.getLunchDishes();
     }
 
     public List<Dish> getSpecialDishes() {
-        return connection.getSpecialDishes();
+        return ds.getSpecialDishes();
     }
 
     public List<Dish> getStarterDishes() {
-        return connection.getStarterDishes();
+        return ds.getStarterDishes();
     }
 
     public List<Dish> getDessertDishes() {
-        return connection.getDessertDishes();
+        return ds.getDessertDishes();
     }
 }

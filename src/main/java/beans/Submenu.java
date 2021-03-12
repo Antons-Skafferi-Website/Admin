@@ -5,7 +5,7 @@
  */
 package beans;
 
-import classes.Database;
+import classes.MenuDs;
 import java.io.Serializable;
 import java.util.List;
 import javax.enterprise.context.SessionScoped;
@@ -19,7 +19,7 @@ import javax.inject.Named;
 @SessionScoped
 public class Submenu implements Serializable {
 
-    private final Database connection = new Database();
+    private final MenuDs ds = new MenuDs();
     private long submenuId;
     private String name;
 
@@ -34,27 +34,27 @@ public class Submenu implements Serializable {
     }
 
     public List<Submenu> getSubmenusLunch() {
-        return connection.getLunchSubmenus();
+        return ds.getLunchSubmenus();
     }
 
     public List<Submenu> getSubmenusStarters() {
-        return connection.getStartersSubmenus();
+        return ds.getStartersSubmenus();
     }
 
     public List<Submenu> getSubmenusSpecials() {
-        return connection.getSpecialsSubmenus();
+        return ds.getSpecialsSubmenus();
     }
 
     public List<Submenu> getSubmenusDessert() {
-        return connection.getDessertSubmenus();
+        return ds.getDessertSubmenus();
     }
 
     public void addDishToSubmenu(int dishId, int submenuId) {
-        connection.addDishToSubmenu(dishId, submenuId);
+        ds.addDishToSubmenu(dishId, submenuId);
     }
 
     public void removeDishFromSubmenu(int dishId, int submenuId) {
-        connection.removeDishFromSubmenu(dishId, submenuId);
+        ds.removeDishFromSubmenu(dishId, submenuId);
     }
 
     public String getName() {
